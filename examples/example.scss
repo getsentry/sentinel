@@ -1,13 +1,8 @@
-// Sentry Sentinel Theme - SCSS Example
-// Demonstrates SCSS features and syntax highlighting
-
-// Variables
 $sentry-purple-primary: #362D59;
 $sentry-purple-secondary: #6559D1;
 $sentry-pink: #E1567C;
 $sentry-orange: #F4834F;
 
-// Color Maps
 $colors: (
   'background': #1A1625,
   'surface': #2A2438,
@@ -18,7 +13,6 @@ $colors: (
   'success': #10B981,
 );
 
-// Spacing Scale
 $spacers: (
   'xs': 0.25rem,
   'sm': 0.5rem,
@@ -28,7 +22,6 @@ $spacers: (
   'xxl': 3rem,
 );
 
-// Mixins
 @mixin flex-center($direction: row) {
   display: flex;
   flex-direction: $direction;
@@ -66,7 +59,6 @@ $spacers: (
   }
 }
 
-// Functions
 @function color($key) {
   @if map-has-key($colors, $key) {
     @return map-get($colors, $key);
@@ -79,7 +71,6 @@ $spacers: (
   @return map-get($spacers, $key);
 }
 
-// Placeholder Selectors
 %card-base {
   background: color('surface');
   border-radius: 8px;
@@ -87,15 +78,13 @@ $spacers: (
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-// Component Styles
 .sentry-app {
   min-height: 100vh;
   background: color('background');
   color: color('text');
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   
-  // Header Component
-  &__header {
+    &__header {
     background: linear-gradient(135deg, $sentry-purple-primary, $sentry-purple-secondary);
     padding: space('md') space('xl');
     position: sticky;
@@ -136,8 +125,7 @@ $spacers: (
     }
   }
   
-  // Error Dashboard
-  &__dashboard {
+    &__dashboard {
     padding: space('xl');
     
     .stats-grid {
@@ -180,8 +168,7 @@ $spacers: (
     }
   }
   
-  // Buttons
-  &__button {
+    &__button {
     @include button-variant($sentry-purple-secondary);
     
     &--primary {
@@ -207,7 +194,6 @@ $spacers: (
   }
 }
 
-// Responsive Utilities
 @mixin respond-to($breakpoint) {
   @if $breakpoint == 'mobile' {
     @media (max-width: 767px) { @content; }
@@ -218,7 +204,6 @@ $spacers: (
   }
 }
 
-// Usage
 .responsive-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -233,14 +218,12 @@ $spacers: (
   }
 }
 
-// For Loops
 @for $i from 1 through 6 {
   .margin-#{$i} {
     margin: #{$i * 0.25}rem;
   }
 }
 
-// Each Loops
 @each $name, $color in $colors {
   .text-#{$name} {
     color: $color;
@@ -251,7 +234,6 @@ $spacers: (
   }
 }
 
-// While Loop (rarely used)
 $z: 6;
 @while $z > 0 {
   .z-index-#{$z} {
@@ -260,7 +242,6 @@ $z: 6;
   $z: $z - 1;
 }
 
-// Conditional Styles
 @mixin theme-aware($property, $light-value, $dark-value) {
   #{$property}: $dark-value;
   

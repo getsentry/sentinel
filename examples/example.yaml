@@ -1,7 +1,3 @@
-# Sentry Sentinel Theme - YAML Configuration Example
-# Demonstrates YAML syntax highlighting with Sentry-specific config
-
-# Theme Metadata
 theme:
   name: Sentry Sentinel
   version: 1.0.0
@@ -10,16 +6,13 @@ theme:
     Beautiful, accessible developer themes inspired by Sentry's brand colors.
     Designed with WCAG AA accessibility standards and developer ergonomics.
 
-# Color Definitions
 colors:
-  # Brand Colors
   brand:
     primary: '#362D59'
     secondary: '#6559D1'
     accent: '#E1567C'
     warning: '#F4834F'
   
-  # Dark Theme
   dark:
     background:
       primary: '#1A1625'
@@ -36,7 +29,6 @@ colors:
       number: '#F59E0B'
       function: '#E1567C'
   
-  # Light Theme
   light:
     background:
       primary: '#FFFFFF'
@@ -45,24 +37,19 @@ colors:
       primary: '#1F2937'
       secondary: '#374151'
 
-# Sentry SDK Configuration
 sentry:
   dsn: https://examplePublicKey@o0.ingest.sentry.io/0
   
-  # Environment Configuration
   environment: production
   release: sentinel-theme@1.0.0
   dist: '1'
   
-  # Performance Monitoring
   traces_sample_rate: 1.0
   profiles_sample_rate: 1.0
   
-  # Session Replay
   replays_session_sample_rate: 0.1
   replays_on_error_sample_rate: 1.0
   
-  # Integrations
   integrations:
     - name: BrowserTracing
       options:
@@ -78,34 +65,27 @@ sentry:
         block_all_media: false
         mask_all_inputs: true
         
-  # Tags applied to all events
   tags:
     app: sentinel-theme
     team: design-systems
     version: !ENV VERSION
   
-  # Error Filtering
   ignore_errors:
     - /^Non-Error promise rejection/
     - /Network request failed/
   
-  # Hooks
   before_send: |
     function(event, hint) {
-      // Filter out events from localhost in production
       if (event.request?.url?.includes('localhost')) {
         return null;
       }
       return event;
     }
 
-# Build Configuration
 build:
-  # Input/Output Paths
   input_dir: ./src
   output_dir: ./dist
   
-  # Target Platforms
   targets:
     - platform: vscode
       output: ./vscode/themes
@@ -119,20 +99,17 @@ build:
       output: ./sublime/themes
       formats: [tmTheme, sublime-color-scheme]
   
-  # Build Options
   options:
     minify: true
     source_maps: true
     validate_colors: true
     check_contrast: true
     
-  # Post-build Actions
   post_build:
     - validate_wcag_compliance
     - generate_preview_images
     - update_documentation
 
-# GitHub Actions Workflow
 ci:
   on:
     push:
@@ -156,7 +133,6 @@ ci:
         - run: npm test
         - run: npm run build
 
-# Docker Configuration
 docker:
   image: node:18-alpine
   volumes:
@@ -169,7 +145,6 @@ docker:
     test: npm test
     preview: npm run preview
 
-# VS Code Extension Manifest
 vscode_extension:
   name: sentinel-theme
   displayName: Sentry Sentinel Theme
@@ -197,7 +172,6 @@ vscode_extension:
         uiTheme: vs-dark
         path: ./themes/sentinel-midnight-color-theme.json
 
-# Documentation Links
 documentation:
   readme: ./README.md
   changelog: ./CHANGELOG.md

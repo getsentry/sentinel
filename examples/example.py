@@ -22,13 +22,11 @@ from django.http import JsonResponse, HttpRequest
 from django.views import View
 from django.core.cache import cache
 
-# Constants
 SENTRY_DSN = os.getenv('SENTRY_DSN', 'https://your-key@sentry.io/0')
 CACHE_TIMEOUT = 60 * 5  # 5 minutes
 MAX_RETRIES = 3
 API_VERSION = '2.0'
 
-# Enums
 class ErrorLevel(Enum):
     DEBUG = 'debug'
     INFO = 'info'
@@ -36,7 +34,6 @@ class ErrorLevel(Enum):
     ERROR = 'error'
     CRITICAL = 'critical'
 
-# Data classes
 @dataclass
 class SentryEvent:
     """Represents a Sentry error event"""
@@ -60,7 +57,6 @@ class SentryEvent:
             'extra': self.extra
         }
 
-# Decorators
 def track_performance(operation_name: str):
     """Decorator to track function performance with Sentry"""
     def decorator(func):
@@ -106,7 +102,6 @@ def retry_on_failure(max_attempts: int = MAX_RETRIES, delay: float = 1.0):
         return wrapper
     return decorator
 
-# Sentry initialization
 def init_sentry(environment: str = 'development') -> None:
     """Initialize Sentry SDK with custom configuration"""
     sentry_logging = LoggingIntegration(
@@ -127,13 +122,11 @@ def init_sentry(environment: str = 'development') -> None:
         before_send=before_send_filter,
     )
     
-    # Set initial tags
     sentry_sdk.set_tag('api_version', API_VERSION)
     sentry_sdk.set_tag('server_name', os.uname().nodename)
 
 def before_send_filter(event: Dict[str, Any], hint: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     """Filter sensitive data before sending to Sentry"""
-    # Remove sensitive fields
     sensitive_fields = ['password', 'credit_card', 'ssn', 'api_key']
     
     if 'extra' in event:
@@ -141,13 +134,11 @@ def before_send_filter(event: Dict[str, Any], hint: Dict[str, Any]) -> Optional[
             if field in event['extra']:
                 event['extra'][field] = '[REDACTED]'
     
-    # Skip events from health checks
     if 'request' in event and event['request'].get('url', '').endswith('/health'):
         return None
     
     return event
 
-# Django Views
 class ErrorTrackingView(View):
     """API endpoint for error tracking operations"""
     
@@ -161,7 +152,6 @@ class ErrorTrackingView(View):
             return JsonResponse({'errors': cached_errors, 'cached': True})
         
         try:
-            # Simulate fetching errors
             errors = self._fetch_recent_errors(request.user)
             cache.set(cache_key, errors, CACHE_TIMEOUT)
             
@@ -177,10 +167,8 @@ class ErrorTrackingView(View):
     @retry_on_failure(max_attempts=3)
     def _fetch_recent_errors(self, user) -> List[Dict[str, Any]]:
         """Fetch recent errors for a user"""
-        # Simulated database query
         cutoff_date = datetime.now() - timedelta(days=7)
         
-        # This would be a real database query
         mock_errors = [
             SentryEvent(
                 event_id='abc123',
@@ -194,7 +182,6 @@ class ErrorTrackingView(View):
         
         return [error.to_dict() for error in mock_errors]
 
-# Utility functions
 def capture_custom_error(
     message: str,
     level: Union[str, ErrorLevel] = ErrorLevel.ERROR,
@@ -205,34 +192,27 @@ def capture_custom_error(
         level = level.value
     
     with sentry_sdk.push_scope() as scope:
-        # Add custom context
         for key, value in kwargs.items():
             scope.set_extra(key, value)
         
-        # Capture the message
         event_id = sentry_sdk.capture_message(message, level=level)
         
         logging.info(f'Captured event {event_id}: {message}')
         return event_id
 
-# Lambda function example
 process_error = lambda x: sentry_sdk.capture_exception(x) if isinstance(x, Exception) else None
 
-# Complex type hints
 ErrorHandler = Union[
     callable[[Exception], None],
     callable[[Exception, Dict[str, Any]], str]
 ]
 
-# Main execution
 if __name__ == '__main__':
-    # Initialize Sentry
     environment = os.getenv('DJANGO_ENV', 'development')
     init_sentry(environment)
     
-    # Example usage
     try:
-        result = 10 / 0  # This will raise ZeroDivisionError
+        result = 10 / 0
     except ZeroDivisionError as e:
         event_id = capture_custom_error(
             'Division by zero encountered',

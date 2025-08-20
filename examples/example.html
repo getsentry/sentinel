@@ -6,20 +6,16 @@
   <meta name="description" content="Sentry Sentinel Theme - Beautiful error tracking dashboard">
   <title>Sentry Dashboard | Error Tracking</title>
   
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="/images/icon.png">
   
-  <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   
-  <!-- Sentry SDK v10 -->
   <script src="https://browser.sentry-cdn.com/10.5.0/bundle.min.js" crossorigin="anonymous"></script>
 </head>
 <body class="sentry-app">
-  <!-- Header Navigation -->
   <header class="sentry-app__header" role="banner">
     <nav class="container" aria-label="Main navigation">
       <a href="/" class="logo-link">
@@ -43,16 +39,13 @@
     </nav>
   </header>
 
-  <!-- Main Content -->
   <main class="sentry-app__dashboard" id="dashboard">
     <div class="container">
-      <!-- Page Title -->
       <header class="page-header">
         <h1>Error Tracking Dashboard</h1>
         <p class="text-muted">Monitor and resolve errors in real-time</p>
       </header>
 
-      <!-- Stats Grid -->
       <section class="stats-grid" aria-label="Error statistics">
         <article class="stat-card stat-card--error">
           <h2 class="stat-card__label">Total Errors</h2>
@@ -79,7 +72,6 @@
         </article>
       </section>
 
-      <!-- Error List -->
       <section class="error-section" id="issues">
         <header class="section-header">
           <h2>Recent Issues</h2>
@@ -97,7 +89,6 @@
           </div>
         </header>
 
-        <!-- Error Cards -->
         <div class="error-list" role="list">
           <article class="error-card" role="listitem">
             <div class="error-card__header">
@@ -153,7 +144,6 @@ at workLoop (react-dom.js:1256:24)</code></pre>
     </div>
   </main>
 
-  <!-- Footer -->
   <footer class="app-footer" role="contentinfo">
     <div class="container">
       <p>&copy; 2025 Sentry. Application monitoring for developers.</p>
@@ -165,9 +155,7 @@ at workLoop (react-dom.js:1256:24)</code></pre>
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script>
-    // Initialize Sentry v10
     Sentry.init({
       dsn: 'https://your-key@o0.ingest.sentry.io/0',
       integrations: [
@@ -183,7 +171,6 @@ at workLoop (react-dom.js:1256:24)</code></pre>
       tracePropagationTargets: ['localhost', /^https:\/\/yourserver\.io\/api/],
     });
 
-    // Theme Toggle
     document.querySelector('[data-theme-toggle]').addEventListener('click', () => {
       const html = document.documentElement;
       const currentTheme = html.getAttribute('data-theme');
@@ -192,7 +179,6 @@ at workLoop (react-dom.js:1256:24)</code></pre>
       localStorage.setItem('theme', newTheme);
     });
 
-    // Animate counters
     document.querySelectorAll('[data-counter]').forEach(counter => {
       const target = parseInt(counter.textContent.replace(/[^0-9]/g, ''));
       const duration = 1000;
@@ -209,7 +195,6 @@ at workLoop (react-dom.js:1256:24)</code></pre>
         }
       };
       
-      // Start animation when element is in view
       const observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
           animate();

@@ -1,11 +1,6 @@
--- Sentry Sentinel Theme - SQL Example
--- Demonstrates SQL syntax highlighting with analytics queries
-
--- Database setup
 CREATE DATABASE IF NOT EXISTS sentry_analytics;
 USE sentry_analytics;
 
--- Create tables
 CREATE TABLE IF NOT EXISTS projects (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     name VARCHAR(255) NOT NULL UNIQUE,
@@ -36,18 +31,15 @@ CREATE TABLE IF NOT EXISTS error_events (
     context JSONB DEFAULT '{}',
     stack_trace TEXT,
     
-    -- Partitioning by timestamp
     PRIMARY KEY (id, timestamp),
     INDEX idx_project_timestamp (project_id, timestamp DESC),
     INDEX idx_level_timestamp (level, timestamp DESC),
     INDEX idx_event_id (event_id)
 ) PARTITION BY RANGE (timestamp);
 
--- Create partitions for the last 30 days
 CREATE TABLE error_events_2024_01 PARTITION OF error_events
     FOR VALUES FROM ('2024-01-01') TO ('2024-02-01');
 
--- User impact tracking
 CREATE TABLE IF NOT EXISTS affected_users (
     user_id VARCHAR(255) NOT NULL,
     project_id UUID NOT NULL REFERENCES projects(id),
@@ -59,9 +51,7 @@ CREATE TABLE IF NOT EXISTS affected_users (
     INDEX idx_last_seen (last_seen DESC)
 );
 
--- Common Table Expressions (CTEs) for complex queries
 WITH error_summary AS (
-    -- Calculate error rates by project
     SELECT 
         p.name AS project_name,
         p.slug AS project_slug,
@@ -78,7 +68,6 @@ WITH error_summary AS (
     GROUP BY p.name, p.slug, DATE_TRUNC('hour', e.timestamp), e.level
 ),
 hourly_trends AS (
-    -- Calculate hourly trends
     SELECT 
         project_name,
         hour,
@@ -89,7 +78,6 @@ hourly_trends AS (
     FROM error_summary
     GROUP BY project_name, hour
 )
--- Main query
 SELECT 
     project_name,
     hour,
@@ -113,30 +101,25 @@ FROM hourly_trends
 WHERE hour >= NOW() - INTERVAL '12 hours'
 ORDER BY hour DESC, errors DESC;
 
--- Window functions for advanced analytics
 SELECT 
     project_id,
     DATE_TRUNC('day', timestamp) AS day,
     level,
     COUNT(*) AS daily_count,
-    -- Running total
     SUM(COUNT(*)) OVER (
         PARTITION BY project_id, level 
         ORDER BY DATE_TRUNC('day', timestamp)
         ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
     ) AS running_total,
-    -- 7-day moving average
     AVG(COUNT(*)) OVER (
         PARTITION BY project_id, level 
         ORDER BY DATE_TRUNC('day', timestamp)
         ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
     ) AS moving_avg_7d,
-    -- Rank by error count
     RANK() OVER (
         PARTITION BY DATE_TRUNC('day', timestamp) 
         ORDER BY COUNT(*) DESC
     ) AS daily_rank,
-    -- Percentage of total
     ROUND(
         COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (
             PARTITION BY DATE_TRUNC('day', timestamp)
@@ -146,7 +129,6 @@ FROM error_events
 WHERE timestamp >= CURRENT_DATE - INTERVAL '30 days'
 GROUP BY project_id, DATE_TRUNC('day', timestamp), level;
 
--- Stored procedure for error aggregation
 DELIMITER //
 
 CREATE PROCEDURE aggregate_error_metrics(
@@ -159,10 +141,8 @@ BEGIN
     DECLARE v_unique_users INT DEFAULT 0;
     DECLARE v_error_rate DECIMAL(5,2);
     
-    -- Start transaction
     START TRANSACTION;
     
-    -- Calculate metrics
     SELECT 
         COUNT(*),
         COUNT(DISTINCT user_data->>'id')
@@ -173,10 +153,8 @@ BEGIN
         AND timestamp BETWEEN p_start_date AND p_end_date
         AND level IN ('error', 'fatal');
     
-    -- Calculate error rate (errors per hour)
     SET v_error_rate = v_total_errors / TIMESTAMPDIFF(HOUR, p_start_date, p_end_date);
     
-    -- Insert or update metrics
     INSERT INTO project_metrics (
         project_id,
         date_range_start,
@@ -202,7 +180,6 @@ BEGIN
     
     COMMIT;
     
-    -- Return results
     SELECT 
         v_total_errors AS total_errors,
         v_unique_users AS unique_users,
@@ -211,7 +188,6 @@ END//
 
 DELIMITER ;
 
--- Create indexes for performance
 CREATE INDEX idx_error_events_composite 
 ON error_events(project_id, level, timestamp DESC)
 WHERE level IN ('error', 'fatal');
@@ -219,7 +195,6 @@ WHERE level IN ('error', 'fatal');
 CREATE INDEX idx_error_events_gin_tags 
 ON error_events USING GIN (tags);
 
--- Materialized view for dashboard
 CREATE MATERIALIZED VIEW project_error_summary AS
 SELECT 
     p.id AS project_id,
@@ -235,10 +210,8 @@ LEFT JOIN error_events e ON p.id = e.project_id
 WHERE e.timestamp >= NOW() - INTERVAL '7 days'
 GROUP BY p.id, p.name, DATE_TRUNC('hour', e.timestamp);
 
--- Refresh materialized view
 REFRESH MATERIALIZED VIEW CONCURRENTLY project_error_summary;
 
--- Query optimization with EXPLAIN
 EXPLAIN (ANALYZE, BUFFERS, FORMAT JSON)
 SELECT 
     p.name,

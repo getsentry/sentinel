@@ -23,11 +23,11 @@
       "syntax": {
         "comment": "#71717A",
         "keyword": "#6559D1",
-        "string": "#10B981",
-        "number": "#F59E0B",
-        "function": "#E1567C",
+        "string": "#5ece73",
+        "number": "#fdb81b",
+        "function": "#7553ff",
         "variable": "#FFFFFF",
-        "type": "#F4834F",
+        "type": "#fdb81b",
         "constant": "#8B5CF6",
         "operator": "#A1A1AA"
       },
@@ -36,9 +36,9 @@
         "highlight": "#E1567C20",
         "border": "#3F3F46",
         "error": "#EF4444",
-        "warning": "#F59E0B",
+        "warning": "#fdb81b",
         "info": "#3B82F6",
-        "success": "#10B981"
+        "success": "#5ece73"
       }
     },
     "light": {
@@ -56,11 +56,11 @@
       "syntax": {
         "comment": "#6B7280",
         "keyword": "#362D59",
-        "string": "#059669",
-        "number": "#D97706",
-        "function": "#BE185D",
+        "string": "#00a71a",
+        "number": "#bf8600",
+        "function": "#5018c8",
         "variable": "#1F2937",
-        "type": "#C2410C",
+        "type": "#b36300",
         "constant": "#7C3AED",
         "operator": "#374151"
       },
@@ -69,9 +69,9 @@
         "highlight": "#E1567C10",
         "border": "#D1D5DB",
         "error": "#DC2626",
-        "warning": "#D97706",
+        "warning": "#bf8600",
         "info": "#2563EB",
-        "success": "#059669"
+        "success": "#00a71a"
       }
     }
   },

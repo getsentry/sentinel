@@ -1,42 +1,32 @@
-# Sentry Sentinel Theme - Makefile Example
-# Build automation for theme development and deployment
-
-# Variables
 SHELL := /bin/bash
 .DEFAULT_GOAL := help
 
-# Color codes
 RED := \033[0;31m
 GREEN := \033[0;32m
 YELLOW := \033[0;33m
 BLUE := \033[0;34m
 PURPLE := \033[0;35m
-NC := \033[0m # No Color
+NC := \033[0m
 
-# Project variables
 PROJECT_NAME := sentry-sentinel-theme
 VERSION := $(shell git describe --tags --always --dirty 2>/dev/null || echo "dev")
 BUILD_DATE := $(shell date -u +"%Y-%m-%dT%H:%M:%SZ")
 COMMIT_SHA := $(shell git rev-parse --short HEAD 2>/dev/null || echo "unknown")
 
-# Directories
 SRC_DIR := src
 DIST_DIR := dist
 VSCODE_DIR := vscode
 EXAMPLES_DIR := examples
 SCRIPTS_DIR := scripts
 
-# Sentry configuration
 SENTRY_ORG ?= your-org
 SENTRY_PROJECT ?= your-project
 SENTRY_AUTH_TOKEN ?= $(shell echo $$SENTRY_AUTH_TOKEN)
 
-# Node/npm settings
 NPM := npm
 NODE := node
 NPM_FLAGS := --silent
 
-# Targets
 .PHONY: all help install build test lint format clean release deploy docker
 
 ## help: Display this help message
@@ -212,13 +202,10 @@ update-deps:
 pr: format lint test
 	@echo -e "$(GREEN)✓ Ready for pull request$(NC)"
 
-# Hidden targets
 .SILENT: help stats
 
-# Include .env file if it exists
 -include .env
 
-# Performance tracking
 TIMEFORMAT="Task completed in %R seconds"
 time-%:
 	@time $(MAKE) $*

@@ -1,9 +1,6 @@
-// Sentry SDK Example - TypeScript with React (v10)
 import * as Sentry from '@sentry/react';
-// Note: In v10, all integrations are functions from the main package
 import React, { useState, useEffect } from 'react';
 
-// Type definitions
 interface User {
   id: string;
   email: string;
@@ -18,7 +15,6 @@ interface ErrorBoundaryState {
 
 type LogLevel = 'debug' | 'info' | 'warning' | 'error' | 'fatal';
 
-// Configuration
 const SENTRY_CONFIG = {
   dsn: process.env.REACT_APP_SENTRY_DSN,
   integrations: [
@@ -161,8 +157,7 @@ const UserDashboard: React.FC<{ userId: string }> = ({ userId }) => {
         const userData: User = await response.json();
         setUser(userData);
         
-        // Set user context for Sentry
-        Sentry.setUser({
+                Sentry.setUser({
           id: userData.id,
           email: userData.email,
           username: userData.name,
@@ -200,7 +195,6 @@ const UserDashboard: React.FC<{ userId: string }> = ({ userId }) => {
   );
 };
 
-// Initialize Sentry
 Sentry.init(SENTRY_CONFIG);
 
 export { ErrorBoundary, UserDashboard, useErrorHandler, withPerformanceMonitoring };

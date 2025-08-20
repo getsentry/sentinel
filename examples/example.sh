@@ -2,32 +2,28 @@
 # Sentry Deployment Script - Bash Example (Latest CLI as of Aug 2025)
 # Demonstrates shell scripting with error handling and Sentry CLI
 
-set -euo pipefail  # Exit on error, undefined vars, pipe failures
-IFS=$'\n\t'       # Set Internal Field Separator
+set -euo pipefail
+IFS=$'\n\t'
 
-# Color codes for output
 readonly RED='\033[0;31m'
 readonly GREEN='\033[0;32m'
 readonly YELLOW='\033[0;33m'
 readonly BLUE='\033[0;34m'
 readonly PURPLE='\033[0;35m'
 readonly CYAN='\033[0;36m'
-readonly NC='\033[0m' # No Color
+readonly NC='\033[0m'
 
-# Configuration
 readonly SENTRY_ORG="${SENTRY_ORG:-your-org}"
 readonly SENTRY_PROJECT="${SENTRY_PROJECT:-your-project}"
 readonly SENTRY_AUTH_TOKEN="${SENTRY_AUTH_TOKEN:-}"
 readonly ENVIRONMENT="${ENVIRONMENT:-production}"
 readonly VERSION=$(git describe --tags --always --dirty 2>/dev/null || echo "dev")
 
-# Script constants
 readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 readonly LOG_FILE="/tmp/sentry-deploy-$(date +%Y%m%d-%H%M%S).log"
 readonly MAX_RETRIES=3
 readonly RETRY_DELAY=5
 
-# Logging functions
 log() {
     local level=$1
     shift
@@ -46,7 +42,6 @@ log() {
     echo -e "${color}[$timestamp] [$level] $message${NC}" | tee -a "$LOG_FILE"
 }
 
-# Error handling
 handle_error() {
     local exit_code=$?
     local line_number=$1
@@ -54,7 +49,6 @@ handle_error() {
     log ERROR "Script failed with exit code $exit_code at line $line_number"
     log ERROR "Check log file: $LOG_FILE"
     
-    # Send error to Sentry
     if command -v sentry-cli &> /dev/null; then
         sentry-cli send-event \
             -m "Deployment script failed" \
@@ -69,7 +63,6 @@ handle_error() {
 
 trap 'handle_error ${LINENO}' ERR
 
-# Utility functions
 check_dependencies() {
     log INFO "Checking dependencies..."
     
@@ -93,7 +86,6 @@ check_dependencies() {
     log SUCCESS "All dependencies satisfied"
 }
 
-# Retry function for flaky operations
 retry_with_backoff() {
     local max_attempts=$1
     local delay=$2
@@ -112,7 +104,7 @@ retry_with_backoff() {
         if [ $attempt -lt $max_attempts ]; then
             log WARNING "Command failed, retrying in ${delay}s..."
             sleep $delay
-            delay=$((delay * 2))  # Exponential backoff
+            delay=$((delay * 2))
         fi
         
         ((attempt++))
@@ -122,17 +114,14 @@ retry_with_backoff() {
     return 1
 }
 
-# Sentry release management
 create_sentry_release() {
     log INFO "Creating Sentry release: $VERSION"
     
-    # Create release
     retry_with_backoff $MAX_RETRIES $RETRY_DELAY \
         sentry-cli releases new "$VERSION" \
             --org "$SENTRY_ORG" \
             --project "$SENTRY_PROJECT"
     
-    # Associate commits
     if [ -d .git ]; then
         log INFO "Associating commits with release..."
         sentry-cli releases set-commits "$VERSION" --auto \
@@ -140,7 +129,6 @@ create_sentry_release() {
             --project "$SENTRY_PROJECT"
     fi
     
-    # Upload source maps
     if [ -d dist ]; then
         log INFO "Uploading source maps..."
         sentry-cli releases files "$VERSION" upload-sourcemaps ./dist \
@@ -151,18 +139,15 @@ create_sentry_release() {
     fi
 }
 
-# Deploy release
 deploy_release() {
     log INFO "Deploying release $VERSION to $ENVIRONMENT"
     
-    # Mark release as deploying
     sentry-cli releases deploys "$VERSION" new \
         --org "$SENTRY_ORG" \
         --project "$SENTRY_PROJECT" \
         --env "$ENVIRONMENT" \
         --started $(date +%s)
     
-    # Simulate deployment steps
     local steps=(
         "Building application"
         "Running tests"
@@ -173,10 +158,9 @@ deploy_release() {
     
     for step in "${steps[@]}"; do
         log INFO "$step..."
-        sleep 2  # Simulate work
+        sleep 2
     done
     
-    # Mark deployment as finished
     sentry-cli releases deploys "$VERSION" finish \
         --org "$SENTRY_ORG" \
         --project "$SENTRY_PROJECT" \
@@ -186,7 +170,6 @@ deploy_release() {
     log SUCCESS "Deployment completed successfully!"
 }
 
-# Finalize release
 finalize_release() {
     log INFO "Finalizing release $VERSION"
     
@@ -194,13 +177,11 @@ finalize_release() {
         --org "$SENTRY_ORG" \
         --project "$SENTRY_PROJECT"
     
-    # Send deployment notification
     if [ -n "${SLACK_WEBHOOK:-}" ]; then
         send_slack_notification
     fi
 }
 
-# Send Slack notification
 send_slack_notification() {
     local payload=$(cat <<EOF
 {
@@ -224,12 +205,10 @@ EOF
         "$SLACK_WEBHOOK" 2>/dev/null || log WARNING "Failed to send Slack notification"
 }
 
-# Rollback function
 rollback() {
     local previous_version=$1
     log WARNING "Rolling back to version: $previous_version"
     
-    # Mark the failed release
     sentry-cli releases deploys "$VERSION" finish \
         --org "$SENTRY_ORG" \
         --project "$SENTRY_PROJECT" \
@@ -237,25 +216,20 @@ rollback() {
         --finished $(date +%s) \
         --failed
     
-    # Deploy previous version
     VERSION=$previous_version deploy_release
 }
 
-# Main execution
 main() {
     log INFO "Starting Sentry deployment script"
     log INFO "Version: $VERSION, Environment: $ENVIRONMENT"
     
-    # Validate environment
     if [ -z "$SENTRY_AUTH_TOKEN" ]; then
         log ERROR "SENTRY_AUTH_TOKEN is not set"
         exit 1
     fi
     
-    # Check dependencies
     check_dependencies || exit 1
     
-    # Create and deploy release
     create_sentry_release
     deploy_release
     finalize_release
@@ -264,7 +238,6 @@ main() {
     log INFO "Log file saved to: $LOG_FILE"
 }
 
-# Parse command line arguments
 while [[ $# -gt 0 ]]; do
     case $1 in
         -h|--help)
@@ -308,7 +281,7 @@ EOF
             ;;
         --dry-run)
             log INFO "DRY RUN MODE - No changes will be made"
-            set -n  # Enable no-exec mode
+            set -n
             shift
             ;;
         *)
@@ -318,5 +291,4 @@ EOF
     esac
 done
 
-# Run main function
 main "$@"

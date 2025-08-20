@@ -6,20 +6,16 @@ require 'sentry-rails'
 require 'json'
 require 'logger'
 
-# Module for Sentry integration helpers
 module SentryHelpers
-  # Constants
   SENTRY_DSN = ENV['SENTRY_DSN'] || 'https://key@sentry.io/0'
   DEFAULT_ENVIRONMENT = ENV['RAILS_ENV'] || 'development'
   API_VERSION = '2.0'
   MAX_RETRIES = 3
   
-  # Custom error classes
   class UserNotFoundError < StandardError; end
   class AuthorizationError < StandardError; end
   class RateLimitError < StandardError; end
   
-  # Configure Sentry
   def self.configure_sentry
     Sentry.init do |config|
       config.dsn = SENTRY_DSN
@@ -29,26 +25,21 @@ module SentryHelpers
       config.environment = DEFAULT_ENVIRONMENT
       config.release = "sentinel-theme@#{API_VERSION}"
       
-      # Performance monitoring
       config.traces_sampler = lambda do |context|
-        # Sample all transactions in development
         return 1.0 if DEFAULT_ENVIRONMENT == 'development'
         
-        # Sample based on transaction name in production
         transaction_name = context[:transaction_context][:name]
         case transaction_name
         when /health_check/
-          0.0  # Don't sample health checks
+          0.0
         when /api/
-          0.5  # Sample 50% of API requests
+          0.5
         else
-          0.1  # Sample 10% of other requests
+          0.1
         end
       end
       
-      # Filter sensitive data
       config.before_send = lambda do |event, hint|
-        # Remove sensitive parameters
         if event.request && event.request[:data]
           event.request[:data] = filter_sensitive_data(event.request[:data])
         end
@@ -56,7 +47,6 @@ module SentryHelpers
         event
       end
       
-      # Excluded exceptions
       config.excluded_exceptions += [
         'ActionController::RoutingError',
         'ActiveRecord::RecordNotFound'
@@ -64,7 +54,6 @@ module SentryHelpers
     end
   end
   
-  # Filter sensitive data from parameters
   def self.filter_sensitive_data(data)
     sensitive_keys = %w[password credit_card ssn api_key token secret]
     
@@ -79,7 +68,6 @@ module SentryHelpers
     end
   end
   
-  # Performance tracking decorator
   def self.track_performance(operation_name)
     lambda do |target, method_name|
       original_method = target.instance_method(method_name)
@@ -111,12 +99,10 @@ module SentryHelpers
   end
 end
 
-# Rails Application Example
 class ApplicationController < ActionController::API
   include Sentry::Rails::ControllerMethods
   include Sentry::Rails::ControllerTransaction
   
-  # Error handling
   rescue_from StandardError do |exception|
     Sentry.capture_exception(exception)
     render_error(exception, :internal_server_error)
@@ -147,7 +133,6 @@ class ApplicationController < ActionController::API
     render json: error_response, status: status
   end
   
-  # Set Sentry user context
   def set_sentry_context
     return unless current_user
     
@@ -164,12 +149,10 @@ class ApplicationController < ActionController::API
   end
 end
 
-# API Controller Example
 class Api::V2::UsersController < ApplicationController
   before_action :set_sentry_context
   before_action :set_user, only: [:show, :update, :destroy]
   
-  # GET /api/v2/users
   def index
     users = User.includes(:profile).page(params[:page])
     
@@ -182,18 +165,15 @@ class Api::V2::UsersController < ApplicationController
     render json: users, status: :ok
   end
   
-  # GET /api/v2/users/:id
   def show
     render json: @user, include: :profile
   end
   
-  # POST /api/v2/users
   def create
     user = User.new(user_params)
     
     ActiveRecord::Base.transaction do
       if user.save
-        # Track successful user creation
         Sentry.capture_message(
           'New user created',
           level: :info,
@@ -210,7 +190,6 @@ class Api::V2::UsersController < ApplicationController
     render json: { error: e.message }, status: :unprocessable_entity
   end
   
-  # PATCH/PUT /api/v2/users/:id
   def update
     if @user.update(user_params)
       render json: @user
@@ -219,7 +198,6 @@ class Api::V2::UsersController < ApplicationController
     end
   end
   
-  # DELETE /api/v2/users/:id
   def destroy
     @user.destroy
     head :no_content
@@ -238,7 +216,6 @@ class Api::V2::UsersController < ApplicationController
   end
 end
 
-# Background Job Example
 class ErrorProcessingJob < ApplicationJob
   queue_as :critical
   
@@ -249,13 +226,10 @@ class ErrorProcessingJob < ApplicationJob
       scope.set_tags(job: self.class.name)
       scope.set_context('error_data', error_data)
       
-      # Process error data
       error = process_error_data(error_data)
       
-      # Send notifications
       ErrorMailer.notify_team(error).deliver_later if error.critical?
       
-      # Update metrics
       update_error_metrics(error)
       
       Sentry.capture_message(
@@ -265,7 +239,7 @@ class ErrorProcessingJob < ApplicationJob
     end
   rescue StandardError => e
     Sentry.capture_exception(e)
-    raise # Re-raise to trigger retry
+    raise
   end
   
   private
@@ -285,7 +259,6 @@ class ErrorProcessingJob < ApplicationJob
   end
 end
 
-# Service Object with Performance Tracking
 class UserAnalyticsService
   extend SentryHelpers
   
@@ -318,7 +291,6 @@ class UserAnalyticsService
   end
 end
 
-# Rake task example
 namespace :sentry do
   desc 'Test Sentry integration'
   task test: :environment do
@@ -328,10 +300,8 @@ namespace :sentry do
       begin
         puts '🧪 Testing Sentry integration...'
         
-        # Test message
         Sentry.capture_message('Test message from Rake task', level: :info)
         
-        # Test exception
         raise 'Test exception for Sentry'
       rescue StandardError => e
         Sentry.capture_exception(e)
@@ -341,13 +311,11 @@ namespace :sentry do
   end
 end
 
-# Lambda example
 process_with_sentry = ->(data) do
   Sentry.with_scope do |scope|
     scope.set_transaction_name('lambda.process')
     scope.set_extra(:input_data, data)
     
-    # Process data
     result = data.transform_values(&:upcase)
     
     Sentry.add_breadcrumb(
@@ -358,7 +326,6 @@ process_with_sentry = ->(data) do
   end
 end
 
-# Module with class methods
 module ErrorReporting
   extend self
   

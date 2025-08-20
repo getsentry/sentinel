@@ -1,9 +1,8 @@
-// Sentry SDK Example - JavaScript/Node.js (v10)
 import * as Sentry from '@sentry/node';
 import { nodeProfilingIntegration } from '@sentry/profiling-node';
 import express from 'express';
 
-// Constants and configuration
+
 const PORT = process.env.PORT || 3000;
 const DSN = 'https://your-key@o0.ingest.sentry.io/0';
 const RATE_LIMIT = 100;
@@ -35,15 +34,12 @@ async function initializeSentry(options = {}) {
   }
 }
 
-// Express app setup
 const app = express();
 
-// Middleware
 app.use(Sentry.Handlers.requestHandler());
 app.use(Sentry.Handlers.tracingHandler());
 app.use(express.json());
 
-// Route handlers
 app.get('/api/health', (req, res) => {
   res.json({ 
     status: 'healthy',
@@ -55,7 +51,6 @@ app.get('/api/health', (req, res) => {
 app.post('/api/errors', async (req, res) => {
   const { message, level = 'error', user } = req.body;
   
-  // Capture custom error
   Sentry.captureMessage(message, level);
   
   if (user) {
@@ -68,10 +63,8 @@ app.post('/api/errors', async (req, res) => {
   });
 });
 
-// Error handler middleware
 app.use(Sentry.Handlers.errorHandler());
 
-// Generic error handler
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   
@@ -83,7 +76,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Start server
 async function startServer() {
   const initialized = await initializeSentry();
   
@@ -96,12 +88,10 @@ async function startServer() {
   });
 }
 
-// Handle uncaught exceptions
 process.on('uncaughtException', (error) => {
   console.error('Uncaught Exception:', error);
   Sentry.captureException(error);
   process.exit(1);
 });
 
-// Export for testing
 export { app, initializeSentry, startServer };
