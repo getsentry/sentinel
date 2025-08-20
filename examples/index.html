@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sentry Sentinel Theme - Beautiful error tracking dashboard">
+  <title>Sentry Dashboard | Error Tracking</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/icon.png">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Sentry SDK v10 -->
+  <script src="https://browser.sentry-cdn.com/10.5.0/bundle.min.js" crossorigin="anonymous"></script>
+</head>
+<body class="sentry-app">
+  <!-- Header Navigation -->
+  <header class="sentry-app__header" role="banner">
+    <nav class="container" aria-label="Main navigation">
+      <a href="/" class="logo-link">
+        <img src="/images/logo.svg" alt="Sentry" class="logo" width="120" height="40">
+      </a>
+      
+      <ul class="nav-links" role="list">
+        <li><a href="#dashboard" class="active">Dashboard</a></li>
+        <li><a href="#issues">Issues</a></li>
+        <li><a href="#performance">Performance</a></li>
+        <li><a href="#releases">Releases</a></li>
+      </ul>
+      
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Toggle theme" data-theme-toggle>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="sentry-app__dashboard" id="dashboard">
+    <div class="container">
+      <!-- Page Title -->
+      <header class="page-header">
+        <h1>Error Tracking Dashboard</h1>
+        <p class="text-muted">Monitor and resolve errors in real-time</p>
+      </header>
+
+      <!-- Stats Grid -->
+      <section class="stats-grid" aria-label="Error statistics">
+        <article class="stat-card stat-card--error">
+          <h2 class="stat-card__label">Total Errors</h2>
+          <div class="stat-card__value" data-counter="errors">1,247</div>
+          <small class="stat-card__change text-error">+12% from last week</small>
+        </article>
+
+        <article class="stat-card stat-card--warning">
+          <h2 class="stat-card__label">Warning Events</h2>
+          <div class="stat-card__value" data-counter="warnings">523</div>
+          <small class="stat-card__change text-warning">-5% from last week</small>
+        </article>
+
+        <article class="stat-card stat-card--success">
+          <h2 class="stat-card__label">Resolved Issues</h2>
+          <div class="stat-card__value" data-counter="resolved">89</div>
+          <small class="stat-card__change text-success">+23% from last week</small>
+        </article>
+
+        <article class="stat-card">
+          <h2 class="stat-card__label">Users Affected</h2>
+          <div class="stat-card__value" data-counter="users">3.2K</div>
+          <small class="stat-card__change">Last 24 hours</small>
+        </article>
+      </section>
+
+      <!-- Error List -->
+      <section class="error-section" id="issues">
+        <header class="section-header">
+          <h2>Recent Issues</h2>
+          <div class="filter-controls">
+            <select class="filter-select" aria-label="Filter by environment">
+              <option value="all">All Environments</option>
+              <option value="production">Production</option>
+              <option value="staging">Staging</option>
+              <option value="development">Development</option>
+            </select>
+            
+            <button class="sentry-app__button sentry-app__button--primary">
+              <span>Create Alert</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Error Cards -->
+        <div class="error-list" role="list">
+          <article class="error-card" role="listitem">
+            <div class="error-card__header">
+              <h3 class="error-card__title">
+                <code>TypeError: Cannot read property 'id' of undefined</code>
+              </h3>
+              <span class="error-card__badge error-card__badge--critical">Critical</span>
+            </div>
+            
+            <div class="error-card__meta">
+              <span class="error-card__project">frontend</span>
+              <span class="error-card__time">
+                <time datetime="2025-01-24T10:30:00">10 minutes ago</time>
+              </span>
+              <span class="error-card__count">Occurred 127 times</span>
+            </div>
+            
+            <pre class="error-card__stack"><code>at UserProfile.render (UserProfile.tsx:45:23)
+at performUnitOfWork (react-dom.js:1234:12)
+at workLoop (react-dom.js:1256:24)</code></pre>
+            
+            <div class="error-card__actions">
+              <button class="sentry-app__button sentry-app__button--error">Resolve</button>
+              <button class="sentry-app__button sentry-app__button--ghost">Ignore</button>
+              <a href="#" class="link">View Details →</a>
+            </div>
+          </article>
+
+          <article class="error-card" role="listitem">
+            <div class="error-card__header">
+              <h3 class="error-card__title">
+                <code>NetworkError: Failed to fetch user data</code>
+              </h3>
+              <span class="error-card__badge error-card__badge--warning">Warning</span>
+            </div>
+            
+            <div class="error-card__meta">
+              <span class="error-card__project">api</span>
+              <span class="error-card__time">
+                <time datetime="2025-01-24T09:45:00">45 minutes ago</time>
+              </span>
+              <span class="error-card__count">Occurred 23 times</span>
+            </div>
+            
+            <div class="error-card__actions">
+              <button class="sentry-app__button sentry-app__button--warning">Assign</button>
+              <button class="sentry-app__button sentry-app__button--ghost">Archive</button>
+              <a href="#" class="link">View Details →</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; 2025 Sentry. Application monitoring for developers.</p>
+      <nav aria-label="Footer navigation">
+        <a href="https://docs.sentry.io">Documentation</a>
+        <a href="https://github.com/getsentry">GitHub</a>
+        <a href="https://status.sentry.io">Status</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Initialize Sentry v10
+    Sentry.init({
+      dsn: 'https://your-key@o0.ingest.sentry.io/0',
+      integrations: [
+        Sentry.browserTracingIntegration(),
+        Sentry.replayIntegration({
+          maskAllText: false,
+          blockAllMedia: false,
+        })
+      ],
+      tracesSampleRate: 1.0,
+      replaysSessionSampleRate: 0.1,
+      replaysOnErrorSampleRate: 1.0,
+      tracePropagationTargets: ['localhost', /^https:\/\/yourserver\.io\/api/],
+    });
+
+    // Theme Toggle
+    document.querySelector('[data-theme-toggle]').addEventListener('click', () => {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+
+    // Animate counters
+    document.querySelectorAll('[data-counter]').forEach(counter => {
+      const target = parseInt(counter.textContent.replace(/[^0-9]/g, ''));
+      const duration = 1000;
+      const step = target / (duration / 16);
+      let current = 0;
+      
+      const animate = () => {
+        current += step;
+        if (current < target) {
+          counter.textContent = Math.floor(current).toLocaleString();
+          requestAnimationFrame(animate);
+        } else {
+          counter.textContent = target.toLocaleString();
+        }
+      };
+      
+      // Start animation when element is in view
+      const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          animate();
+          observer.disconnect();
+        }
+      });
+      
+      observer.observe(counter);
+    });
+  </script>
+</body>
+</html>

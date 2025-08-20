@@ -1,0 +1,86 @@
+{
+  "name": "sentry-sentinel-theme-examples",
+  "version": "1.0.0",
+  "description": "Example configurations for Sentry Sentinel Theme",
+  "sentry": {
+    "dsn": "https://examplePublicKey@o0.ingest.sentry.io/0",
+    "environment": "production",
+    "release": "sentinel-theme@1.0.0",
+    "integrations": [
+      {
+        "name": "browserTracingIntegration",
+        "enabled": true,
+        "options": {
+          "routingInstrumentation": "react-router-v6",
+          "tracePropagationTargets": ["localhost", "sentry.io", "/^https:\\/\\/yourapp\\.com/"]
+        }
+      },
+      {
+        "name": "replayIntegration",
+        "enabled": true,
+        "options": {
+          "maskAllText": false,
+          "blockAllMedia": false
+        }
+      }
+    ],
+    "tracesSampleRate": 1.0,
+    "profilesSampleRate": 1.0,
+    "replaysSessionSampleRate": 0.1,
+    "replaysOnErrorSampleRate": 1.0,
+    "attachStacktrace": true,
+    "autoSessionTracking": true
+  },
+  "theme": {
+    "name": "Sentry Sentinel",
+    "variants": ["dark", "light", "midnight"],
+    "colors": {
+      "brand": {
+        "primary": "#362D59",
+        "secondary": "#6559D1",
+        "accent": "#E1567C",
+        "warning": "#F4834F"
+      }
+    },
+    "features": {
+      "accessibility": true,
+      "wcagLevel": "AA",
+      "customFonts": ["JetBrains Mono", "Fira Code"],
+      "animations": true
+    }
+  },
+  "build": {
+    "input": "./src",
+    "output": "./dist",
+    "formats": ["vscode", "vim", "sublime", "jetbrains"],
+    "minify": true,
+    "sourceMaps": true
+  },
+  "scripts": {
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js",
+    "preview": "node scripts/preview.js",
+    "validate": "node scripts/validate-colors.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/getsentry/sentinel-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/getsentry/sentinel-theme/issues"
+  },
+  "keywords": [
+    "sentry",
+    "theme",
+    "vscode",
+    "vim",
+    "terminal",
+    "accessibility"
+  ],
+  "author": {
+    "name": "Sentry",
+    "email": "support@sentry.io",
+    "url": "https://sentry.io"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,530 @@
+{
+  "$themes": [],
+  "$metadata": {
+    "activeThemes": [],
+    "tokenSetOrder": [],
+    "activeSets": []
+  },
+  "Blue": {
+    "1": {
+      "$type": "color",
+      "$value": "#f7f7ff",
+      "$description": "Shade/Tint color with 98.0% of lightness"
+    },
+    "2": {
+      "$type": "color",
+      "$value": "#e1e1ff",
+      "$description": "Shade/Tint color with 92.4% of lightness"
+    },
+    "3": {
+      "$type": "color",
+      "$value": "#cdcbff",
+      "$description": "Shade/Tint color with 86.9% of lightness"
+    },
+    "4": {
+      "$type": "color",
+      "$value": "#bab6ff",
+      "$description": "Shade/Tint color with 81.5% of lightness"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#aaa1ff",
+      "$description": "Shade/Tint color with 76.5% of lightness"
+    },
+    "6": {
+      "$type": "color",
+      "$value": "#998bff",
+      "$description": "Shade/Tint color with 71.0% of lightness"
+    },
+    "7": {
+      "$type": "color",
+      "$value": "#8a76ff",
+      "$description": "Shade/Tint color with 65.9% of lightness"
+    },
+    "8": {
+      "$type": "color",
+      "$value": "#7553ff",
+      "$description": "Shade/Tint color with 61.9% of lightness"
+    },
+    "9": {
+      "$type": "color",
+      "$value": "#5018c8",
+      "$description": "Shade/Tint color with 43.2% of lightness"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#4400b2",
+      "$description": "Shade/Tint color with 38.3% of lightness"
+    },
+    "11": {
+      "$type": "color",
+      "$value": "#39009b",
+      "$description": "Shade/Tint color with 33.6% of lightness"
+    },
+    "12": {
+      "$type": "color",
+      "$value": "#2f0084",
+      "$description": "Shade/Tint color with 29.3% of lightness"
+    },
+    "13": {
+      "$type": "color",
+      "$value": "#25006f",
+      "$description": "Shade/Tint color with 25.3% of lightness"
+    },
+    "14": {
+      "$type": "color",
+      "$value": "#1c005a",
+      "$description": "Shade/Tint color with 21.6% of lightness"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#150049",
+      "$description": "Shade/Tint color with 18.6% of lightness"
+    },
+    "16": {
+      "$type": "color",
+      "$value": "#0e0037",
+      "$description": "Shade/Tint color with 15.2% of lightness"
+    },
+    "source": {
+      "$type": "color",
+      "$value": "#7553ff",
+      "$description": "Source color"
+    }
+  },
+  "Green": {
+    "1": {
+      "$type": "color",
+      "$value": "#f2fbf3",
+      "$description": "Shade/Tint color with 98.0% of lightness"
+    },
+    "2": {
+      "$type": "color",
+      "$value": "#cdf1d0",
+      "$description": "Shade/Tint color with 92.4% of lightness"
+    },
+    "3": {
+      "$type": "color",
+      "$value": "#a8e6af",
+      "$description": "Shade/Tint color with 86.9% of lightness"
+    },
+    "4": {
+      "$type": "color",
+      "$value": "#83da90",
+      "$description": "Shade/Tint color with 81.5% of lightness"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#5ece73",
+      "$description": "Shade/Tint color with 76.5% of lightness"
+    },
+    "6": {
+      "$type": "color",
+      "$value": "#00f261",
+      "$description": "Shade/Tint color with 71.0% of lightness"
+    },
+    "7": {
+      "$type": "color",
+      "$value": "#00b236",
+      "$description": "Shade/Tint color with 65.9% of lightness"
+    },
+    "8": {
+      "$type": "color",
+      "$value": "#00a719",
+      "$description": "Shade/Tint color with 61.9% of lightness"
+    },
+    "9": {
+      "$type": "color",
+      "$value": "#006d00",
+      "$description": "Shade/Tint color with 43.2% of lightness"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#005d00",
+      "$description": "Shade/Tint color with 38.3% of lightness"
+    },
+    "11": {
+      "$type": "color",
+      "$value": "#004e00",
+      "$description": "Shade/Tint color with 33.6% of lightness"
+    },
+    "12": {
+      "$type": "color",
+      "$value": "#004000",
+      "$description": "Shade/Tint color with 29.3% of lightness"
+    },
+    "13": {
+      "$type": "color",
+      "$value": "#003300",
+      "$description": "Shade/Tint color with 25.3% of lightness"
+    },
+    "14": {
+      "$type": "color",
+      "$value": "#002800",
+      "$description": "Shade/Tint color with 21.6% of lightness"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#001f00",
+      "$description": "Shade/Tint color with 18.6% of lightness"
+    },
+    "16": {
+      "$type": "color",
+      "$value": "#001500",
+      "$description": "Shade/Tint color with 15.2% of lightness"
+    },
+    "source": {
+      "$type": "color",
+      "$value": "#00f261",
+      "$description": "Source color"
+    }
+  },
+  "Neutral": {
+    "1": {
+      "$type": "color",
+      "$value": "#f9f8f9",
+      "$description": "Shade/Tint color with 98.0% of lightness"
+    },
+    "2": {
+      "$type": "color",
+      "$value": "#e7e5ea",
+      "$description": "Shade/Tint color with 92.4% of lightness"
+    },
+    "3": {
+      "$type": "color",
+      "$value": "#d5d2da",
+      "$description": "Shade/Tint color with 86.9% of lightness"
+    },
+    "4": {
+      "$type": "color",
+      "$value": "#c4c0cb",
+      "$description": "Shade/Tint color with 81.5% of lightness"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#b5b0bd",
+      "$description": "Shade/Tint color with 76.5% of lightness"
+    },
+    "6": {
+      "$type": "color",
+      "$value": "#a49eae",
+      "$description": "Shade/Tint color with 71.0% of lightness"
+    },
+    "7": {
+      "$type": "color",
+      "$value": "#958e9f",
+      "$description": "Shade/Tint color with 65.9% of lightness"
+    },
+    "8": {
+      "$type": "color",
+      "$value": "#898294",
+      "$description": "Shade/Tint color with 61.9% of lightness"
+    },
+    "9": {
+      "$type": "color",
+      "$value": "#534d5e",
+      "$description": "Shade/Tint color with 43.2% of lightness"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#46404f",
+      "$description": "Shade/Tint color with 38.3% of lightness"
+    },
+    "11": {
+      "$type": "color",
+      "$value": "#393442",
+      "$description": "Shade/Tint color with 33.6% of lightness"
+    },
+    "12": {
+      "$type": "color",
+      "$value": "#2e2936",
+      "$description": "Shade/Tint color with 29.3% of lightness"
+    },
+    "13": {
+      "$type": "color",
+      "$value": "#24202b",
+      "$description": "Shade/Tint color with 25.3% of lightness"
+    },
+    "14": {
+      "$type": "color",
+      "$value": "#1b1821",
+      "$description": "Shade/Tint color with 21.6% of lightness"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#141119",
+      "$description": "Shade/Tint color with 18.6% of lightness"
+    },
+    "16": {
+      "$type": "color",
+      "$value": "#0d0a10",
+      "$description": "Shade/Tint color with 15.2% of lightness"
+    },
+    "source": {
+      "$type": "color",
+      "$value": "#898294",
+      "$description": "Source color"
+    }
+  },
+  "Pink": {
+    "1": {
+      "$type": "color",
+      "$value": "#fff5f9",
+      "$description": "Shade/Tint color with 98.0% of lightness"
+    },
+    "2": {
+      "$type": "color",
+      "$value": "#ffd7e9",
+      "$description": "Shade/Tint color with 92.4% of lightness"
+    },
+    "3": {
+      "$type": "color",
+      "$value": "#ffbbda",
+      "$description": "Shade/Tint color with 86.9% of lightness"
+    },
+    "4": {
+      "$type": "color",
+      "$value": "#ff9eca",
+      "$description": "Shade/Tint color with 81.5% of lightness"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#fe84bc",
+      "$description": "Shade/Tint color with 76.5% of lightness"
+    },
+    "6": {
+      "$type": "color",
+      "$value": "#f568ac",
+      "$description": "Shade/Tint color with 71.0% of lightness"
+    },
+    "7": {
+      "$type": "color",
+      "$value": "#ff45a8",
+      "$description": "Shade/Tint color with 65.9% of lightness"
+    },
+    "8": {
+      "$type": "color",
+      "$value": "#e03592",
+      "$description": "Shade/Tint color with 61.9% of lightness"
+    },
+    "9": {
+      "$type": "color",
+      "$value": "#a1005c",
+      "$description": "Shade/Tint color with 43.2% of lightness"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#8c004e",
+      "$description": "Shade/Tint color with 38.3% of lightness"
+    },
+    "11": {
+      "$type": "color",
+      "$value": "#780040",
+      "$description": "Shade/Tint color with 33.6% of lightness"
+    },
+    "12": {
+      "$type": "color",
+      "$value": "#650034",
+      "$description": "Shade/Tint color with 29.3% of lightness"
+    },
+    "13": {
+      "$type": "color",
+      "$value": "#530029",
+      "$description": "Shade/Tint color with 25.3% of lightness"
+    },
+    "14": {
+      "$type": "color",
+      "$value": "#430020",
+      "$description": "Shade/Tint color with 21.6% of lightness"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#360018",
+      "$description": "Shade/Tint color with 18.6% of lightness"
+    },
+    "16": {
+      "$type": "color",
+      "$value": "#270010",
+      "$description": "Shade/Tint color with 15.2% of lightness"
+    },
+    "source": {
+      "$type": "color",
+      "$value": "#ff45a8",
+      "$description": "Source color"
+    }
+  },
+  "Red": {
+    "1": {
+      "$type": "color",
+      "$value": "#fff5f3",
+      "$description": "Shade/Tint color with 98.0% of lightness"
+    },
+    "2": {
+      "$type": "color",
+      "$value": "#ffd7d2",
+      "$description": "Shade/Tint color with 92.4% of lightness"
+    },
+    "3": {
+      "$type": "color",
+      "$value": "#ffbab2",
+      "$description": "Shade/Tint color with 86.9% of lightness"
+    },
+    "4": {
+      "$type": "color",
+      "$value": "#ff9d94",
+      "$description": "Shade/Tint color with 81.5% of lightness"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#ff8179",
+      "$description": "Shade/Tint color with 76.5% of lightness"
+    },
+    "6": {
+      "$type": "color",
+      "$value": "#ff615d",
+      "$description": "Shade/Tint color with 71.0% of lightness"
+    },
+    "7": {
+      "$type": "color",
+      "$value": "#fe4144",
+      "$description": "Shade/Tint color with 65.9% of lightness"
+    },
+    "8": {
+      "$type": "color",
+      "$value": "#ff002b",
+      "$description": "Shade/Tint color with 61.9% of lightness"
+    },
+    "9": {
+      "$type": "color",
+      "$value": "#b30000",
+      "$description": "Shade/Tint color with 43.2% of lightness"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#9d0000",
+      "$description": "Shade/Tint color with 38.3% of lightness"
+    },
+    "11": {
+      "$type": "color",
+      "$value": "#870000",
+      "$description": "Shade/Tint color with 33.6% of lightness"
+    },
+    "12": {
+      "$type": "color",
+      "$value": "#720000",
+      "$description": "Shade/Tint color with 29.3% of lightness"
+    },
+    "13": {
+      "$type": "color",
+      "$value": "#5f0000",
+      "$description": "Shade/Tint color with 25.3% of lightness"
+    },
+    "14": {
+      "$type": "color",
+      "$value": "#4c0000",
+      "$description": "Shade/Tint color with 21.6% of lightness"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#3e0000",
+      "$description": "Shade/Tint color with 18.6% of lightness"
+    },
+    "16": {
+      "$type": "color",
+      "$value": "#2d0000",
+      "$description": "Shade/Tint color with 15.2% of lightness"
+    },
+    "source": {
+      "$type": "color",
+      "$value": "#ff002b",
+      "$description": "Source color"
+    }
+  },
+  "Yellow": {
+    "1": {
+      "$type": "color",
+      "$value": "#fcf8f1",
+      "$description": "Shade/Tint color with 98.0% of lightness"
+    },
+    "2": {
+      "$type": "color",
+      "$value": "#f4e4c9",
+      "$description": "Shade/Tint color with 92.4% of lightness"
+    },
+    "3": {
+      "$type": "color",
+      "$value": "#ebd0a3",
+      "$description": "Shade/Tint color with 86.9% of lightness"
+    },
+    "4": {
+      "$type": "color",
+      "$value": "#e1bd7d",
+      "$description": "Shade/Tint color with 81.5% of lightness"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#d8ab5a",
+      "$description": "Shade/Tint color with 76.5% of lightness"
+    },
+    "6": {
+      "$type": "color",
+      "$value": "#fdb81b",
+      "$description": "Shade/Tint color with 71.0% of lightness"
+    },
+    "7": {
+      "$type": "color",
+      "$value": "#bf8600",
+      "$description": "Shade/Tint color with 65.9% of lightness"
+    },
+    "8": {
+      "$type": "color",
+      "$value": "#b57800",
+      "$description": "Shade/Tint color with 61.9% of lightness"
+    },
+    "9": {
+      "$type": "color",
+      "$value": "#7c3f00",
+      "$description": "Shade/Tint color with 43.2% of lightness"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#6c3200",
+      "$description": "Shade/Tint color with 38.3% of lightness"
+    },
+    "11": {
+      "$type": "color",
+      "$value": "#5b2700",
+      "$description": "Shade/Tint color with 33.6% of lightness"
+    },
+    "12": {
+      "$type": "color",
+      "$value": "#4c1d00",
+      "$description": "Shade/Tint color with 29.3% of lightness"
+    },
+    "13": {
+      "$type": "color",
+      "$value": "#3e1500",
+      "$description": "Shade/Tint color with 25.3% of lightness"
+    },
+    "14": {
+      "$type": "color",
+      "$value": "#310e00",
+      "$description": "Shade/Tint color with 21.6% of lightness"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#260900",
+      "$description": "Shade/Tint color with 18.6% of lightness"
+    },
+    "16": {
+      "$type": "color",
+      "$value": "#1b0500",
+      "$description": "Shade/Tint color with 15.2% of lightness"
+    },
+    "source": {
+      "$type": "color",
+      "$value": "#fdb81b",
+      "$description": "Source color"
+    }
+  }
+}

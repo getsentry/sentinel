@@ -1,0 +1,25 @@
+name: 'Sentinel Dark'
+accent: '#ff45a8'
+cursor: '#ff45a8'
+background: '#1b1821'
+foreground: '#f9f8f9'
+details: darker
+terminal_colors:
+  bright:
+    black: '#898294'
+    blue: '#998bff'
+    cyan: '#22D3EE'
+    green: '#00f261'
+    magenta: '#ff45a8'
+    red: '#fe4144'
+    white: '#f9f8f9'
+    yellow: '#fdb81b'
+  normal:
+    black: '#1b1821'
+    blue: '#8a76ff'
+    cyan: '#06B6D4'
+    green: '#00f261'
+    magenta: '#ff45a8'
+    red: '#fe4144'
+    white: '#f9f8f9'
+    yellow: '#fdb81b'

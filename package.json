@@ -1,0 +1,49 @@
+{
+  "name": "sentry-sentinel-theme",
+  "version": "1.0.0",
+  "description": "Beautiful, accessible developer themes inspired by Sentry's brand colors",
+  "keywords": [
+    "theme",
+    "sentry",
+    "color-theme",
+    "vscode",
+    "vim",
+    "terminal",
+    "accessible",
+    "wcag"
+  ],
+  "homepage": "https://github.com/getsentry/sentinel-theme#readme",
+  "bugs": {
+    "url": "https://github.com/getsentry/sentinel-theme/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/getsentry/sentinel-theme.git"
+  },
+  "license": "MIT",
+  "author": "Sentry",
+  "scripts": {
+    "build": "npm run build:vscode && npm run validate",
+    "build:vscode": "cd vscode && npm run build",
+    "validate": "node scripts/validate-colors.js",
+    "test": "npm run test:contrast && npm run test:colors",
+    "test:contrast": "node scripts/test-contrast.js",
+    "test:colors": "node scripts/test-colors.js",
+    "preview": "node scripts/preview-theme.js",
+    "package": "npm run package:vscode",
+    "package:vscode": "cd vscode && vsce package",
+    "lint": "eslint scripts/**/*.js",
+    "format": "prettier --write '**/*.{json,md,yml,yaml}'",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "husky": "^8.0.3",
+    "prettier": "^3.2.4",
+    "vsce": "^2.15.0",
+    "wcag-contrast": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

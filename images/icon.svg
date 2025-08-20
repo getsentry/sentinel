@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sentry Sentinel Theme Icon -->
+  <!-- Background -->
+  <rect width="128" height="128" rx="24" fill="#362D59"/>
+  
+  <!-- Shield/Sentinel Symbol -->
+  <g transform="translate(64, 64)">
+    <!-- Outer shield -->
+    <path d="M0 -40 L30 -30 L30 10 L0 40 L-30 10 L-30 -30 Z" 
+          fill="none" 
+          stroke="#FFFFFF" 
+          stroke-width="3"/>
+    
+    <!-- Inner accent -->
+    <path d="M0 -25 L18 -18 L18 5 L0 25 L-18 5 L-18 -18 Z" 
+          fill="#E1567C" 
+          opacity="0.3"/>
+    
+    <!-- Center mark -->
+    <circle cx="0" cy="0" r="8" fill="#E1567C"/>
+    <circle cx="0" cy="0" r="4" fill="#FFFFFF"/>
+  </g>
+  
+  <!-- Optional: Add "S" monogram or other branded element -->
+</svg>
+
+<!-- 
+TO CREATE A BETTER ICON:
+1. Open this SVG in a vector editor (Figma, Illustrator, Inkscape)
+2. Design a unique icon that represents:
+   - Sentry brand (shield, sentinel, protection)
+   - Purple/pink color scheme
+   - Modern, clean aesthetic
+3. Export as:
+   - icon.svg (for scalability)
+   - icon.png (128x128px for VS Code)
+   
+DESIGN TIPS:
+- Keep it simple - must work at 16x16px
+- Use brand colors: #362D59, #E1567C, #FFFFFF
+- Consider: shield, eye, watchtower, or abstract geometric shapes
+- Ensure good contrast on both light and dark backgrounds
+-->

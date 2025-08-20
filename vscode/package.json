@@ -1,0 +1,55 @@
+{
+  "name": "sentinel-theme",
+  "displayName": "Sentinel Theme",
+  "description": "A comprehensive theme collection bringing Sentry's distinctive purple and pink brand colors to your favorite development tools. Designed with WCAG AA accessibility standards and developer ergonomics.",
+  "version": "1.0.0",
+  "publisher": "sentry",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "icon": "./images/icon.png",
+  "galleryBanner": {
+    "color": "#362D59",
+    "theme": "dark"
+  },
+  "keywords": [
+    "theme",
+    "dark theme",
+    "light theme",
+    "sentry",
+    "purple",
+    "accessible",
+    "wcag"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/getsentry/sentinel-theme"
+  },
+  "bugs": {
+    "url": "https://github.com/getsentry/sentinel-theme/issues"
+  },
+  "homepage": "https://github.com/getsentry/sentinel-theme#readme",
+  "license": "MIT",
+  "contributes": {
+    "themes": [
+      {
+        "label": "Sentinel Light",
+        "uiTheme": "vs",
+        "path": "./themes/sentinel-light-color-theme.json"
+      },
+      {
+        "label": "Sentinel Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/sentinel-dark-color-theme.json"
+      },
+      {
+        "label": "Sentinel Midnight",
+        "uiTheme": "vs-dark",
+        "path": "./themes/sentinel-midnight-color-theme.json"
+      }
+    ]
+  }
+}

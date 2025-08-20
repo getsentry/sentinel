@@ -1,0 +1,25 @@
+name: 'Sentinel Light'
+accent: '#d9008d'
+cursor: '#d9008d'
+background: '#f8f8f9'
+foreground: '#181225'
+details: lighter
+terminal_colors:
+  bright:
+    black: '#6a6772'
+    blue: '#4c0fc0'
+    cyan: '#06B6D4'
+    green: '#007800'
+    magenta: '#d9008d'
+    red: '#d50000'
+    white: '#f8f8f9'
+    yellow: '#934100'
+  normal:
+    black: '#302e36'
+    blue: '#3f00a7'
+    cyan: '#0891B2'
+    green: '#007800'
+    magenta: '#d9008d'
+    red: '#d50000'
+    white: '#181225'
+    yellow: '#934100'
