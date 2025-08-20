@@ -12,25 +12,25 @@ let g:colors_name = 'sentinel_light'
 set background=light
 
 " Sentry Brand Colors
-let s:bg_primary     = '#f8f8f9'
-let s:bg_secondary   = '#f0f0f2'
-let s:bg_tertiary    = '#e6e6e9'
-let s:fg_primary     = '#181225'
-let s:fg_secondary   = '#302e36'
-let s:fg_tertiary    = '#3e3b45'
-let s:fg_muted       = '#6a6772'
+let s:bg_primary     = '#FFFFFF'
+let s:bg_secondary   = '#F8F9FA'
+let s:bg_tertiary    = '#E5E7EB'
+let s:fg_primary     = '#1F2937'
+let s:fg_secondary   = '#374151'
+let s:fg_tertiary    = '#6B7280'
+let s:fg_muted       = '#9CA3AF'
 
-let s:sentry_purple  = '#3f00a7'
-let s:sentry_pink    = '#d9008d'
-let s:sentry_orange  = '#813100'
-let s:border         = '#e6e6e9'
+let s:sentry_purple  = '#36166B'
+let s:sentry_pink    = '#FF45A8'
+let s:sentry_orange  = '#EE8019'
+let s:border         = '#D1D5DB'
 
-let s:green          = '#007800'
-let s:yellow         = '#934100'
-let s:red            = '#d50000'
-let s:blue           = '#3B82F6'
+let s:green          = '#92DD00'
+let s:yellow         = '#EE8019'
+let s:red            = '#DC2626'
+let s:blue           = '#2563EB'
 let s:cyan           = '#0891B2'
-let s:purple         = '#4c0fc0'
+let s:purple         = '#6E47AE'
 
 " Helper function for setting highlights
 function! s:hi(group, guifg, guibg, attr, guisp)

@@ -12,25 +12,25 @@ let g:colors_name = 'sentinel_midnight'
 set background=dark
 
 " Sentry Brand Colors
-let s:bg_primary     = '#0d0a10'
-let s:bg_secondary   = '#0d0a10'
-let s:bg_tertiary    = '#141119'
-let s:fg_primary     = '#f9f8f9'
+let s:bg_primary     = '#181225'
+let s:bg_secondary   = '#181225'
+let s:bg_tertiary    = '#36166B'
+let s:fg_primary     = '#FFFFFF'
 let s:fg_secondary   = '#e7e5ea'
 let s:fg_tertiary    = '#d5d2da'
 let s:fg_muted       = '#898294'
 
-let s:sentry_purple  = '#8a76ff'
-let s:sentry_pink    = '#ff45a8'
-let s:sentry_orange  = '#bf8600'
-let s:border         = '#0d0a10'
+let s:sentry_purple  = '#7553FF'
+let s:sentry_pink    = '#FF45A8'
+let s:sentry_orange  = '#EE8019'
+let s:border         = '#36166B'
 
-let s:green          = '#5ece73'
-let s:yellow         = '#fdb81b'
+let s:green          = '#92DD00'
+let s:yellow         = '#FDB81B'
 let s:red            = '#fe4144'
 let s:blue           = '#3B82F6'
 let s:cyan           = '#0891B2'
-let s:purple         = '#998bff'
+let s:purple         = '#9E86FF'
 
 " Helper function for setting highlights
 function! s:hi(group, guifg, guibg, attr, guisp)

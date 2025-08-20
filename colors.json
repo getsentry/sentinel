@@ -3,16 +3,16 @@
   "description": "Official Sentry brand colors optimized for developer themes",
   "colors": {
     "brand": {
-      "primary": "#362D59",
-      "secondary": "#6559D1", 
-      "accent": "#E1567C",
-      "warning": "#F4834F"
+      "primary": "#36166B",
+      "secondary": "#6E47AE", 
+      "accent": "#FF45A8",
+      "warning": "#EE8019"
     },
     "dark": {
       "background": {
         "primary": "#1A1625",
         "secondary": "#2A2438",
-        "tertiary": "#362D59"
+        "tertiary": "#36166B"
       },
       "foreground": {
         "primary": "#FFFFFF",
@@ -22,23 +22,23 @@
       },
       "syntax": {
         "comment": "#71717A",
-        "keyword": "#6559D1",
-        "string": "#5ece73",
+        "keyword": "#7553FF",
+        "string": "#92DD00",
         "number": "#fdb81b",
-        "function": "#7553ff",
+        "function": "#FF45A8",
         "variable": "#FFFFFF",
-        "type": "#fdb81b",
-        "constant": "#8B5CF6",
+        "type": "#FF9838",
+        "constant": "#9E86FF",
         "operator": "#A1A1AA"
       },
       "ui": {
-        "selection": "#6559D140",
-        "highlight": "#E1567C20",
+        "selection": "#7553FF40",
+        "highlight": "#FF45A820",
         "border": "#3F3F46",
         "error": "#EF4444",
-        "warning": "#fdb81b",
+        "warning": "#FDB81B",
         "info": "#3B82F6",
-        "success": "#5ece73"
+        "success": "#92DD00"
       }
     },
     "light": {
@@ -55,23 +55,23 @@
       },
       "syntax": {
         "comment": "#6B7280",
-        "keyword": "#362D59",
-        "string": "#00a71a",
-        "number": "#bf8600",
-        "function": "#5018c8",
+        "keyword": "#36166B",
+        "string": "#92DD00",
+        "number": "#EE8019",
+        "function": "#6E47AE",
         "variable": "#1F2937",
-        "type": "#b36300",
-        "constant": "#7C3AED",
+        "type": "#EE8019",
+        "constant": "#6E47AE",
         "operator": "#374151"
       },
       "ui": {
-        "selection": "#362D5920",
-        "highlight": "#E1567C10",
+        "selection": "#36166B20",
+        "highlight": "#FF45A810",
         "border": "#D1D5DB",
         "error": "#DC2626",
-        "warning": "#bf8600",
+        "warning": "#EE8019",
         "info": "#2563EB",
-        "success": "#00a71a"
+        "success": "#92DD00"
       }
     }
   },
