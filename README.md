@@ -38,9 +38,9 @@ cat docs/INSTALL.md
 
 | Variant | Background | Best For |
 |---------|------------|----------|
-| **Sentinel Light** | `#FFFFFF` | Daytime coding, bright environments |
-| **Sentinel Dark** | `#181225` | Standard dark theme preference |
-| **Sentinel Midnight** | `#000000` | OLED displays, ultra-dark environments |
+| **Sentinel Light** | ![#FFFFFF](https://placehold.co/15x15/FFFFFF/FFFFFF.png) `#FFFFFF` | Daytime coding, bright environments |
+| **Sentinel Dark** | ![#181225](https://placehold.co/15x15/181225/181225.png) `#181225` | Standard dark theme preference |
+| **Sentinel Midnight** | ![#000000](https://placehold.co/15x15/000000/000000.png) `#000000` | OLED displays, ultra-dark environments |
 
 All variants feature:
 - ✅ WCAG AA compliant contrast ratios
@@ -66,7 +66,7 @@ All variants feature:
 | ![Zed Light](images/screenshots/zed/light.png) | ![Zed Dark](images/screenshots/zed/dark.png) | ![Zed Midnight](images/screenshots/zed/midnight.png) |
 
 ### Web Syntax Highlighters
-Try the interactive demo: [Open Demo →](web-highlighters/index.html)
+Try the interactive demo: [Open Demo →](https://sentinel.sentry.dev)
 
 ## 🏗️ Supported Platforms
 
@@ -93,12 +93,12 @@ Our themes use a carefully crafted palette based on Sentry's brand colors:
 
 | Token | Light | Dark | Midnight |
 |-------|-------|------|----------|
-| Keywords | `#4E2A9A` | `#9E86FF` | `#B8A5FF` |
-| Strings | `#36166B` | `#83DA90` | `#A5E68A` |
-| Functions | `#6E47AE` | `#226DFC` | `#3EA6FF` |
-| Types/Classes | `#A737B4` | `#FF45A8` | `#FF70BC` |
-| Numbers | `#EE8019` | `#FDB81B` | `#FFCC00` |
-| Comments | `#898294` | `#898294` | `#A8A8B0` |
+| **Keywords** | ![#4E2A9A](https://placehold.co/15x15/4E2A9A/4E2A9A.png) `#4E2A9A` | ![#9E86FF](https://placehold.co/15x15/9E86FF/9E86FF.png) `#9E86FF` | ![#B8A5FF](https://placehold.co/15x15/B8A5FF/B8A5FF.png) `#B8A5FF` |
+| **Strings** | ![#36166B](https://placehold.co/15x15/36166B/36166B.png) `#36166B` | ![#83DA90](https://placehold.co/15x15/83DA90/83DA90.png) `#83DA90` | ![#A5E68A](https://placehold.co/15x15/A5E68A/A5E68A.png) `#A5E68A` |
+| **Functions** | ![#6E47AE](https://placehold.co/15x15/6E47AE/6E47AE.png) `#6E47AE` | ![#226DFC](https://placehold.co/15x15/226DFC/226DFC.png) `#226DFC` | ![#3EA6FF](https://placehold.co/15x15/3EA6FF/3EA6FF.png) `#3EA6FF` |
+| **Types/Classes** | ![#A737B4](https://placehold.co/15x15/A737B4/A737B4.png) `#A737B4` | ![#FF45A8](https://placehold.co/15x15/FF45A8/FF45A8.png) `#FF45A8` | ![#FF70BC](https://placehold.co/15x15/FF70BC/FF70BC.png) `#FF70BC` |
+| **Numbers** | ![#EE8019](https://placehold.co/15x15/EE8019/EE8019.png) `#EE8019` | ![#FDB81B](https://placehold.co/15x15/FDB81B/FDB81B.png) `#FDB81B` | ![#FFCC00](https://placehold.co/15x15/FFCC00/FFCC00.png) `#FFCC00` |
+| **Comments** | ![#898294](https://placehold.co/15x15/898294/898294.png) `#898294` | ![#898294](https://placehold.co/15x15/898294/898294.png) `#898294` | ![#A8A8B0](https://placehold.co/15x15/A8A8B0/A8A8B0.png) `#A8A8B0` |
 
 ## ♿ Accessibility 
 
