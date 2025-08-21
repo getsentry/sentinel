@@ -33,10 +33,11 @@ Our themes are designed with these principles:
 | Platform | Light | Dark | Midnight | Installation Method |
 |----------|-------|------|----------|-------------------|
 | VS Code | ✅ | ✅ | ✅ | Marketplace |
+| Zed | ✅ | ✅ | ✅ | Manual |
 | Vim/Neovim | ✅ | ✅ | ✅ | Manual |
 | Ghostty | ✅ | ✅ | ✅ | Script/Manual |
 | Warp | ✅ | ✅ | ✅ | Script/Manual |
-| iTerm2 | 🚧 | 🚧 | 🚧 | Coming Soon |
+| iTerm2 | ✅ | ✅ | ✅ | Import |
 | Prism.js | ✅ | ✅ | ✅ | CSS Include |
 | Highlight.js | ✅ | ✅ | ✅ | CSS Include |
 

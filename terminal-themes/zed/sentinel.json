@@ -1,0 +1,373 @@
+{
+  "$schema": "https://zed.dev/schema/themes/v0.2.0.json",
+  "name": "Sentry Sentinel",
+  "author": "Sentry",
+  "themes": [
+    {
+      "name": "Sentinel Light",
+      "appearance": "light",
+      "style": {
+        "background": "#FFFFFF",
+        "foreground": "#181225",
+        "accent": "#7553FF",
+        "surface": "#F9F8F9",
+        "element": {
+          "background": "#F9F8F9",
+          "hover": "#E7E5EA",
+          "active": "#D5D2DA",
+          "selected": "#E7E5EA",
+          "disabled": "#D5D2DA"
+        },
+        "border": {
+          "border": "#E7E5EA",
+          "focused": "#7553FF",
+          "selected": "#7553FF",
+          "transparent": "#00000000",
+          "disabled": "#D5D2DA"
+        },
+        "text": {
+          "text": "#181225",
+          "muted": "#898294",
+          "placeholder": "#A8A8B0",
+          "disabled": "#A8A8B0",
+          "accent": "#7553FF"
+        },
+        "editor": {
+          "background": "#FFFFFF",
+          "foreground": "#181225",
+          "gutter": {
+            "background": "#FFFFFF",
+            "border": "#E7E5EA"
+          },
+          "line_number": "#898294",
+          "line_number_active": "#181225",
+          "active_line": {
+            "background": "#F9F8F9"
+          },
+          "wrap_guide": "#E7E5EA",
+          "guide": {
+            "indent_guide": "#E7E5EA",
+            "indent_guide_active": "#D5D2DA"
+          }
+        },
+        "status_bar": {
+          "background": "#F9F8F9",
+          "foreground": "#181225"
+        },
+        "title_bar": {
+          "background": "#F9F8F9",
+          "foreground": "#181225"
+        },
+        "toolbar": {
+          "background": "#F9F8F9",
+          "foreground": "#181225"
+        },
+        "tab_bar": {
+          "background": "#F9F8F9",
+          "foreground": "#181225"
+        },
+        "tab": {
+          "active_background": "#FFFFFF",
+          "active_foreground": "#181225",
+          "inactive_background": "#F9F8F9",
+          "inactive_foreground": "#898294"
+        },
+        "panel": {
+          "background": "#F9F8F9",
+          "foreground": "#181225"
+        },
+        "scrollbar": {
+          "thumb": {
+            "background": "#D5D2DA",
+            "hover_background": "#A8A8B0",
+            "border": "#E7E5EA"
+          }
+        },
+        "search": {
+          "match_background": "#FDB81B40",
+          "match_foreground": "#181225"
+        },
+        "syntax": {
+          "comment": "#898294",
+          "keyword": "#4E2A9A",
+          "string": "#36166B",
+          "number": "#EE8019",
+          "boolean": "#EE8019",
+          "function": "#6E47AE",
+          "type": "#A737B4",
+          "constant": "#7553FF",
+          "variable": "#181225",
+          "property": "#EE8019",
+          "operator": "#A737B4",
+          "punctuation": "#181225",
+          "tag": "#4E2A9A",
+          "attribute": "#6E47AE"
+        },
+        "terminal": {
+          "ansi": {
+            "black": "#FFFFFF",
+            "red": "#C51E3A",
+            "green": "#36166B",
+            "yellow": "#EE8019",
+            "blue": "#6E47AE",
+            "magenta": "#A737B4",
+            "cyan": "#3EA6FF",
+            "white": "#181225",
+            "bright_black": "#898294",
+            "bright_red": "#C51E3A",
+            "bright_green": "#36166B",
+            "bright_yellow": "#EE8019",
+            "bright_blue": "#6E47AE",
+            "bright_magenta": "#A737B4",
+            "bright_cyan": "#3EA6FF",
+            "bright_white": "#181225"
+          }
+        }
+      }
+    },
+    {
+      "name": "Sentinel Dark",
+      "appearance": "dark",
+      "style": {
+        "background": "#181225",
+        "foreground": "#F9F8F9",
+        "accent": "#FF45A8",
+        "surface": "#241B3C",
+        "element": {
+          "background": "#241B3C",
+          "hover": "#36166B",
+          "active": "#4E2A9A",
+          "selected": "#36166B",
+          "disabled": "#36166B"
+        },
+        "border": {
+          "border": "#36166B",
+          "focused": "#FF45A8",
+          "selected": "#FF45A8",
+          "transparent": "#00000000",
+          "disabled": "#36166B"
+        },
+        "text": {
+          "text": "#F9F8F9",
+          "muted": "#898294",
+          "placeholder": "#898294",
+          "disabled": "#898294",
+          "accent": "#FF45A8"
+        },
+        "editor": {
+          "background": "#181225",
+          "foreground": "#F9F8F9",
+          "gutter": {
+            "background": "#181225",
+            "border": "#36166B"
+          },
+          "line_number": "#898294",
+          "line_number_active": "#E7E5EA",
+          "active_line": {
+            "background": "#241B3C"
+          },
+          "wrap_guide": "#36166B",
+          "guide": {
+            "indent_guide": "#36166B",
+            "indent_guide_active": "#4E2A9A"
+          }
+        },
+        "status_bar": {
+          "background": "#241B3C",
+          "foreground": "#F9F8F9"
+        },
+        "title_bar": {
+          "background": "#241B3C",
+          "foreground": "#F9F8F9"
+        },
+        "toolbar": {
+          "background": "#241B3C",
+          "foreground": "#F9F8F9"
+        },
+        "tab_bar": {
+          "background": "#241B3C",
+          "foreground": "#F9F8F9"
+        },
+        "tab": {
+          "active_background": "#181225",
+          "active_foreground": "#F9F8F9",
+          "inactive_background": "#241B3C",
+          "inactive_foreground": "#898294"
+        },
+        "panel": {
+          "background": "#241B3C",
+          "foreground": "#F9F8F9"
+        },
+        "scrollbar": {
+          "thumb": {
+            "background": "#36166B",
+            "hover_background": "#4E2A9A",
+            "border": "#36166B"
+          }
+        },
+        "search": {
+          "match_background": "#FDB81B40",
+          "match_foreground": "#F9F8F9"
+        },
+        "syntax": {
+          "comment": "#898294",
+          "keyword": "#9E86FF",
+          "string": "#83DA90",
+          "number": "#FDB81B",
+          "boolean": "#FDB81B",
+          "function": "#226DFC",
+          "type": "#FF45A8",
+          "constant": "#7553FF",
+          "variable": "#F9F8F9",
+          "property": "#FF9838",
+          "operator": "#FF45A8",
+          "punctuation": "#A8A8B0",
+          "tag": "#9E86FF",
+          "attribute": "#226DFC"
+        },
+        "terminal": {
+          "ansi": {
+            "black": "#181225",
+            "red": "#FE4144",
+            "green": "#83DA90",
+            "yellow": "#FDB81B",
+            "blue": "#226DFC",
+            "magenta": "#FF45A8",
+            "cyan": "#0891B2",
+            "white": "#F9F8F9",
+            "bright_black": "#898294",
+            "bright_red": "#FE4144",
+            "bright_green": "#83DA90",
+            "bright_yellow": "#FDB81B",
+            "bright_blue": "#226DFC",
+            "bright_magenta": "#FF45A8",
+            "bright_cyan": "#67E8F9",
+            "bright_white": "#FFFFFF"
+          }
+        }
+      }
+    },
+    {
+      "name": "Sentinel Midnight",
+      "appearance": "dark",
+      "style": {
+        "background": "#000000",
+        "foreground": "#FFFFFF",
+        "accent": "#FF70BC",
+        "surface": "#0A0A0A",
+        "element": {
+          "background": "#0A0A0A",
+          "hover": "#181225",
+          "active": "#241B3C",
+          "selected": "#FF70BC60",
+          "disabled": "#181225"
+        },
+        "border": {
+          "border": "#181225",
+          "focused": "#FF70BC",
+          "selected": "#FF70BC",
+          "transparent": "#00000000",
+          "disabled": "#181225"
+        },
+        "text": {
+          "text": "#FFFFFF",
+          "muted": "#A8A8B0",
+          "placeholder": "#A8A8B0",
+          "disabled": "#A8A8B0",
+          "accent": "#FF70BC"
+        },
+        "editor": {
+          "background": "#000000",
+          "foreground": "#FFFFFF",
+          "gutter": {
+            "background": "#000000",
+            "border": "#181225"
+          },
+          "line_number": "#A8A8B0",
+          "line_number_active": "#FFFFFF",
+          "active_line": {
+            "background": "#0A0A0A"
+          },
+          "wrap_guide": "#181225",
+          "guide": {
+            "indent_guide": "#181225",
+            "indent_guide_active": "#FF70BC50"
+          }
+        },
+        "status_bar": {
+          "background": "#0A0A0A",
+          "foreground": "#FFFFFF"
+        },
+        "title_bar": {
+          "background": "#0A0A0A",
+          "foreground": "#FFFFFF"
+        },
+        "toolbar": {
+          "background": "#0A0A0A",
+          "foreground": "#FFFFFF"
+        },
+        "tab_bar": {
+          "background": "#0A0A0A",
+          "foreground": "#FFFFFF"
+        },
+        "tab": {
+          "active_background": "#000000",
+          "active_foreground": "#FFFFFF",
+          "inactive_background": "#0A0A0A",
+          "inactive_foreground": "#A8A8B0"
+        },
+        "panel": {
+          "background": "#0A0A0A",
+          "foreground": "#FFFFFF"
+        },
+        "scrollbar": {
+          "thumb": {
+            "background": "#181225",
+            "hover_background": "#FF70BC",
+            "border": "#181225"
+          }
+        },
+        "search": {
+          "match_background": "#FFCC0080",
+          "match_foreground": "#000000"
+        },
+        "syntax": {
+          "comment": "#A8A8B0",
+          "keyword": "#B8A5FF",
+          "string": "#A5E68A",
+          "number": "#FFCC00",
+          "boolean": "#FFCC00",
+          "function": "#3EA6FF",
+          "type": "#FF70BC",
+          "constant": "#9E86FF",
+          "variable": "#FFFFFF",
+          "property": "#FF9FC7",
+          "operator": "#FF70BC",
+          "punctuation": "#B8B8C8",
+          "tag": "#B8A5FF",
+          "attribute": "#3EA6FF"
+        },
+        "terminal": {
+          "ansi": {
+            "black": "#000000",
+            "red": "#FE4144",
+            "green": "#A5E68A",
+            "yellow": "#FFCC00",
+            "blue": "#3EA6FF",
+            "magenta": "#FF70BC",
+            "cyan": "#0891B2",
+            "white": "#FFFFFF",
+            "bright_black": "#898294",
+            "bright_red": "#FE4144",
+            "bright_green": "#A5E68A",
+            "bright_yellow": "#FFCC00",
+            "bright_blue": "#B8A5FF",
+            "bright_magenta": "#FF70BC",
+            "bright_cyan": "#67E8F9",
+            "bright_white": "#FFFFFF"
+          }
+        }
+      }
+    }
+  ]
+}

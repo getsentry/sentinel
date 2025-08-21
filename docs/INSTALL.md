@@ -75,24 +75,41 @@ cp terminal-themes/warp/*.yaml ~/.warp/themes/
 ### iTerm2
 
 ```bash
-# Import color schemes:
+# Quick install (automatically imports all themes)
+./scripts/install-iterm-themes.sh
+
+# Manual install:
 # 1. Open iTerm2 Preferences (Cmd+,)
 # 2. Go to Profiles → Colors
 # 3. Click "Color Presets..." dropdown
 # 4. Choose "Import..."
-# 5. Navigate to terminal-themes/iterm/ and select desired .itermcolors file
-```
-
-### Terminal.app (macOS)
-
-```bash
-# Double-click the .terminal file in Finder, or:
-open terminal-themes/terminal/*.terminal
-
-# Then set as default in Terminal → Preferences → Profiles
+# 5. Navigate to terminal-themes/iterm/ and select all .itermcolors files:
+#    - Sentinel Light.itermcolors
+#    - Sentinel Dark.itermcolors
+#    - Sentinel Midnight.itermcolors
+# 6. Select your desired theme from the "Color Presets..." dropdown
 ```
 
 ## 📝 Text Editors
+
+### Zed
+
+```bash
+# Quick install
+./scripts/install-zed-themes.sh
+
+# Manual install
+mkdir -p ~/.config/zed/themes
+cp editor-themes/zed/*.json ~/.config/zed/themes/
+
+# To activate:
+# 1. Open Zed
+# 2. Press Cmd+K, Cmd+T (Theme Selector)
+# 3. Choose from:
+#    - Sentinel Light
+#    - Sentinel Dark
+#    - Sentinel Midnight
+```
 
 ### Vim/Neovim
 
@@ -109,18 +126,6 @@ cp terminal-themes/vim/colors/*.vim ~/.config/nvim/colors/
 set termguicolors
 colorscheme sentinel_dark
 " Options: sentinel_light, sentinel_dark, sentinel_midnight
-```
-
-### Emacs
-
-```bash
-# Copy theme files
-mkdir -p ~/.emacs.d/themes
-cp terminal-themes/emacs/*.el ~/.emacs.d/themes/
-
-# Add to init.el:
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'sentinel-dark t)
 ```
 
 ## 🌐 Web Syntax Highlighters
@@ -253,9 +258,7 @@ set termguicolors
 
 ### Platform-Specific Issues
 
-**macOS:** Ensure Terminal.app has "Use bright colors for bold text" unchecked
-
-**Windows Terminal:** Add theme to `settings.json` schemes array
+**macOS:** For iTerm2, ensure proper color profile is selected
 
 **Linux:** Check `$TERM` environment variable is set correctly
 

@@ -22,11 +22,13 @@ ext install sentry.sentinel-theme
 # Or search "Sentry Sentinel Theme" in Extensions
 ```
 
-### Terminal Emulators
+### Editors & Terminal Emulators
 ```bash
 # Quick install scripts
-./scripts/install-ghostty-themes.sh
-./scripts/install-warp-themes.sh
+./scripts/install-zed-themes.sh      # Zed editor
+./scripts/install-iterm-themes.sh    # iTerm2
+./scripts/install-ghostty-themes.sh  # Ghostty
+./scripts/install-warp-themes.sh     # Warp
 
 # Or see detailed instructions
 cat docs/INSTALL.md
@@ -51,6 +53,7 @@ All variants feature:
 ### Editors & IDEs
 - Visual Studio Code
 - Cursor
+- Zed
 - Vim / Neovim
 
 ### Terminal Emulators  
@@ -96,6 +99,7 @@ Tested combinations:
 sentry-sentinel-theme/
 ├── colors.json              # Master color definitions
 ├── vscode/                  # VS Code extension
+├── editor-themes/           # Editor themes (Zed, etc.)
 ├── terminal-themes/         # Terminal emulator themes
 ├── web-highlighters/        # Prism.js & Highlight.js
 ├── tests/                   # Color validation tests
