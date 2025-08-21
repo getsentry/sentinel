@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sentry Sentinel Theme - Web Syntax Highlighters</title>
     
+    <!-- Google Fonts - Rubik -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Prism.js -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
-    <link id="prism-theme" href="prismjs/prism-sentinel-light.css" rel="stylesheet" />
+    <link id="prism-theme" href="prismjs/prism-sentinel-dark.css" rel="stylesheet" />
     
     <!-- Highlight.js -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-    <link id="highlight-theme" rel="stylesheet" href="highlightjs/sentinel-light.css">
+    <link id="highlight-theme" rel="stylesheet" href="highlightjs/sentinel-dark.css">
     
     <style>
         :root {
@@ -33,7 +38,7 @@
 
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: var(--text-primary);
             background-color: var(--bg-primary);
@@ -264,7 +269,7 @@
         <label for="theme-select">Code Theme:</label>
         <select id="theme-select" onchange="switchTheme(this.value)">
             <option value="light">Light</option>
-            <option value="dark">Dark</option>
+            <option value="dark" selected>Dark</option>
             <option value="midnight">Midnight</option>
         </select>
         <label for="language-select" style="margin-left: 2rem;">Language:</label>
@@ -1311,8 +1316,24 @@ mod tests {
             }
         }
         
+        // Get URL parameters
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                theme: params.get('theme') || 'dark', // Default to dark
+                lang: params.get('lang') || 'javascript'
+            };
+        }
+        
+        // Update URL parameters
+        function updateUrlParams(key, value) {
+            const url = new URL(window.location);
+            url.searchParams.set(key, value);
+            window.history.replaceState({}, '', url);
+        }
+        
         // Theme switcher function
-        function switchTheme(theme) {
+        function switchTheme(theme, updateUrl = true) {
             const prismTheme = document.getElementById('prism-theme');
             const highlightTheme = document.getElementById('highlight-theme');
             
@@ -1327,8 +1348,13 @@ mod tests {
                 highlightTheme.href = 'highlightjs/sentinel-light.css';
             }
             
-            // Save preference
-            localStorage.setItem('preferred-theme', theme);
+            // Update URL if requested
+            if (updateUrl) {
+                updateUrlParams('theme', theme);
+            }
+            
+            // Update dropdown
+            document.getElementById('theme-select').value = theme;
             
             // Note: Page stays in light theme - only code blocks change
             // Re-highlight only the visible code blocks after theme change
@@ -1353,8 +1379,16 @@ mod tests {
         }
         
         // Language selector function
-        function showLanguage(language) {
+        function showLanguage(language, updateUrl = true) {
             console.log('Switching to language:', language);
+            
+            // Update URL if requested
+            if (updateUrl) {
+                updateUrlParams('lang', language);
+            }
+            
+            // Update dropdown
+            document.getElementById('language-select').value = language;
             
             // Hide all language sections
             document.querySelectorAll('.language-section').forEach(section => {
@@ -1397,18 +1431,16 @@ mod tests {
         
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
-            // Load preferred theme
-            const preferredTheme = localStorage.getItem('preferred-theme') || 'light';
-            document.getElementById('theme-select').value = preferredTheme;
-            switchTheme(preferredTheme);
+            // Get URL parameters
+            const params = getUrlParams();
+            
+            // Set theme from URL or default to dark
+            switchTheme(params.theme, false);
+            
+            // Set language from URL or default to javascript
+            showLanguage(params.lang, false);
             
             // Don't initialize Highlight.js globally - we'll do it per tab
-            
-            // Show JavaScript by default
-            showLanguage('javascript');
-            
-            // Set dropdown value
-            document.getElementById('language-select').value = 'javascript';
             
             // Initialize highlighting for the default visible tabs
             setTimeout(() => {
