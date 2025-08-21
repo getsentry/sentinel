@@ -1,0 +1,198 @@
+/**
+ * Sentry Sentinel Midnight Theme for Prism.js
+ * Ultra-dark theme with vibrant accents for OLED displays
+ * 
+ * @author Sentry
+ * @version 1.0.0
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #FFFFFF;
+  background: none;
+  text-shadow: none;
+  font-family: "JetBrains Mono", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  tab-size: 4;
+  hyphens: none;
+}
+
+/* Remove any default backgrounds from all tokens */
+.token {
+  background: transparent;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  background: #000000;
+  border-radius: 0.3em;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em .3em;
+  border-radius: .3em;
+  background: #0A0A0A;
+  white-space: normal;
+}
+
+/* Comments */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #A8A8B0;
+  font-style: italic;
+}
+
+/* Punctuation */
+.token.punctuation {
+  color: #B8B8C8;
+}
+
+/* Namespace */
+.token.namespace {
+  opacity: .7;
+}
+
+/* Properties */
+.token.property {
+  color: #FF9FC7;
+}
+
+/* Tags, booleans, numbers */
+.token.tag,
+.token.boolean,
+.token.number,
+.token.symbol,
+.token.deleted {
+  color: #FFCC00;
+}
+
+/* Constants */
+.token.constant {
+  color: #9E86FF;
+}
+
+/* Selectors, attributes, names */
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #A5E68A;
+}
+
+/* Operators */
+.token.operator {
+  color: #FF70BC;
+  background: transparent;
+}
+
+/* Entities, URLs */
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #3EA6FF;
+  background: transparent;
+}
+
+/* Keywords */
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #B8A5FF;
+  font-weight: bold;
+}
+
+/* Functions */
+.token.function {
+  color: #3EA6FF;
+}
+
+/* Class names */
+.token.class-name {
+  color: #FF70BC;
+}
+
+/* Regex, important, variables */
+.token.regex,
+.token.important,
+.token.variable {
+  color: #FFCC00;
+}
+
+/* Important, bold */
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+/* Italic */
+.token.italic {
+  font-style: italic;
+}
+
+/* Entity */
+.token.entity {
+  cursor: help;
+}
+
+/* Inserted */
+.token.inserted {
+  background: rgba(165, 230, 138, 0.15);
+  color: #A5E68A;
+}
+
+/* Deleted */
+.token.deleted {
+  background: rgba(255, 112, 188, 0.15);
+  color: #FF70BC;
+}
+
+/* Selection */
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
+  background: rgba(255, 112, 188, 0.8);
+}
+
+/* Line highlighting */
+.line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: rgba(255, 112, 188, 0.1);
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+/* Line numbers */
+.line-numbers .line-numbers-rows {
+  border-right: 1px solid #181225;
+}
+
+.line-numbers-rows > span:before {
+  color: #A8A8B0;
+}
+
+/* Match braces */
+.token.match-braces {
+  outline: 1px solid #FF70BC;
+  background-color: rgba(255, 112, 188, 0.1);
+}

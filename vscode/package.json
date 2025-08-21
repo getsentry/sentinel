@@ -47,7 +47,7 @@
       },
       {
         "label": "Sentinel Midnight",
-        "uiTheme": "hc-black",
+        "uiTheme": "vs-dark",
         "path": "./themes/sentinel-midnight-color-theme.json"
       },
       {

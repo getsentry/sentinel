@@ -25,12 +25,12 @@ let s:sentry_pink    = '#FF45A8'
 let s:sentry_orange  = '#FF9838'
 let s:border         = '#3F3F46'
 
-let s:green          = '#C0ED49'
+let s:green          = '#83da90'
 let s:yellow         = '#FDB81B'
-let s:red            = '#EF4444'
+let s:red            = '#fe4144'
 let s:blue           = '#3B82F6'
-let s:cyan           = '#06B6D4'
-let s:purple         = '#A794FF'
+let s:cyan           = '#FF70BC'
+let s:purple         = '#7553FF'
 
 " Helper function for setting highlights
 function! s:hi(group, guifg, guibg, attr, guisp)
@@ -115,7 +115,7 @@ call s:hi('Statement',    s:sentry_purple, '',            'bold', '')
 call s:hi('Conditional',  s:sentry_purple, '',            'bold', '')
 call s:hi('Repeat',       s:sentry_purple, '',            'bold', '')
 call s:hi('Label',        s:sentry_purple, '',            'bold', '')
-call s:hi('Operator',     s:fg_tertiary,   '',            'NONE', '')
+call s:hi('Operator',     s:sentry_pink,   '',            'NONE', '')
 call s:hi('Keyword',      s:sentry_purple, '',            'bold', '')
 call s:hi('Exception',    s:sentry_purple, '',            'bold', '')
 
@@ -136,7 +136,7 @@ call s:hi('Typedef',      s:sentry_orange, '',            'NONE', '')
 call s:hi('Special',      s:sentry_pink,   '',            'NONE', '')
 call s:hi('SpecialChar',  s:sentry_pink,   '',            'NONE', '')
 call s:hi('Tag',          s:sentry_pink,   '',            'NONE', '')
-call s:hi('Delimiter',    s:fg_tertiary,   '',            'NONE', '')
+call s:hi('Delimiter',    s:cyan,          '',            'NONE', '')
 call s:hi('SpecialComment', s:fg_tertiary, '',            'italic', '')
 call s:hi('Debug',        s:sentry_pink,   '',            'NONE', '')
 

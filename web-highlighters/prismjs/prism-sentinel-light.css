@@ -25,6 +25,11 @@ pre[class*="language-"] {
 	hyphens: none;
 }
 
+/* Remove any default backgrounds from all tokens */
+.token {
+	background: transparent;
+}
+
 /* Code blocks */
 pre[class*="language-"] {
 	padding: 1em;
@@ -55,7 +60,10 @@ pre[class*="language-"] {
 	color: #36166B; /* Deep purple */
 }
 
-.token.property,
+.token.property {
+	color: #FF45A8; /* Light pink */
+}
+
 .token.tag,
 .token.boolean,
 .token.number,

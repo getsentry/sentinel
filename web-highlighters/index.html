@@ -7,20 +7,39 @@
     
     <!-- Prism.js -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
-    <link href="prismjs/prism-sentinel-light.css" rel="stylesheet" />
+    <link id="prism-theme" href="prismjs/prism-sentinel-light.css" rel="stylesheet" />
     
     <!-- Highlight.js -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-    <link rel="stylesheet" href="highlightjs/sentinel-light.css">
+    <link id="highlight-theme" rel="stylesheet" href="highlightjs/sentinel-light.css">
     
     <style>
+        :root {
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8F9FA;
+            --bg-tertiary: #F0F0F2;
+            --text-primary: #181225;
+            --text-secondary: #36166B;
+            --text-tertiary: #6E47AE;
+            --text-muted: #898294;
+            --border-color: #E6E6E9;
+            --purple-primary: #36166B;
+            --purple-secondary: #6E47AE;
+            --purple-tertiary: #4E2A9A;
+            --purple-bright: #7553FF;
+            --pink: #FF45A8;
+        }
+        
+
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #181225;
-            background-color: #FFFFFF;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
             margin: 0;
             padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
         .main-content {
@@ -30,26 +49,26 @@
         }
         
         h1 {
-            color: #36166B;
+            color: var(--purple-primary);
             margin-bottom: 0.5rem;
         }
         
         h2 {
-            color: #6E47AE;
+            color: var(--purple-secondary);
             margin-top: 3rem;
             margin-bottom: 1rem;
-            border-bottom: 2px solid #E6E6E9;
+            border-bottom: 2px solid var(--border-color);
             padding-bottom: 0.5rem;
         }
         
         h3 {
-            color: #4E2A9A;
+            color: var(--purple-tertiary);
             margin-top: 2rem;
             margin-bottom: 1rem;
         }
         
         .subtitle {
-            color: #898294;
+            color: var(--text-muted);
             margin-bottom: 2rem;
         }
         
@@ -61,14 +80,14 @@
         }
         
         .highlighter-section {
-            border: 1px solid #E6E6E9;
+            border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 1.5rem;
-            background-color: #F8F9FA;
+            background-color: var(--bg-secondary);
         }
         
         .highlighter-section h4 {
-            color: #36166B;
+            color: var(--purple-primary);
             margin-top: 0;
             margin-bottom: 1rem;
         }
@@ -98,7 +117,7 @@
             gap: 1rem;
             margin-bottom: 3rem;
             padding: 1.5rem;
-            background-color: #F8F9FA;
+            background-color: var(--bg-secondary);
             border-radius: 8px;
         }
         
@@ -112,7 +131,7 @@
             width: 40px;
             height: 40px;
             border-radius: 8px;
-            border: 1px solid #E6E6E9;
+            border: 1px solid var(--border-color);
         }
         
         .color-info {
@@ -121,12 +140,12 @@
         
         .color-name {
             font-weight: 500;
-            color: #36166B;
+            color: var(--purple-primary);
             font-size: 0.875rem;
         }
         
         .color-hex {
-            color: #898294;
+            color: var(--text-muted);
             font-size: 0.75rem;
             font-family: monospace;
         }
@@ -145,7 +164,7 @@
         }
         
         .navigation h4 {
-            color: #36166B;
+            color: var(--purple-primary);
             margin-top: 0;
             margin-bottom: 1rem;
             font-size: 0.875rem;
@@ -164,7 +183,7 @@
         }
         
         .navigation a {
-            color: #6E47AE;
+            color: var(--purple-secondary);
             text-decoration: none;
             font-size: 0.875rem;
         }
@@ -181,18 +200,29 @@
         }
         
         .language-selector label {
-            color: #36166B;
+            color: var(--purple-primary);
             font-weight: 500;
         }
         
         .language-selector select {
             padding: 0.5rem 1rem;
-            border: 1px solid #E6E6E9;
+            border: 1px solid var(--border-color);
             border-radius: 4px;
-            background-color: #FFFFFF;
-            color: #181225;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
             font-size: 1rem;
             cursor: pointer;
+            transition: border-color 0.2s ease;
+        }
+        
+        .language-selector select:hover {
+            border-color: var(--purple-secondary);
+        }
+        
+        .language-selector select:focus {
+            outline: none;
+            border-color: var(--purple-primary);
+            box-shadow: 0 0 0 3px rgba(117, 83, 255, 0.1);
         }
         
         .language-section {
@@ -201,6 +231,52 @@
         
         .language-section.active {
             display: block !important;
+        }
+        
+        /* Tab navigation */
+        .tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .tab {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+        
+        .tab:hover {
+            color: var(--text-primary);
+        }
+        
+        .tab.active {
+            color: var(--purple-primary);
+        }
+        
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--purple-primary);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
         }
         
         @media (max-width: 968px) {
@@ -225,10 +301,10 @@
             </div>
         </div>
         <div class="color-item">
-            <div class="color-swatch" style="background-color: #36166B;"></div>
+            <div class="color-swatch" style="background-color: var(--purple-primary);"></div>
             <div class="color-info">
                 <div class="color-name">Deep Purple</div>
-                <div class="color-hex">#36166B</div>
+                <div class="color-hex">var(--purple-primary)</div>
             </div>
         </div>
         <div class="color-item">
@@ -239,10 +315,10 @@
             </div>
         </div>
         <div class="color-item">
-            <div class="color-swatch" style="background-color: #6E47AE;"></div>
+            <div class="color-swatch" style="background-color: var(--purple-secondary);"></div>
             <div class="color-info">
                 <div class="color-name">Medium Purple</div>
-                <div class="color-hex">#6E47AE</div>
+                <div class="color-hex">var(--purple-secondary)</div>
             </div>
         </div>
         <div class="color-item">
@@ -284,7 +360,13 @@
 
         <h2 id="examples">Code Examples</h2>
         <div class="language-selector">
-        <label for="language-select">Choose a language:</label>
+        <label for="theme-select">Code Theme:</label>
+        <select id="theme-select" onchange="switchTheme(this.value)">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="midnight">Midnight</option>
+        </select>
+        <label for="language-select" style="margin-left: 2rem;">Language:</label>
         <select id="language-select" onchange="showLanguage(this.value)">
             <option value="javascript">JavaScript</option>
             <option value="typescript">TypeScript</option>
@@ -301,9 +383,11 @@
 
         <div id="javascript" class="language-section active">
             <h3>JavaScript</h3>
-            <div class="comparison">
-        <div class="highlighter-section">
-            <h4>Prism.js <span class="badge badge-prism">Prism</span></h4>
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab(this, 'prism', 'javascript')">Prism.js</button>
+                <button class="tab" onclick="switchTab(this, 'highlight', 'javascript')">Highlight.js</button>
+            </div>
+            <div class="tab-content active" data-tab="prism" data-lang="javascript">
             <pre><code class="language-javascript">// Sentry error tracking example
 import * as Sentry from '@sentry/browser';
 
@@ -339,10 +423,9 @@ class ErrorBoundary extends React.Component {
     return this.props.children;
   }
 }</code></pre>
-        </div>
-        <div class="highlighter-section">
-            <h4>Highlight.js <span class="badge badge-highlight">Highlight</span></h4>
-            <pre><code class="hljs language-javascript">// Sentry error tracking example
+            </div>
+            <div class="tab-content" data-tab="highlight" data-lang="javascript">
+                <pre><code class="language-javascript">// Sentry error tracking example
 import * as Sentry from '@sentry/browser';
 
 Sentry.init({
@@ -377,15 +460,16 @@ class ErrorBoundary extends React.Component {
     return this.props.children;
   }
 }</code></pre>
-        </div>
             </div>
         </div>
 
         <div id="typescript" class="language-section">
             <h3>TypeScript</h3>
-            <div class="comparison">
-        <div class="highlighter-section">
-            <h4>Prism.js <span class="badge badge-prism">Prism</span></h4>
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab(this, 'prism', 'typescript')">Prism.js</button>
+                <button class="tab" onclick="switchTab(this, 'highlight', 'typescript')">Highlight.js</button>
+            </div>
+            <div class="tab-content active" data-tab="prism" data-lang="typescript">
             <pre><code class="language-typescript">interface User {
   id: string;
   name: string;
@@ -425,10 +509,9 @@ class UserCache {
     this.cache.set(id, { user, timestamp: Date.now() });
   }
 }</code></pre>
-        </div>
-        <div class="highlighter-section">
-            <h4>Highlight.js <span class="badge badge-highlight">Highlight</span></h4>
-            <pre><code class="hljs language-typescript">interface User {
+            </div>
+            <div class="tab-content" data-tab="highlight" data-lang="typescript">
+                <pre><code class="language-typescript">interface User {
   id: string;
   name: string;
   email: string;
@@ -467,15 +550,16 @@ class UserCache {
     this.cache.set(id, { user, timestamp: Date.now() });
   }
 }</code></pre>
-        </div>
             </div>
         </div>
 
         <div id="python" class="language-section">
             <h3>Python</h3>
-            <div class="comparison">
-        <div class="highlighter-section">
-            <h4>Prism.js <span class="badge badge-prism">Prism</span></h4>
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab(this, 'prism', 'python')">Prism.js</button>
+                <button class="tab" onclick="switchTab(this, 'highlight', 'python')">Highlight.js</button>
+            </div>
+            <div class="tab-content active" data-tab="prism" data-lang="python">
             <pre><code class="language-python">import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 from typing import Optional, Dict, Any
@@ -534,10 +618,9 @@ class DataProcessor:
         
         # Simulate processing
         return {**item, "processed": True, "timestamp": time.time()}</code></pre>
-        </div>
-        <div class="highlighter-section">
-            <h4>Highlight.js <span class="badge badge-highlight">Highlight</span></h4>
-            <pre><code class="hljs language-python">import sentry_sdk
+            </div>
+            <div class="tab-content" data-tab="highlight" data-lang="python">
+                <pre><code class="language-python">import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 from typing import Optional, Dict, Any
 import functools
@@ -595,15 +678,16 @@ class DataProcessor:
         
         # Simulate processing
         return {**item, "processed": True, "timestamp": time.time()}</code></pre>
-        </div>
             </div>
         </div>
 
         <div id="react" class="language-section">
             <h3>React JSX</h3>
-            <div class="comparison">
-        <div class="highlighter-section">
-            <h4>Prism.js <span class="badge badge-prism">Prism</span></h4>
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab(this, 'prism', 'react')">Prism.js</button>
+                <button class="tab" onclick="switchTab(this, 'highlight', 'react')">Highlight.js</button>
+            </div>
+            <div class="tab-content active" data-tab="prism" data-lang="react">
             <pre><code class="language-jsx">import React, { useState, useEffect } from 'react';
 import { ErrorBoundary } from '@sentry/react';
 
@@ -649,10 +733,9 @@ const UserProfile = ({ userId }) => {
 };
 
 export default UserProfile;</code></pre>
-        </div>
-        <div class="highlighter-section">
-            <h4>Highlight.js <span class="badge badge-highlight">Highlight</span></h4>
-            <pre><code class="hljs language-jsx">import React, { useState, useEffect } from 'react';
+            </div>
+            <div class="tab-content" data-tab="highlight" data-lang="react">
+                <pre><code class="language-jsx">import React, { useState, useEffect } from 'react';
 import { ErrorBoundary } from '@sentry/react';
 
 const UserProfile = ({ userId }) => {
@@ -697,19 +780,20 @@ const UserProfile = ({ userId }) => {
 };
 
 export default UserProfile;</code></pre>
-        </div>
             </div>
         </div>
 
         <div id="css" class="language-section">
             <h3>CSS</h3>
-            <div class="comparison">
-        <div class="highlighter-section">
-            <h4>Prism.js <span class="badge badge-prism">Prism</span></h4>
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab(this, 'prism', 'css')">Prism.js</button>
+                <button class="tab" onclick="switchTab(this, 'highlight', 'css')">Highlight.js</button>
+            </div>
+            <div class="tab-content active" data-tab="prism" data-lang="css">
             <pre><code class="language-css">/* Sentry-themed button styles */
 .btn-sentry {
-  --primary: #36166B;
-  --primary-hover: #4E2A9A;
+  --primary: var(--purple-primary);
+  --primary-hover: var(--purple-tertiary);
   --accent: #FF45A8;
   
   display: inline-flex;
@@ -751,13 +835,12 @@ export default UserProfile;</code></pre>
     transition: none;
   }
 }</code></pre>
-        </div>
-        <div class="highlighter-section">
-            <h4>Highlight.js <span class="badge badge-highlight">Highlight</span></h4>
-            <pre><code class="hljs language-css">/* Sentry-themed button styles */
+            </div>
+            <div class="tab-content" data-tab="highlight" data-lang="css">
+                <pre><code class="language-css">/* Sentry-themed button styles */
 .btn-sentry {
-  --primary: #36166B;
-  --primary-hover: #4E2A9A;
+  --primary: var(--purple-primary);
+  --primary-hover: var(--purple-tertiary);
   --accent: #FF45A8;
   
   display: inline-flex;
@@ -799,15 +882,16 @@ export default UserProfile;</code></pre>
     transition: none;
   }
 }</code></pre>
-        </div>
             </div>
         </div>
 
         <div id="json" class="language-section">
             <h3>JSON</h3>
-            <div class="comparison">
-        <div class="highlighter-section">
-            <h4>Prism.js <span class="badge badge-prism">Prism</span></h4>
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab(this, 'prism', 'json')">Prism.js</button>
+                <button class="tab" onclick="switchTab(this, 'highlight', 'json')">Highlight.js</button>
+            </div>
+            <div class="tab-content active" data-tab="prism" data-lang="json">
             <pre><code class="language-json">{
   "name": "sentry-sentinel-theme",
   "version": "1.0.0",
@@ -827,8 +911,8 @@ export default UserProfile;</code></pre>
   ],
   "themes": {
     "light": {
-      "primary": "#36166B",
-      "secondary": "#6E47AE",
+      "primary": "var(--purple-primary)",
+      "secondary": "var(--purple-secondary)",
       "accent": "#FF45A8"
     },
     "dark": {
@@ -842,10 +926,9 @@ export default UserProfile;</code></pre>
     "build": "node build.js"
   }
 }</code></pre>
-        </div>
-        <div class="highlighter-section">
-            <h4>Highlight.js <span class="badge badge-highlight">Highlight</span></h4>
-            <pre><code class="hljs language-json">{
+            </div>
+            <div class="tab-content" data-tab="highlight" data-lang="json">
+                <pre><code class="language-json">{
   "name": "sentry-sentinel-theme",
   "version": "1.0.0",
   "description": "Official Sentry theme for syntax highlighting",
@@ -864,8 +947,8 @@ export default UserProfile;</code></pre>
   ],
   "themes": {
     "light": {
-      "primary": "#36166B",
-      "secondary": "#6E47AE",
+      "primary": "var(--purple-primary)",
+      "secondary": "var(--purple-secondary)",
       "accent": "#FF45A8"
     },
     "dark": {
@@ -879,15 +962,16 @@ export default UserProfile;</code></pre>
     "build": "node build.js"
   }
 }</code></pre>
-        </div>
             </div>
         </div>
 
         <div id="yaml" class="language-section">
             <h3>YAML</h3>
-            <div class="comparison">
-        <div class="highlighter-section">
-            <h4>Prism.js <span class="badge badge-prism">Prism</span></h4>
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab(this, 'prism', 'yaml')">Prism.js</button>
+                <button class="tab" onclick="switchTab(this, 'highlight', 'yaml')">Highlight.js</button>
+            </div>
+            <div class="tab-content active" data-tab="prism" data-lang="yaml">
             <pre><code class="language-yaml"># Sentry configuration
 sentry:
   dsn: https://example@sentry.io/123456
@@ -921,10 +1005,9 @@ app:
     provider: redis
     ttl: 3600
     max_entries: 10000</code></pre>
-        </div>
-        <div class="highlighter-section">
-            <h4>Highlight.js <span class="badge badge-highlight">Highlight</span></h4>
-            <pre><code class="hljs language-yaml"># Sentry configuration
+            </div>
+            <div class="tab-content" data-tab="highlight" data-lang="yaml">
+                <pre><code class="language-yaml"># Sentry configuration
 sentry:
   dsn: https://example@sentry.io/123456
   environment: production
@@ -957,15 +1040,16 @@ app:
     provider: redis
     ttl: 3600
     max_entries: 10000</code></pre>
-        </div>
             </div>
         </div>
 
         <div id="sql" class="language-section">
             <h3>SQL</h3>
-            <div class="comparison">
-        <div class="highlighter-section">
-            <h4>Prism.js <span class="badge badge-prism">Prism</span></h4>
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab(this, 'prism', 'sql')">Prism.js</button>
+                <button class="tab" onclick="switchTab(this, 'highlight', 'sql')">Highlight.js</button>
+            </div>
+            <div class="tab-content active" data-tab="prism" data-lang="sql">
             <pre><code class="language-sql">-- Get user activity with error tracking
 WITH user_errors AS (
   SELECT 
@@ -995,10 +1079,9 @@ LEFT JOIN (
 ) s ON ue.user_id = s.user_id
 ORDER BY ue.error_count DESC
 LIMIT 100;</code></pre>
-        </div>
-        <div class="highlighter-section">
-            <h4>Highlight.js <span class="badge badge-highlight">Highlight</span></h4>
-            <pre><code class="hljs language-sql">-- Get user activity with error tracking
+            </div>
+            <div class="tab-content" data-tab="highlight" data-lang="sql">
+                <pre><code class="language-sql">-- Get user activity with error tracking
 WITH user_errors AS (
   SELECT 
     u.user_id,
@@ -1027,15 +1110,16 @@ LEFT JOIN (
 ) s ON ue.user_id = s.user_id
 ORDER BY ue.error_count DESC
 LIMIT 100;</code></pre>
-        </div>
             </div>
         </div>
 
         <div id="go" class="language-section">
             <h3>Go</h3>
-            <div class="comparison">
-        <div class="highlighter-section">
-            <h4>Prism.js <span class="badge badge-prism">Prism</span></h4>
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab(this, 'prism', 'go')">Prism.js</button>
+                <button class="tab" onclick="switchTab(this, 'highlight', 'go')">Highlight.js</button>
+            </div>
+            <div class="tab-content active" data-tab="prism" data-lang="go">
             <pre><code class="language-go">package main
 
 import (
@@ -1094,10 +1178,9 @@ func processData(data []byte) error {
     
     return nil
 }</code></pre>
-        </div>
-        <div class="highlighter-section">
-            <h4>Highlight.js <span class="badge badge-highlight">Highlight</span></h4>
-            <pre><code class="hljs language-go">package main
+            </div>
+            <div class="tab-content" data-tab="highlight" data-lang="go">
+                <pre><code class="language-go">package main
 
 import (
     "context"
@@ -1155,15 +1238,16 @@ func processData(data []byte) error {
     
     return nil
 }</code></pre>
-        </div>
             </div>
         </div>
 
         <div id="rust" class="language-section">
             <h3>Rust</h3>
-            <div class="comparison">
-        <div class="highlighter-section">
-            <h4>Prism.js <span class="badge badge-prism">Prism</span></h4>
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab(this, 'prism', 'rust')">Prism.js</button>
+                <button class="tab" onclick="switchTab(this, 'highlight', 'rust')">Highlight.js</button>
+            </div>
+            <div class="tab-content active" data-tab="prism" data-lang="rust">
             <pre><code class="language-rust">use sentry::{ClientOptions, IntoDsn};
 use std::error::Error;
 use std::time::Duration;
@@ -1223,10 +1307,9 @@ mod tests {
         assert_eq!(config.sample_rate, 1.0);
     }
 }</code></pre>
-        </div>
-        <div class="highlighter-section">
-            <h4>Highlight.js <span class="badge badge-highlight">Highlight</span></h4>
-            <pre><code class="hljs language-rust">use sentry::{ClientOptions, IntoDsn};
+            </div>
+            <div class="tab-content" data-tab="highlight" data-lang="rust">
+                <pre><code class="language-rust">use sentry::{ClientOptions, IntoDsn};
 use std::error::Error;
 use std::time::Duration;
 
@@ -1285,7 +1368,7 @@ mod tests {
         assert_eq!(config.sample_rate, 1.0);
     }
 }</code></pre>
-                </div>
+            </div>
         </div>
     </div>
 
@@ -1295,6 +1378,90 @@ mod tests {
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>
+        // Tab switcher function
+        function switchTab(tabElement, highlighter, language) {
+            // Find all tabs and contents for this language
+            const languageSection = document.getElementById(language);
+            const tabs = languageSection.querySelectorAll('.tab');
+            const contents = languageSection.querySelectorAll('.tab-content');
+            
+            // Remove active class from all tabs and contents
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Add active class to clicked tab and corresponding content
+            tabElement.classList.add('active');
+            const targetContent = languageSection.querySelector(`.tab-content[data-tab="${highlighter}"][data-lang="${language}"]`);
+            if (targetContent) {
+                targetContent.classList.add('active');
+                
+                // Re-highlight the newly visible code block
+                setTimeout(() => {
+                    if (highlighter === 'prism' && typeof Prism !== 'undefined') {
+                        targetContent.querySelectorAll('pre code').forEach(block => {
+                            Prism.highlightElement(block);
+                        });
+                    } else if (highlighter === 'highlight') {
+                        targetContent.querySelectorAll('pre code').forEach(block => {
+                            hljs.highlightElement(block);
+                        });
+                    }
+                }, 50);
+            }
+        }
+        
+        // Theme switcher function
+        function switchTheme(theme) {
+            const prismTheme = document.getElementById('prism-theme');
+            const highlightTheme = document.getElementById('highlight-theme');
+            
+            if (theme === 'dark') {
+                prismTheme.href = 'prismjs/prism-sentinel-dark.css';
+                highlightTheme.href = 'highlightjs/sentinel-dark.css';
+            } else if (theme === 'midnight') {
+                prismTheme.href = 'prismjs/prism-sentinel-midnight.css';
+                highlightTheme.href = 'highlightjs/sentinel-midnight.css';
+            } else {
+                prismTheme.href = 'prismjs/prism-sentinel-light.css';
+                highlightTheme.href = 'highlightjs/sentinel-light.css';
+            }
+            
+            // Save preference
+            localStorage.setItem('preferred-theme', theme);
+            
+            // Update page theme for midnight
+            if (theme === 'midnight') {
+                document.body.style.backgroundColor = '#000000';
+                document.body.style.color = '#FFFFFF';
+            } else if (theme === 'dark') {
+                document.body.style.backgroundColor = '#181225';
+                document.body.style.color = '#F9F8F9';
+            } else {
+                document.body.style.backgroundColor = '#FFFFFF';
+                document.body.style.color = '#181225';
+            }
+            
+            // Re-highlight only the visible code blocks after theme change
+            setTimeout(() => {
+                // Find all active tab contents
+                document.querySelectorAll('.tab-content.active').forEach(activeTab => {
+                    if (activeTab.dataset.tab === 'prism') {
+                        // Re-highlight Prism.js blocks only in active Prism tabs
+                        if (typeof Prism !== 'undefined') {
+                            activeTab.querySelectorAll('pre code').forEach(block => {
+                                Prism.highlightElement(block);
+                            });
+                        }
+                    } else if (activeTab.dataset.tab === 'highlight') {
+                        // Re-highlight Highlight.js blocks only in active Highlight tabs
+                        activeTab.querySelectorAll('pre code').forEach(block => {
+                            hljs.highlightElement(block);
+                        });
+                    }
+                });
+            }, 100);
+        }
+        
         // Language selector function
         function showLanguage(language) {
             console.log('Switching to language:', language);
@@ -1313,34 +1480,62 @@ mod tests {
                 
                 // Re-initialize syntax highlighting for the newly visible section
                 setTimeout(() => {
-                    // For Prism.js
-                    if (typeof Prism !== 'undefined') {
-                        Prism.highlightAllUnder(selectedSection);
-                    }
-                    
-                    // For Highlight.js
-                    selectedSection.querySelectorAll('pre code').forEach((block) => {
-                        if (!block.classList.contains('hljs')) {
-                            hljs.highlightElement(block);
+                    // Find active tabs in this section
+                    selectedSection.querySelectorAll('.tab-content.active').forEach(activeTab => {
+                        if (activeTab.dataset.tab === 'prism') {
+                            // For Prism.js tabs
+                            if (typeof Prism !== 'undefined') {
+                                activeTab.querySelectorAll('pre code').forEach(block => {
+                                    Prism.highlightElement(block);
+                                });
+                            }
+                        } else if (activeTab.dataset.tab === 'highlight') {
+                            // For Highlight.js tabs
+                            activeTab.querySelectorAll('pre code').forEach(block => {
+                                hljs.highlightElement(block);
+                            });
                         }
                     });
                 }, 50);
             }
         }
         
-        // Make it globally available
+        // Make functions globally available
         window.showLanguage = showLanguage;
+        window.switchTab = switchTab;
+        window.switchTheme = switchTheme;
         
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize all Highlight.js blocks
-            hljs.highlightAll();
+            // Load preferred theme
+            const preferredTheme = localStorage.getItem('preferred-theme') || 'light';
+            document.getElementById('theme-select').value = preferredTheme;
+            switchTheme(preferredTheme);
+            
+            // Don't initialize Highlight.js globally - we'll do it per tab
             
             // Show JavaScript by default
             showLanguage('javascript');
             
             // Set dropdown value
             document.getElementById('language-select').value = 'javascript';
+            
+            // Initialize highlighting for the default visible tabs
+            setTimeout(() => {
+                document.querySelectorAll('.language-section.active .tab-content.active').forEach(activeTab => {
+                    if (activeTab.dataset.tab === 'prism') {
+                        if (typeof Prism !== 'undefined') {
+                            activeTab.querySelectorAll('pre code').forEach(block => {
+                                Prism.highlightElement(block);
+                            });
+                        }
+                    } else if (activeTab.dataset.tab === 'highlight') {
+                        activeTab.querySelectorAll('pre code').forEach(block => {
+                            hljs.highlightElement(block);
+                        });
+                    }
+                });
+            }, 100);
         });
     </script>
 </body>

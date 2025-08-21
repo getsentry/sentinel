@@ -5,6 +5,7 @@ yarn-debug.log*
 yarn-error.log*
 package-lock.json
 yarn.lock
+pnpm-lock.yaml
 
 # Build outputs
 dist/
@@ -18,8 +19,6 @@ out/
 *.swp
 *.swo
 *~
-.DS_Store
-Thumbs.db
 
 # Testing
 coverage/
@@ -36,6 +35,9 @@ tmp/
 temp/
 *.tmp
 *.temp
+*.js
+!scripts/*.js
+!tests/**/*.js
 
 # OS files
 .DS_Store

@@ -23,18 +23,11 @@
   "license": "MIT",
   "author": "Sentry",
   "scripts": {
-    "build": "npm run build:vscode && npm run validate",
-    "build:vscode": "cd vscode && npm run build",
-    "validate": "node scripts/validate-colors.js",
     "test": "npm run test:contrast && npm run test:colors",
-    "test:contrast": "node scripts/test-contrast.js",
-    "test:colors": "node scripts/test-colors.js",
-    "preview": "node scripts/preview-theme.js",
-    "package": "npm run package:vscode",
-    "package:vscode": "cd vscode && vsce package",
-    "lint": "eslint scripts/**/*.js",
-    "format": "prettier --write '**/*.{json,md,yml,yaml}'",
-    "prepare": "husky install"
+    "test:contrast": "node tests/unit/contrast.test.js",
+    "test:colors": "node tests/unit/colors.test.js",
+    "lint": "eslint scripts/**/*.js tests/**/*.js",
+    "format": "prettier --write '**/*.{json,md,yml,yaml}'"
   },
   "devDependencies": {
     "eslint": "^8.56.0",

@@ -7,7 +7,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const COLORS_FILE = path.join(__dirname, '..', 'colors.json');
+const COLORS_FILE = path.join(__dirname, '..', '..', 'colors.json');
 
 // Load master color palette
 const colorsData = JSON.parse(fs.readFileSync(COLORS_FILE, 'utf8'));
@@ -38,7 +38,7 @@ const vsCodeThemes = [
 let errors = 0;
 
 vsCodeThemes.forEach(themePath => {
-  const fullPath = path.join(__dirname, '..', themePath);
+  const fullPath = path.join(__dirname, '..', '..', themePath);
   if (fs.existsSync(fullPath)) {
     const theme = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
     console.log(`\nValidating ${path.basename(themePath)}...`);

@@ -32,7 +32,7 @@ function getContrastRatio(color1, color2) {
 
 // Load colors
 const colorsData = JSON.parse(
-  fs.readFileSync(path.join(__dirname, '..', 'colors.json'), 'utf8')
+  fs.readFileSync(path.join(__dirname, '..', '..', 'colors.json'), 'utf8')
 );
 
 console.log('🎨 Testing WCAG AA Contrast Ratios\n');

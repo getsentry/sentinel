@@ -18,17 +18,17 @@ let s:bg_tertiary    = '#36166B'
 let s:fg_primary     = '#FFFFFF'
 let s:fg_secondary   = '#e7e5ea'
 let s:fg_tertiary    = '#d5d2da'
-let s:fg_muted       = '#898294'
+let s:fg_muted       = '#A8A8B0'
 
-let s:sentry_purple  = '#7553FF'
+let s:sentry_purple  = '#B8A5FF'
 let s:sentry_pink    = '#FF70BC'
-let s:sentry_orange  = '#EE8019'
-let s:border         = '#36166B'
+let s:sentry_orange  = '#FF9FC7'
+let s:border         = '#181225'
 
-let s:green          = '#C0ED49'
-let s:yellow         = '#FFD00E'
+let s:green          = '#A5E68A'
+let s:yellow         = '#FFCC00'
 let s:red            = '#fe4144'
-let s:blue           = '#3B82F6'
+let s:blue           = '#3EA6FF'
 let s:cyan           = '#0891B2'
 let s:purple         = '#9E86FF'
 
@@ -55,7 +55,7 @@ call s:hi('CursorLine',   '',             s:bg_secondary, 'NONE', '')
 call s:hi('CursorColumn', '',             s:bg_secondary, 'NONE', '')
 call s:hi('LineNr',       s:fg_muted,     '',             'NONE', '')
 call s:hi('CursorLineNr', s:fg_tertiary,  '',             'bold', '')
-call s:hi('Visual',       '',             s:sentry_purple.'40', 'NONE', '')
+call s:hi('Visual',       s:bg_primary,   s:sentry_pink,        'NONE', '')
 call s:hi('Search',       s:fg_primary,   s:sentry_pink.'40',   'NONE', '')
 call s:hi('IncSearch',    s:fg_primary,   s:sentry_pink,        'NONE', '')
 

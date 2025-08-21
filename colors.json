@@ -24,22 +24,23 @@
       "syntax": {
         "comment": "#898294",
         "keyword": "#9E86FF",
-        "string": "#C0ED49",
+        "string": "#83da90",
         "number": "#FDB81B",
-        "function": "#FF45A8",
+        "function": "#226DFC",
         "variable": "#F9F8F9",
-        "type": "#FF9838",
-        "constant": "#A794FF",
-        "operator": "#FF70BC"
+        "type": "#FF45A8",
+        "constant": "#7553FF",
+        "operator": "#FF45A8",
+        "property": "#FF70BC"
       },
       "ui": {
         "selection": "#7553FF40",
         "highlight": "#FF45A820",
         "border": "#36166B",
-        "error": "#FF6B6B",
+        "error": "#fe4144",
         "warning": "#FDB81B",
         "info": "#3EDCFF",
-        "success": "#92DD00"
+        "success": "#5ece73"
       }
     },
     "light": {
@@ -83,29 +84,30 @@
       },
       "foreground": {
         "primary": "#FFFFFF",
-        "secondary": "#F7F7FF",
-        "tertiary": "#E1E1FF",
-        "muted": "#B8B8C8"
+        "secondary": "#F0F0F2",
+        "tertiary": "#E1E1E4",
+        "muted": "#A8A8B0"
       },
       "syntax": {
-        "comment": "#B8B8C8",
-        "keyword": "#9E86FF",
-        "string": "#C0ED49",
-        "number": "#FFD00E",
-        "function": "#FF70BC",
+        "comment": "#A8A8B0",
+        "keyword": "#B8A5FF",
+        "string": "#A5E68A",
+        "number": "#FFCC00",
+        "function": "#3EA6FF",
         "variable": "#FFFFFF",
-        "type": "#FF9838",
-        "constant": "#A794FF",
-        "operator": "#FF45A8"
+        "type": "#FF70BC",
+        "constant": "#9E86FF",
+        "operator": "#FF70BC",
+        "property": "#FF9FC7"
       },
       "ui": {
-        "selection": "#7553FF60",
-        "highlight": "#FF45A830",
-        "border": "#36166B",
-        "error": "#FF7B7B",
+        "selection": "#FF70BC40",
+        "highlight": "#FF70BC25",
+        "border": "#181225",
+        "error": "#FF6B6B",
         "warning": "#FFD93D",
         "info": "#5EBAEE",
-        "success": "#A8FF00"
+        "success": "#8FE85B"
       }
     }
   },
