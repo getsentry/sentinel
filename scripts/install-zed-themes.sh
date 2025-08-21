@@ -31,9 +31,9 @@ fi
 echo -e "${YELLOW}Creating Zed themes directory...${NC}"
 mkdir -p "$ZED_THEMES_DIR"
 
-# Install themes
-echo -e "${YELLOW}Installing Sentinel themes...${NC}"
-cp "$THEME_DIR"/sentinel-*.json "$ZED_THEMES_DIR/"
+# Install theme
+echo -e "${YELLOW}Installing Sentinel theme family...${NC}"
+cp "$THEME_DIR"/sentinel.json "$ZED_THEMES_DIR/"
 
 # List installed themes
 echo ""

@@ -100,7 +100,7 @@ cp terminal-themes/warp/*.yaml ~/.warp/themes/
 
 # Manual install
 mkdir -p ~/.config/zed/themes
-cp editor-themes/zed/*.json ~/.config/zed/themes/
+cp editor-themes/zed/sentinel.json ~/.config/zed/themes/
 
 # To activate:
 # 1. Open Zed
