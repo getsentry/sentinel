@@ -1,0 +1,68 @@
+{
+  "name": "Official Sentry Brand Colors",
+  "description": "Complete collection of Sentry's official brand colors",
+  "source": "Sentry Brand Guidelines",
+  "colors": {
+    "primary": {
+      "core": {
+        "deepPurple": "#36166B",
+        "darkPurple": "#4D0A55",
+        "nearBlack": "#181225"
+      },
+      "extended": {
+        "mediumPurple": "#6E47AE",
+        "lightPurple": "#A737B4"
+      },
+      "digital": {
+        "vibrantPurple": "#4E2A9A",
+        "brightPurple": "#7553FF",
+        "softPurple": "#9E86FF"
+      }
+    },
+    "secondary": {
+      "pink": {
+        "hot": "#FF45A8",
+        "light": "#FF70BC"
+      },
+      "orange": {
+        "primary": "#EE8019",
+        "light": "#FF9838"
+      },
+      "yellow": {
+        "gold": "#FDB81B",
+        "bright": "#FFD00E"
+      }
+    },
+    "tertiary": {
+      "green": {
+        "lime": "#92DD00",
+        "lightLime": "#C0ED49"
+      },
+      "blue": {
+        "primary": "#226DFC",
+        "cyan": "#3EDCFF"
+      }
+    }
+  },
+  "usage": {
+    "primary": "Main brand identity colors - use for primary UI elements and branding",
+    "secondary": "Accent colors - use for highlights, CTAs, and important elements",
+    "tertiary": "Supporting colors - use for success states, info, and variety",
+    "digital": "Colors marked 'for digital only' - optimized for screens, not print"
+  },
+  "palettes": {
+    "purple": ["#181225", "#36166B", "#4D0A55", "#4E2A9A", "#6E47AE", "#7553FF", "#9E86FF", "#A737B4"],
+    "pink": ["#FF45A8", "#FF70BC"],
+    "orange": ["#EE8019", "#FF9838"],
+    "yellow": ["#FDB81B", "#FFD00E"],
+    "green": ["#92DD00", "#C0ED49"],
+    "blue": ["#226DFC", "#3EDCFF"]
+  },
+  "accessibility": {
+    "notes": [
+      "Darker colors (#36166B, #4D0A55, #181225) work well on light backgrounds",
+      "Brighter colors (#7553FF, #9E86FF, #FF45A8) work well on dark backgrounds",
+      "Always test color combinations for WCAG AA compliance"
+    ]
+  }
+}

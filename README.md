@@ -31,6 +31,21 @@ cp terminal-themes/warp/*.yaml ~/.warp/themes/
 # Restart Warp, then Settings → Appearance → Select theme
 ```
 
+### Ghostty
+```bash
+# Install themes (creates config directory if needed)
+./scripts/install-ghostty-themes.sh
+
+# Or manually copy to config directory
+mkdir -p ~/.config/ghostty/themes
+cp terminal-themes/ghostty/*.conf ~/.config/ghostty/themes/
+
+# Add to your Ghostty config:
+# theme = sentinel_dark
+# Or use light/dark auto-switching:
+# theme = dark:sentinel_midnight,light:sentinel_light
+```
+
 ### Vim/Neovim
 ```bash
 # Copy colorscheme

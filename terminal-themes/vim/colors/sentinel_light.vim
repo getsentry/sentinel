@@ -25,11 +25,11 @@ let s:sentry_pink    = '#FF45A8'
 let s:sentry_orange  = '#EE8019'
 let s:border         = '#D1D5DB'
 
-let s:green          = '#92DD00'
-let s:yellow         = '#EE8019'
-let s:red            = '#DC2626'
-let s:blue           = '#2563EB'
-let s:cyan           = '#0891B2'
+let s:green          = '#008900'
+let s:yellow         = '#FDB81B'
+let s:red            = '#FF45A8'
+let s:blue           = '#226DFC'
+let s:cyan           = '#3EDCFF'
 let s:purple         = '#6E47AE'
 
 " Helper function for setting highlights
@@ -102,9 +102,9 @@ call s:hi('Comment',      s:fg_muted,     '',             'italic', '')
 call s:hi('Constant',     s:purple,       '',             'NONE', '')
 call s:hi('String',       s:green,        '',             'NONE', '')
 call s:hi('Character',    s:green,        '',             'NONE', '')
-call s:hi('Number',       s:yellow,       '',             'NONE', '')
-call s:hi('Boolean',      s:yellow,       '',             'NONE', '')
-call s:hi('Float',        s:yellow,       '',             'NONE', '')
+call s:hi('Number',       s:sentry_orange, '',             'NONE', '')
+call s:hi('Boolean',      s:sentry_orange, '',             'NONE', '')
+call s:hi('Float',        s:sentry_orange, '',             'NONE', '')
 
 " Identifiers
 call s:hi('Identifier',   s:fg_primary,   '',             'NONE', '')

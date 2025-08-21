@@ -12,7 +12,7 @@ let g:colors_name = 'sentinel_midnight'
 set background=dark
 
 " Sentry Brand Colors
-let s:bg_primary     = '#181225'
+let s:bg_primary     = '#000000'
 let s:bg_secondary   = '#181225'
 let s:bg_tertiary    = '#36166B'
 let s:fg_primary     = '#FFFFFF'
@@ -21,12 +21,12 @@ let s:fg_tertiary    = '#d5d2da'
 let s:fg_muted       = '#898294'
 
 let s:sentry_purple  = '#7553FF'
-let s:sentry_pink    = '#FF45A8'
+let s:sentry_pink    = '#FF70BC'
 let s:sentry_orange  = '#EE8019'
 let s:border         = '#36166B'
 
-let s:green          = '#92DD00'
-let s:yellow         = '#FDB81B'
+let s:green          = '#C0ED49'
+let s:yellow         = '#FFD00E'
 let s:red            = '#fe4144'
 let s:blue           = '#3B82F6'
 let s:cyan           = '#0891B2'

@@ -1,0 +1,231 @@
+/**
+ * Sentry Sentinel Light Theme for Highlight.js
+ * Based on official Sentry brand colors
+ * Author: Sentry
+ */
+
+/* Base styles */
+.hljs {
+  color: #181225; /* Sentry nearBlack */
+  background: #F8F9FA; /* Light background */
+  border: 1px solid #E6E6E9;
+  border-radius: 4px;
+  padding: 1em;
+  overflow-x: auto;
+}
+
+/* Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #898294; /* Muted gray */
+  font-style: italic;
+}
+
+/* Keywords, operators */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #4E2A9A; /* Vibrant purple */
+  font-weight: bold;
+}
+
+/* Strings */
+.hljs-string,
+.hljs-meta .hljs-string {
+  color: #36166B; /* Deep purple */
+}
+
+/* Functions and methods */
+.hljs-title,
+.hljs-section {
+  color: #6E47AE; /* Medium purple */
+  font-weight: bold;
+}
+
+/* Built-in functions and constants */
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #4D0A55; /* Dark purple */
+}
+
+/* Numbers, regex, symbols */
+.hljs-number,
+.hljs-literal,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-regexp {
+  color: #EE8019; /* Sentry orange */
+}
+
+/* Types, classes */
+.hljs-type,
+.hljs-class .hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__ {
+  color: #A737B4; /* Light purple */
+  font-weight: bold;
+}
+
+/* Attributes */
+.hljs-attribute,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-params {
+  color: #181225; /* Near black */
+}
+
+/* HTML/XML tags */
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #FF45A8; /* Hot pink */
+}
+
+/* HTML/XML attributes */
+.hljs-attr {
+  color: #6E47AE; /* Medium purple */
+}
+
+/* Deletion */
+.hljs-deletion {
+  background-color: rgba(255, 69, 168, 0.15); /* Pink highlight */
+  color: #4D0A55;
+}
+
+/* Addition */
+.hljs-addition {
+  background-color: rgba(0, 137, 0, 0.15); /* Green highlight */
+  color: #008900;
+}
+
+/* Meta information */
+.hljs-meta,
+.hljs-meta .hljs-keyword {
+  color: #4E2A9A; /* Vibrant purple */
+}
+
+/* DocStrings */
+.hljs-doctag {
+  color: #6E47AE; /* Medium purple */
+  font-weight: bold;
+}
+
+/* Strong emphasis */
+.hljs-strong {
+  font-weight: bold;
+}
+
+/* Emphasis */
+.hljs-emphasis {
+  font-style: italic;
+}
+
+/* Links */
+.hljs-link {
+  color: #226DFC; /* Sentry blue */
+  text-decoration: underline;
+}
+
+/* Substrings, template strings */
+.hljs-subst {
+  color: #181225; /* Near black */
+}
+
+/* CSS-specific */
+.css .hljs-selector-class {
+  color: #6E47AE; /* Medium purple */
+}
+
+.css .hljs-selector-id {
+  color: #4E2A9A; /* Vibrant purple */
+}
+
+.css .hljs-selector-tag {
+  color: #36166B; /* Deep purple */
+}
+
+.css .hljs-attribute {
+  color: #EE8019; /* Sentry orange */
+}
+
+/* JSON-specific */
+.json .hljs-attr {
+  color: #6E47AE; /* Medium purple */
+}
+
+/* Markdown-specific */
+.markdown .hljs-code {
+  background: #F0F0F2;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+/* Selection */
+.hljs::selection,
+.hljs ::selection {
+  background: rgba(117, 83, 255, 0.2); /* Bright purple selection */
+}
+
+/* Line numbers (if using highlightjs-line-numbers plugin) */
+.hljs-ln-numbers {
+  color: #898294;
+  border-right: 1px solid #E6E6E9;
+  padding-right: 1em !important;
+  margin-right: 1em;
+}
+
+/* Additional language support */
+
+/* Python */
+.python .hljs-decorator {
+  color: #FF45A8; /* Hot pink */
+}
+
+/* JavaScript/TypeScript */
+.javascript .hljs-keyword,
+.typescript .hljs-keyword {
+  color: #36166B; /* Deep purple */
+}
+
+/* Ruby */
+.ruby .hljs-symbol {
+  color: #4D0A55; /* Dark purple */
+}
+
+/* Go */
+.go .hljs-type {
+  color: #A737B4; /* Light purple */
+}
+
+/* Rust */
+.rust .hljs-keyword {
+  color: #36166B; /* Deep purple */
+}
+
+.rust .hljs-type {
+  color: #A737B4; /* Light purple */
+}
+
+/* SQL */
+.sql .hljs-keyword {
+  color: #36166B; /* Deep purple */
+  text-transform: uppercase;
+}
+
+/* YAML */
+.yaml .hljs-attr {
+  color: #6E47AE; /* Medium purple */
+}
+
+/* Diff */
+.diff .hljs-addition {
+  background-color: rgba(0, 137, 0, 0.15); /* Green highlight */
+  color: #008900;
+}
+
+.diff .hljs-deletion {
+  background-color: rgba(255, 69, 168, 0.15); /* Pink highlight */
+  color: #4D0A55;
+}

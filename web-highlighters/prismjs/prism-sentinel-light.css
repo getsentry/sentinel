@@ -1,0 +1,202 @@
+/**
+ * Sentry Sentinel Light Theme for Prism.js
+ * Based on official Sentry brand colors
+ * Author: Sentry
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #181225; /* Sentry nearBlack */
+	background: none;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	background: #F8F9FA; /* Light background */
+	border: 1px solid #E6E6E9;
+	border-radius: 4px;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em .3em;
+	border-radius: .3em;
+	white-space: normal;
+	background: #F0F0F2;
+}
+
+/* Tokens */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #898294; /* Muted gray */
+}
+
+.token.punctuation {
+	color: #36166B; /* Deep purple */
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol {
+	color: #EE8019; /* Sentry orange */
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin {
+	color: #36166B; /* Deep purple */
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #FF45A8; /* Hot pink */
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #4E2A9A; /* Vibrant purple */
+}
+
+.token.function,
+.token.class-name {
+	color: #6E47AE; /* Medium purple */
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #4D0A55; /* Dark purple */
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+/* Type annotations and generics */
+.token.type-annotation,
+.token.generic-function,
+.token.type {
+	color: #A737B4; /* Light purple */
+}
+
+/* Namespace */
+.token.namespace {
+	opacity: .7;
+}
+
+/* Line highlighting */
+pre[data-line] {
+	position: relative;
+}
+
+pre[class*="language-"] > code[class*="language-"] {
+	position: relative;
+	z-index: 1;
+}
+
+.line-highlight {
+	position: absolute;
+	left: 0;
+	right: 0;
+	padding: inherit 0;
+	margin-top: 1em;
+	background: rgba(117, 83, 255, 0.08); /* Bright purple with low opacity */
+	pointer-events: none;
+	line-height: inherit;
+	white-space: pre;
+}
+
+/* Selection */
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection,
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection {
+	background: rgba(117, 83, 255, 0.2); /* Bright purple selection */
+}
+
+/* Scrollbars */
+pre[class*="language-"]::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-track {
+	background: #F0F0F2;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-thumb {
+	background: #E6E6E9;
+	border-radius: 4px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-thumb:hover {
+	background: #D5D2DA;
+}
+
+/* Line numbers */
+.line-numbers .line-numbers-rows {
+	border-right: 1px solid #E6E6E9;
+}
+
+.line-numbers-rows > span:before {
+	color: #898294;
+}
+
+/* Diff */
+.token.deleted {
+	background-color: rgba(255, 69, 168, 0.15); /* Pink highlight */
+	color: #4D0A55;
+}
+
+.token.inserted {
+	background-color: rgba(0, 137, 0, 0.15); /* Green highlight */
+	color: #008900;
+}
+
+/* Additional language-specific styles */
+.language-json .token.property {
+	color: #6E47AE;
+}
+
+.language-markdown .token.url {
+	color: #226DFC;
+	text-decoration: underline;
+}

@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentry Sentinel Light Theme - Syntax Highlighter Test</title>
+    
+    <!-- Prism.js -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <link href="prismjs/prism-sentinel-light.css" rel="stylesheet" />
+    
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <link rel="stylesheet" href="highlightjs/sentinel-light.css">
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #181225;
+            background-color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        h1 {
+            color: #36166B;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            color: #6E47AE;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #E6E6E9;
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            color: #4E2A9A;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            color: #898294;
+            margin-bottom: 2rem;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .highlighter-section {
+            border: 1px solid #E6E6E9;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: #F8F9FA;
+        }
+        
+        .highlighter-section h4 {
+            color: #36166B;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-left: 0.5rem;
+        }
+        
+        .badge-prism {
+            background-color: rgba(117, 83, 255, 0.1);
+            color: #7553FF;
+        }
+        
+        .badge-highlight {
+            background-color: rgba(255, 69, 168, 0.1);
+            color: #FF45A8;
+        }
+        
+        .color-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background-color: #F8F9FA;
+            border-radius: 8px;
+        }
+        
+        .color-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .color-swatch {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 1px solid #E6E6E9;
+        }
+        
+        .color-info {
+            flex: 1;
+        }
+        
+        .color-name {
+            font-weight: 500;
+            color: #36166B;
+            font-size: 0.875rem;
+        }
+        
+        .color-hex {
+            color: #898294;
+            font-size: 0.75rem;
+            font-family: monospace;
+        }
+        
+
+        
+        pre {
+            margin: 0;
+            overflow-x: auto;
+        }
+        
+        pre code {
+            display: block;
+            padding: 1rem !important;
+            overflow-x: auto;
+        }
+        
+        .navigation h4 {
+            color: #36166B;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .navigation ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .navigation li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .navigation a {
+            color: #6E47AE;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        
+        .navigation a:hover {
+            color: #FF45A8;
+        }
+        
+        .language-selector {
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .language-selector label {
+            color: #36166B;
+            font-weight: 500;
+        }
+        
+        .language-selector select {
+            padding: 0.5rem 1rem;
+            border: 1px solid #E6E6E9;
+            border-radius: 4px;
+            background-color: #FFFFFF;
+            color: #181225;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        
+        .language-section {
+            display: none;
+        }
+        
+        .language-section.active {
+            display: block !important;
+        }
+        
+        @media (max-width: 968px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <h1>Sentry Sentinel Light Theme</h1>
+        <p class="subtitle">Syntax highlighter theme test page for Prism.js and Highlight.js</p>
+    
+        <h2 id="colors">Color Palette</h2>
+        <div class="color-showcase">
+        <div class="color-item">
+            <div class="color-swatch" style="background-color: #181225;"></div>
+            <div class="color-info">
+                <div class="color-name">Near Black</div>
+                <div class="color-hex">#181225</div>
+            </div>
+        </div>
+        <div class="color-item">
+            <div class="color-swatch" style="background-color: #36166B;"></div>
+            <div class="color-info">
+                <div class="color-name">Deep Purple</div>
+                <div class="color-hex">#36166B</div>
+            </div>
+        </div>
+        <div class="color-item">
+            <div class="color-swatch" style="background-color: #4D0A55;"></div>
+            <div class="color-info">
+                <div class="color-name">Dark Purple</div>
+                <div class="color-hex">#4D0A55</div>
+            </div>
+        </div>
+        <div class="color-item">
+            <div class="color-swatch" style="background-color: #6E47AE;"></div>
+            <div class="color-info">
+                <div class="color-name">Medium Purple</div>
+                <div class="color-hex">#6E47AE</div>
+            </div>
+        </div>
+        <div class="color-item">
+            <div class="color-swatch" style="background-color: #A737B4;"></div>
+            <div class="color-info">
+                <div class="color-name">Light Purple</div>
+                <div class="color-hex">#A737B4</div>
+            </div>
+        </div>
+        <div class="color-item">
+            <div class="color-swatch" style="background-color: #EE8019;"></div>
+            <div class="color-info">
+                <div class="color-name">Orange</div>
+                <div class="color-hex">#EE8019</div>
+            </div>
+        </div>
+        <div class="color-item">
+            <div class="color-swatch" style="background-color: #FF45A8;"></div>
+            <div class="color-info">
+                <div class="color-name">Hot Pink</div>
+                <div class="color-hex">#FF45A8</div>
+            </div>
+        </div>
+        <div class="color-item">
+            <div class="color-swatch" style="background-color: #226DFC;"></div>
+            <div class="color-info">
+                <div class="color-name">Blue</div>
+                <div class="color-hex">#226DFC</div>
+            </div>
+        </div>
+        <div class="color-item">
+            <div class="color-swatch" style="background-color: #008900;"></div>
+            <div class="color-info">
+                <div class="color-name">Green</div>
+                <div class="color-hex">#008900</div>
+            </div>
+        </div>
+        </div>
+
+        <h2 id="examples">Code Examples</h2>
+        <div class="language-selector">
+        <label for="language-select">Choose a language:</label>
+        <select id="language-select" onchange="showLanguage(this.value)">
+            <option value="javascript">JavaScript</option>
+            <option value="typescript">TypeScript</option>
+            <option value="python">Python</option>
+            <option value="react">React JSX</option>
+            <option value="css">CSS</option>
+            <option value="json">JSON</option>
+            <option value="yaml">YAML</option>
+            <option value="sql">SQL</option>
+            <option value="go">Go</option>
+            <option value="rust">Rust</option>
+        </select>
+        </div>
+
+        <div id="javascript" class="language-section active">
+            <h3>JavaScript</h3>
+            <div class="comparison">
+        <div class="highlighter-section">
+            <h4>Prism.js <span class="badge badge-prism">Prism</span></h4>
+            <pre><code class="language-javascript">// Sentry error tracking example
+import * as Sentry from '@sentry/browser';
+
+Sentry.init({
+  dsn: "https://example@sentry.io/123456",
+  environment: "production",
+  integrations: [
+    new Sentry.BrowserTracing(),
+  ],
+  tracesSampleRate: 1.0,
+});
+
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    Sentry.captureException(error, { 
+      contexts: { react: { componentStack: errorInfo.componentStack } }
+    });
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return &lt;h1&gt;Something went wrong.&lt;/h1&gt;;
+    }
+    return this.props.children;
+  }
+}</code></pre>
+        </div>
+        <div class="highlighter-section">
+            <h4>Highlight.js <span class="badge badge-highlight">Highlight</span></h4>
+            <pre><code class="hljs language-javascript">// Sentry error tracking example
+import * as Sentry from '@sentry/browser';
+
+Sentry.init({
+  dsn: "https://example@sentry.io/123456",
+  environment: "production",
+  integrations: [
+    new Sentry.BrowserTracing(),
+  ],
+  tracesSampleRate: 1.0,
+});
+
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    Sentry.captureException(error, { 
+      contexts: { react: { componentStack: errorInfo.componentStack } }
+    });
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return &lt;h1&gt;Something went wrong.&lt;/h1&gt;;
+    }
+    return this.props.children;
+  }
+}</code></pre>
+        </div>
+            </div>
+        </div>
+
+        <div id="typescript" class="language-section">
+            <h3>TypeScript</h3>
+            <div class="comparison">
+        <div class="highlighter-section">
+            <h4>Prism.js <span class="badge badge-prism">Prism</span></h4>
+            <pre><code class="language-typescript">interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: 'admin' | 'user' | 'guest';
+}
+
+type AsyncResult<T> = Promise<{ data: T; error?: never } | { data?: never; error: Error }>;
+
+async function fetchUser(id: string): AsyncResult<User> {
+  try {
+    const response = await fetch(`/api/users/${id}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return { data };
+  } catch (error) {
+    return { error: error instanceof Error ? error : new Error('Unknown error') };
+  }
+}
+
+const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+
+class UserCache {
+  private cache = new Map<string, { user: User; timestamp: number }>();
+
+  get(id: string): User | null {
+    const cached = this.cache.get(id);
+    if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
+      return cached.user;
+    }
+    return null;
+  }
+
+  set(id: string, user: User): void {
+    this.cache.set(id, { user, timestamp: Date.now() });
+  }
+}</code></pre>
+        </div>
+        <div class="highlighter-section">
+            <h4>Highlight.js <span class="badge badge-highlight">Highlight</span></h4>
+            <pre><code class="hljs language-typescript">interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: 'admin' | 'user' | 'guest';
+}
+
+type AsyncResult<T> = Promise<{ data: T; error?: never } | { data?: never; error: Error }>;
+
+async function fetchUser(id: string): AsyncResult<User> {
+  try {
+    const response = await fetch(`/api/users/${id}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return { data };
+  } catch (error) {
+    return { error: error instanceof Error ? error : new Error('Unknown error') };
+  }
+}
+
+const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+
+class UserCache {
+  private cache = new Map<string, { user: User; timestamp: number }>();
+
+  get(id: string): User | null {
+    const cached = this.cache.get(id);
+    if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
+      return cached.user;
+    }
+    return null;
+  }
+
+  set(id: string, user: User): void {
+    this.cache.set(id, { user, timestamp: Date.now() });
+  }
+}</code></pre>
+        </div>
+            </div>
+        </div>
+
+        <div id="python" class="language-section">
+            <h3>Python</h3>
+            <div class="comparison">
+        <div class="highlighter-section">
+            <h4>Prism.js <span class="badge badge-prism">Prism</span></h4>
+            <pre><code class="language-python">import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+from typing import Optional, Dict, Any
+import functools
+import time
+
+sentry_sdk.init(
+    dsn="https://example@sentry.io/123456",
+    integrations=[DjangoIntegration()],
+    traces_sample_rate=1.0,
+    send_default_pii=True
+)
+
+def performance_monitor(func):
+    """Decorator to monitor function performance with Sentry."""
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        with sentry_sdk.start_transaction(op="function", name=func.__name__) as transaction:
+            start_time = time.time()
+            try:
+                result = func(*args, **kwargs)
+                transaction.set_status("ok")
+                return result
+            except Exception as e:
+                transaction.set_status("internal_error")
+                sentry_sdk.capture_exception(e)
+                raise
+            finally:
+                duration = time.time() - start_time
+                transaction.set_data("duration", duration)
+    return wrapper
+
+class DataProcessor:
+    def __init__(self, config: Dict[str, Any]):
+        self.config = config
+        self.cache: Dict[str, Any] = {}
+    
+    @performance_monitor
+    def process_batch(self, items: list) -> Optional[Dict[str, Any]]:
+        """Process a batch of items with error handling."""
+        results = []
+        for item in items:
+            try:
+                processed = self._process_single(item)
+                results.append(processed)
+            except ValueError as e:
+                sentry_sdk.capture_message(f"Invalid item: {item}", level="warning")
+                continue
+        
+        return {"processed": len(results), "failed": len(items) - len(results)}
+    
+    def _process_single(self, item: Any) -> Any:
+        """Process a single item."""
+        if not isinstance(item, dict):
+            raise ValueError(f"Expected dict, got {type(item)}")
+        
+        # Simulate processing
+        return {**item, "processed": True, "timestamp": time.time()}</code></pre>
+        </div>
+        <div class="highlighter-section">
+            <h4>Highlight.js <span class="badge badge-highlight">Highlight</span></h4>
+            <pre><code class="hljs language-python">import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+from typing import Optional, Dict, Any
+import functools
+import time
+
+sentry_sdk.init(
+    dsn="https://example@sentry.io/123456",
+    integrations=[DjangoIntegration()],
+    traces_sample_rate=1.0,
+    send_default_pii=True
+)
+
+def performance_monitor(func):
+    """Decorator to monitor function performance with Sentry."""
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        with sentry_sdk.start_transaction(op="function", name=func.__name__) as transaction:
+            start_time = time.time()
+            try:
+                result = func(*args, **kwargs)
+                transaction.set_status("ok")
+                return result
+            except Exception as e:
+                transaction.set_status("internal_error")
+                sentry_sdk.capture_exception(e)
+                raise
+            finally:
+                duration = time.time() - start_time
+                transaction.set_data("duration", duration)
+    return wrapper
+
+class DataProcessor:
+    def __init__(self, config: Dict[str, Any]):
+        self.config = config
+        self.cache: Dict[str, Any] = {}
+    
+    @performance_monitor
+    def process_batch(self, items: list) -> Optional[Dict[str, Any]]:
+        """Process a batch of items with error handling."""
+        results = []
+        for item in items:
+            try:
+                processed = self._process_single(item)
+                results.append(processed)
+            except ValueError as e:
+                sentry_sdk.capture_message(f"Invalid item: {item}", level="warning")
+                continue
+        
+        return {"processed": len(results), "failed": len(items) - len(results)}
+    
+    def _process_single(self, item: Any) -> Any:
+        """Process a single item."""
+        if not isinstance(item, dict):
+            raise ValueError(f"Expected dict, got {type(item)}")
+        
+        # Simulate processing
+        return {**item, "processed": True, "timestamp": time.time()}</code></pre>
+        </div>
+            </div>
+        </div>
+
+        <div id="react" class="language-section">
+            <h3>React JSX</h3>
+            <div class="comparison">
+        <div class="highlighter-section">
+            <h4>Prism.js <span class="badge badge-prism">Prism</span></h4>
+            <pre><code class="language-jsx">import React, { useState, useEffect } from 'react';
+import { ErrorBoundary } from '@sentry/react';
+
+const UserProfile = ({ userId }) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`/api/users/${userId}`);
+        if (!response.ok) throw new Error('Failed to fetch user');
+        const data = await response.json();
+        setUser(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUser();
+  }, [userId]);
+
+  if (loading) return &lt;div className="spinner"&gt;Loading...&lt;/div&gt;;
+  if (error) return &lt;div className="error"&gt;Error: {error}&lt;/div&gt;;
+
+  return (
+    &lt;ErrorBoundary fallback={&lt;div&gt;Something went wrong&lt;/div&gt;} showDialog&gt;
+      &lt;div className="user-profile"&gt;
+        &lt;img src={user.avatar} alt={user.name} /&gt;
+        &lt;h2&gt;{user.name}&lt;/h2&gt;
+        &lt;p&gt;{user.email}&lt;/p&gt;
+        &lt;div className="stats"&gt;
+          &lt;span&gt;Joined: {new Date(user.joinedAt).toLocaleDateString()}&lt;/span&gt;
+          &lt;span&gt;Posts: {user.postCount}&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/ErrorBoundary&gt;
+  );
+};
+
+export default UserProfile;</code></pre>
+        </div>
+        <div class="highlighter-section">
+            <h4>Highlight.js <span class="badge badge-highlight">Highlight</span></h4>
+            <pre><code class="hljs language-jsx">import React, { useState, useEffect } from 'react';
+import { ErrorBoundary } from '@sentry/react';
+
+const UserProfile = ({ userId }) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`/api/users/${userId}`);
+        if (!response.ok) throw new Error('Failed to fetch user');
+        const data = await response.json();
+        setUser(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUser();
+  }, [userId]);
+
+  if (loading) return &lt;div className="spinner"&gt;Loading...&lt;/div&gt;;
+  if (error) return &lt;div className="error"&gt;Error: {error}&lt;/div&gt;;
+
+  return (
+    &lt;ErrorBoundary fallback={&lt;div&gt;Something went wrong&lt;/div&gt;} showDialog&gt;
+      &lt;div className="user-profile"&gt;
+        &lt;img src={user.avatar} alt={user.name} /&gt;
+        &lt;h2&gt;{user.name}&lt;/h2&gt;
+        &lt;p&gt;{user.email}&lt;/p&gt;
+        &lt;div className="stats"&gt;
+          &lt;span&gt;Joined: {new Date(user.joinedAt).toLocaleDateString()}&lt;/span&gt;
+          &lt;span&gt;Posts: {user.postCount}&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/ErrorBoundary&gt;
+  );
+};
+
+export default UserProfile;</code></pre>
+        </div>
+            </div>
+        </div>
+
+        <div id="css" class="language-section">
+            <h3>CSS</h3>
+            <div class="comparison">
+        <div class="highlighter-section">
+            <h4>Prism.js <span class="badge badge-prism">Prism</span></h4>
+            <pre><code class="language-css">/* Sentry-themed button styles */
+.btn-sentry {
+  --primary: #36166B;
+  --primary-hover: #4E2A9A;
+  --accent: #FF45A8;
+  
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: white;
+  background-color: var(--primary);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-sentry:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(54, 22, 107, 0.3);
+}
+
+.btn-sentry:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(54, 22, 107, 0.2);
+}
+
+.btn-sentry--accent {
+  background-color: var(--accent);
+}
+
+.btn-sentry--accent:hover {
+  background-color: #FF70BC;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-sentry {
+    transition: none;
+  }
+}</code></pre>
+        </div>
+        <div class="highlighter-section">
+            <h4>Highlight.js <span class="badge badge-highlight">Highlight</span></h4>
+            <pre><code class="hljs language-css">/* Sentry-themed button styles */
+.btn-sentry {
+  --primary: #36166B;
+  --primary-hover: #4E2A9A;
+  --accent: #FF45A8;
+  
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: white;
+  background-color: var(--primary);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-sentry:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(54, 22, 107, 0.3);
+}
+
+.btn-sentry:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(54, 22, 107, 0.2);
+}
+
+.btn-sentry--accent {
+  background-color: var(--accent);
+}
+
+.btn-sentry--accent:hover {
+  background-color: #FF70BC;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-sentry {
+    transition: none;
+  }
+}</code></pre>
+        </div>
+            </div>
+        </div>
+
+        <div id="json" class="language-section">
+            <h3>JSON</h3>
+            <div class="comparison">
+        <div class="highlighter-section">
+            <h4>Prism.js <span class="badge badge-prism">Prism</span></h4>
+            <pre><code class="language-json">{
+  "name": "sentry-sentinel-theme",
+  "version": "1.0.0",
+  "description": "Official Sentry theme for syntax highlighting",
+  "author": "Sentry",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/getsentry/sentinel-theme"
+  },
+  "keywords": [
+    "sentry",
+    "theme",
+    "syntax-highlighting",
+    "prism",
+    "highlight.js"
+  ],
+  "themes": {
+    "light": {
+      "primary": "#36166B",
+      "secondary": "#6E47AE",
+      "accent": "#FF45A8"
+    },
+    "dark": {
+      "primary": "#9E86FF",
+      "secondary": "#FF70BC",
+      "accent": "#C0ED49"
+    }
+  },
+  "scripts": {
+    "test": "node test.js",
+    "build": "node build.js"
+  }
+}</code></pre>
+        </div>
+        <div class="highlighter-section">
+            <h4>Highlight.js <span class="badge badge-highlight">Highlight</span></h4>
+            <pre><code class="hljs language-json">{
+  "name": "sentry-sentinel-theme",
+  "version": "1.0.0",
+  "description": "Official Sentry theme for syntax highlighting",
+  "author": "Sentry",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/getsentry/sentinel-theme"
+  },
+  "keywords": [
+    "sentry",
+    "theme",
+    "syntax-highlighting",
+    "prism",
+    "highlight.js"
+  ],
+  "themes": {
+    "light": {
+      "primary": "#36166B",
+      "secondary": "#6E47AE",
+      "accent": "#FF45A8"
+    },
+    "dark": {
+      "primary": "#9E86FF",
+      "secondary": "#FF70BC",
+      "accent": "#C0ED49"
+    }
+  },
+  "scripts": {
+    "test": "node test.js",
+    "build": "node build.js"
+  }
+}</code></pre>
+        </div>
+            </div>
+        </div>
+
+        <div id="yaml" class="language-section">
+            <h3>YAML</h3>
+            <div class="comparison">
+        <div class="highlighter-section">
+            <h4>Prism.js <span class="badge badge-prism">Prism</span></h4>
+            <pre><code class="language-yaml"># Sentry configuration
+sentry:
+  dsn: https://example@sentry.io/123456
+  environment: production
+  traces_sample_rate: 1.0
+  
+  integrations:
+    - name: BrowserTracing
+      options:
+        routingInstrumentation: vue
+    - name: Replay
+      options:
+        maskAllText: false
+        blockAllMedia: false
+
+app:
+  name: My Application
+  version: 1.2.3
+  features:
+    - authentication
+    - real-time-updates
+    - error-tracking
+  
+  database:
+    host: localhost
+    port: 5432
+    name: myapp_prod
+    ssl: true
+    
+  cache:
+    provider: redis
+    ttl: 3600
+    max_entries: 10000</code></pre>
+        </div>
+        <div class="highlighter-section">
+            <h4>Highlight.js <span class="badge badge-highlight">Highlight</span></h4>
+            <pre><code class="hljs language-yaml"># Sentry configuration
+sentry:
+  dsn: https://example@sentry.io/123456
+  environment: production
+  traces_sample_rate: 1.0
+  
+  integrations:
+    - name: BrowserTracing
+      options:
+        routingInstrumentation: vue
+    - name: Replay
+      options:
+        maskAllText: false
+        blockAllMedia: false
+
+app:
+  name: My Application
+  version: 1.2.3
+  features:
+    - authentication
+    - real-time-updates
+    - error-tracking
+  
+  database:
+    host: localhost
+    port: 5432
+    name: myapp_prod
+    ssl: true
+    
+  cache:
+    provider: redis
+    ttl: 3600
+    max_entries: 10000</code></pre>
+        </div>
+            </div>
+        </div>
+
+        <div id="sql" class="language-section">
+            <h3>SQL</h3>
+            <div class="comparison">
+        <div class="highlighter-section">
+            <h4>Prism.js <span class="badge badge-prism">Prism</span></h4>
+            <pre><code class="language-sql">-- Get user activity with error tracking
+WITH user_errors AS (
+  SELECT 
+    u.user_id,
+    u.username,
+    COUNT(e.error_id) as error_count,
+    MAX(e.occurred_at) as last_error
+  FROM users u
+  LEFT JOIN errors e ON u.user_id = e.user_id
+  WHERE e.occurred_at >= NOW() - INTERVAL '7 days'
+  GROUP BY u.user_id, u.username
+)
+SELECT 
+  ue.*,
+  COALESCE(s.session_count, 0) as sessions_last_week,
+  CASE 
+    WHEN ue.error_count > 10 THEN 'high'
+    WHEN ue.error_count > 5 THEN 'medium'
+    ELSE 'low'
+  END as error_severity
+FROM user_errors ue
+LEFT JOIN (
+  SELECT user_id, COUNT(*) as session_count
+  FROM sessions
+  WHERE created_at >= NOW() - INTERVAL '7 days'
+  GROUP BY user_id
+) s ON ue.user_id = s.user_id
+ORDER BY ue.error_count DESC
+LIMIT 100;</code></pre>
+        </div>
+        <div class="highlighter-section">
+            <h4>Highlight.js <span class="badge badge-highlight">Highlight</span></h4>
+            <pre><code class="hljs language-sql">-- Get user activity with error tracking
+WITH user_errors AS (
+  SELECT 
+    u.user_id,
+    u.username,
+    COUNT(e.error_id) as error_count,
+    MAX(e.occurred_at) as last_error
+  FROM users u
+  LEFT JOIN errors e ON u.user_id = e.user_id
+  WHERE e.occurred_at >= NOW() - INTERVAL '7 days'
+  GROUP BY u.user_id, u.username
+)
+SELECT 
+  ue.*,
+  COALESCE(s.session_count, 0) as sessions_last_week,
+  CASE 
+    WHEN ue.error_count > 10 THEN 'high'
+    WHEN ue.error_count > 5 THEN 'medium'
+    ELSE 'low'
+  END as error_severity
+FROM user_errors ue
+LEFT JOIN (
+  SELECT user_id, COUNT(*) as session_count
+  FROM sessions
+  WHERE created_at >= NOW() - INTERVAL '7 days'
+  GROUP BY user_id
+) s ON ue.user_id = s.user_id
+ORDER BY ue.error_count DESC
+LIMIT 100;</code></pre>
+        </div>
+            </div>
+        </div>
+
+        <div id="go" class="language-section">
+            <h3>Go</h3>
+            <div class="comparison">
+        <div class="highlighter-section">
+            <h4>Prism.js <span class="badge badge-prism">Prism</span></h4>
+            <pre><code class="language-go">package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+    "time"
+    
+    "github.com/getsentry/sentry-go"
+)
+
+type ErrorHandler struct {
+    client *sentry.Client
+}
+
+func NewErrorHandler(dsn string) (*ErrorHandler, error) {
+    client, err := sentry.NewClient(sentry.ClientOptions{
+        Dsn:              dsn,
+        Environment:      "production",
+        TracesSampleRate: 1.0,
+        BeforeSend: func(event *sentry.Event, hint *sentry.EventHint) *sentry.Event {
+            if event.Level == sentry.LevelDebug {
+                return nil
+            }
+            return event
+        },
+    })
+    if err != nil {
+        return nil, fmt.Errorf("sentry init failed: %w", err)
+    }
+    
+    return &ErrorHandler{client: client}, nil
+}
+
+func (h *ErrorHandler) HandlePanic() {
+    if r := recover(); r != nil {
+        h.client.RecoverWithContext(
+            context.Background(),
+            r,
+            &sentry.EventHint{RecoveredException: r},
+        )
+        h.client.Flush(2 * time.Second)
+        panic(r)
+    }
+}
+
+func processData(data []byte) error {
+    defer sentry.StartSpan(context.Background(), "processData").Finish()
+    
+    if len(data) == 0 {
+        return fmt.Errorf("empty data provided")
+    }
+    
+    // Process data here
+    time.Sleep(100 * time.Millisecond)
+    
+    return nil
+}</code></pre>
+        </div>
+        <div class="highlighter-section">
+            <h4>Highlight.js <span class="badge badge-highlight">Highlight</span></h4>
+            <pre><code class="hljs language-go">package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+    "time"
+    
+    "github.com/getsentry/sentry-go"
+)
+
+type ErrorHandler struct {
+    client *sentry.Client
+}
+
+func NewErrorHandler(dsn string) (*ErrorHandler, error) {
+    client, err := sentry.NewClient(sentry.ClientOptions{
+        Dsn:              dsn,
+        Environment:      "production",
+        TracesSampleRate: 1.0,
+        BeforeSend: func(event *sentry.Event, hint *sentry.EventHint) *sentry.Event {
+            if event.Level == sentry.LevelDebug {
+                return nil
+            }
+            return event
+        },
+    })
+    if err != nil {
+        return nil, fmt.Errorf("sentry init failed: %w", err)
+    }
+    
+    return &ErrorHandler{client: client}, nil
+}
+
+func (h *ErrorHandler) HandlePanic() {
+    if r := recover(); r != nil {
+        h.client.RecoverWithContext(
+            context.Background(),
+            r,
+            &sentry.EventHint{RecoveredException: r},
+        )
+        h.client.Flush(2 * time.Second)
+        panic(r)
+    }
+}
+
+func processData(data []byte) error {
+    defer sentry.StartSpan(context.Background(), "processData").Finish()
+    
+    if len(data) == 0 {
+        return fmt.Errorf("empty data provided")
+    }
+    
+    // Process data here
+    time.Sleep(100 * time.Millisecond)
+    
+    return nil
+}</code></pre>
+        </div>
+            </div>
+        </div>
+
+        <div id="rust" class="language-section">
+            <h3>Rust</h3>
+            <div class="comparison">
+        <div class="highlighter-section">
+            <h4>Prism.js <span class="badge badge-prism">Prism</span></h4>
+            <pre><code class="language-rust">use sentry::{ClientOptions, IntoDsn};
+use std::error::Error;
+use std::time::Duration;
+
+#[derive(Debug, Clone)]
+pub struct Config {
+    pub dsn: String,
+    pub environment: String,
+    pub sample_rate: f32,
+}
+
+impl Default for Config {
+    fn default() -> Self {
+        Self {
+            dsn: String::from("https://example@sentry.io/123456"),
+            environment: String::from("production"),
+            sample_rate: 1.0,
+        }
+    }
+}
+
+pub fn init_sentry(config: Config) -> Result<sentry::ClientInitGuard, Box<dyn Error>> {
+    let guard = sentry::init((
+        config.dsn.as_str(),
+        ClientOptions {
+            environment: Some(config.environment.into()),
+            traces_sample_rate: config.sample_rate,
+            ..Default::default()
+        },
+    ));
+    
+    Ok(guard)
+}
+
+#[tracing::instrument]
+pub async fn process_request(id: u64) -> Result<String, Box<dyn Error>> {
+    let _span = sentry::start_transaction("process_request", "http.server");
+    
+    // Simulate processing
+    tokio::time::sleep(Duration::from_millis(100)).await;
+    
+    if id % 10 == 0 {
+        return Err("Invalid request ID".into());
+    }
+    
+    Ok(format!("Processed request {}", id))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    
+    #[test]
+    fn test_default_config() {
+        let config = Config::default();
+        assert_eq!(config.environment, "production");
+        assert_eq!(config.sample_rate, 1.0);
+    }
+}</code></pre>
+        </div>
+        <div class="highlighter-section">
+            <h4>Highlight.js <span class="badge badge-highlight">Highlight</span></h4>
+            <pre><code class="hljs language-rust">use sentry::{ClientOptions, IntoDsn};
+use std::error::Error;
+use std::time::Duration;
+
+#[derive(Debug, Clone)]
+pub struct Config {
+    pub dsn: String,
+    pub environment: String,
+    pub sample_rate: f32,
+}
+
+impl Default for Config {
+    fn default() -> Self {
+        Self {
+            dsn: String::from("https://example@sentry.io/123456"),
+            environment: String::from("production"),
+            sample_rate: 1.0,
+        }
+    }
+}
+
+pub fn init_sentry(config: Config) -> Result<sentry::ClientInitGuard, Box<dyn Error>> {
+    let guard = sentry::init((
+        config.dsn.as_str(),
+        ClientOptions {
+            environment: Some(config.environment.into()),
+            traces_sample_rate: config.sample_rate,
+            ..Default::default()
+        },
+    ));
+    
+    Ok(guard)
+}
+
+#[tracing::instrument]
+pub async fn process_request(id: u64) -> Result<String, Box<dyn Error>> {
+    let _span = sentry::start_transaction("process_request", "http.server");
+    
+    // Simulate processing
+    tokio::time::sleep(Duration::from_millis(100)).await;
+    
+    if id % 10 == 0 {
+        return Err("Invalid request ID".into());
+    }
+    
+    Ok(format!("Processed request {}", id))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    
+    #[test]
+    fn test_default_config() {
+        let config = Config::default();
+        assert_eq!(config.environment, "production");
+        assert_eq!(config.sample_rate, 1.0);
+    }
+}</code></pre>
+                </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        // Language selector function
+        function showLanguage(language) {
+            console.log('Switching to language:', language);
+            
+            // Hide all language sections
+            document.querySelectorAll('.language-section').forEach(section => {
+                section.classList.remove('active');
+                section.style.display = 'none';
+            });
+            
+            // Show selected language section
+            const selectedSection = document.getElementById(language);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+                selectedSection.style.display = 'block';
+                
+                // Re-initialize syntax highlighting for the newly visible section
+                setTimeout(() => {
+                    // For Prism.js
+                    if (typeof Prism !== 'undefined') {
+                        Prism.highlightAllUnder(selectedSection);
+                    }
+                    
+                    // For Highlight.js
+                    selectedSection.querySelectorAll('pre code').forEach((block) => {
+                        if (!block.classList.contains('hljs')) {
+                            hljs.highlightElement(block);
+                        }
+                    });
+                }, 50);
+            }
+        }
+        
+        // Make it globally available
+        window.showLanguage = showLanguage;
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all Highlight.js blocks
+            hljs.highlightAll();
+            
+            // Show JavaScript by default
+            showLanguage('javascript');
+            
+            // Set dropdown value
+            document.getElementById('language-select').value = 'javascript';
+        });
+    </script>
+</body>
+</html>

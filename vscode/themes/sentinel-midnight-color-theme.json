@@ -15,17 +15,17 @@
     "editorLineNumber.foreground": "#FFFFFF60",
     "editorLineNumber.activeForeground": "#d5d2da",
     "editorIndentGuide.background1": "#FFFFFF20",
-    "editorIndentGuide.activeBackground1": "#7553FF",
+    "editorIndentGuide.activeBackground1": "#9E86FF",
     "editorRuler.foreground": "#FFFFFF30",
-    "editorCursor.foreground": "#FF45A8",
+    "editorCursor.foreground": "#FF70BC",
     "editorBracketMatch.background": "#7553FF20",
-    "editorBracketMatch.border": "#7553FF",
+    "editorBracketMatch.border": "#9E86FF",
     
     "editorGroupHeader.tabsBackground": "#000000",
     "editorGroupHeader.tabsBorder": "#36166B",
     "tab.activeBackground": "#36166B",
     "tab.activeForeground": "#f9f8f9",
-    "tab.activeBorder": "#FF45A8",
+    "tab.activeBorder": "#FF70BC",
     "tab.inactiveBackground": "#000000",
     "tab.inactiveForeground": "#898294",
     "tab.border": "#000000",
@@ -44,7 +44,7 @@
     "activityBar.foreground": "#f9f8f9",
     "activityBar.inactiveForeground": "#898294",
     "activityBar.border": "#36166B",
-    "activityBarBadge.background": "#FF45A8",
+    "activityBarBadge.background": "#FF70BC",
     "activityBarBadge.foreground": "#000000",
     
     "statusBar.background": "#000000",
@@ -73,7 +73,7 @@
     "list.focusForeground": "#f9f8f9",
     "list.highlightForeground": "#ff45a8",
     "list.errorForeground": "#fe4144",
-    "list.warningForeground": "#fdb81b",
+    "list.warningForeground": "#FFD93D",
     
     "input.background": "#000000",
     "input.foreground": "#f9f8f9",
@@ -130,11 +130,11 @@
     "terminal.ansiBrightCyan": "#67E8F9",
     "terminal.ansiBrightWhite": "#FEFEFE",
     
-    "gitDecoration.modifiedResourceForeground": "#F59E0B",
+    "gitDecoration.modifiedResourceForeground": "#FFD00E",
     "gitDecoration.deletedResourceForeground": "#EF4444",
-    "gitDecoration.untrackedResourceForeground": "#10B981",
-    "gitDecoration.conflictingResourceForeground": "#E1567C",
-    "gitDecoration.submoduleResourceForeground": "#7466F0",
+    "gitDecoration.untrackedResourceForeground": "#A8FF00",
+    "gitDecoration.conflictingResourceForeground": "#FF70BC",
+    "gitDecoration.submoduleResourceForeground": "#9E86FF",
     
     "diffEditor.insertedTextBackground": "#10B98120",
     "diffEditor.removedTextBackground": "#EF444420",
@@ -158,7 +158,7 @@
       "name": "Comment",
       "scope": ["comment", "punctuation.definition.comment"],
       "settings": {
-        "foreground": "#898294",
+        "foreground": "#B8B8C8",
         "fontStyle": "italic"
       }
     },
@@ -173,7 +173,7 @@
       "name": "Keywords",
       "scope": ["keyword", "storage.modifier"],
       "settings": {
-        "foreground": "#7553FF",
+        "foreground": "#9E86FF",
         "fontStyle": "bold"
       }
     },
@@ -181,14 +181,14 @@
       "name": "Strings",
       "scope": ["string", "string.quoted", "string.template"],
       "settings": {
-        "foreground": "#92DD00"
+        "foreground": "#C0ED49"
       }
     },
     {
       "name": "Numbers",
       "scope": ["constant.numeric"],
       "settings": {
-        "foreground": "#FDB81B"
+        "foreground": "#FFD00E"
       }
     },
     {
@@ -206,7 +206,7 @@
         "meta.function-call"
       ],
       "settings": {
-        "foreground": "#FF45A8",
+        "foreground": "#A794FF",
         "fontStyle": ""
       }
     },
@@ -227,7 +227,7 @@
       "name": "Constants",
       "scope": ["constant", "support.constant"],
       "settings": {
-        "foreground": "#9E86FF"
+        "foreground": "#A794FF"
       }
     },
 
@@ -242,35 +242,35 @@
         "meta.property-name"
       ],
       "settings": {
-        "foreground": "#FF70BC"
+        "foreground": "#A794FF"
       }
     },
     {
       "name": "Operators",
       "scope": ["keyword.operator"],
       "settings": {
-        "foreground": "#d5d2da"
+        "foreground": "#B8B8C8"
       }
     },
     {
       "name": "Punctuation",
       "scope": ["punctuation"],
       "settings": {
-        "foreground": "#d5d2da"
+        "foreground": "#B8B8C8"
       }
     },
     {
       "name": "Tags (HTML/XML)",
       "scope": ["entity.name.tag"],
       "settings": {
-        "foreground": "#FF45A8"
+        "foreground": "#A794FF"
       }
     },
     {
       "name": "Attributes",
       "scope": ["entity.other.attribute-name"],
       "settings": {
-        "foreground": "#bf8600"
+        "foreground": "#FDB81B"
       }
     },
     {
@@ -282,7 +282,7 @@
         "meta.selector.css"
       ],
       "settings": {
-        "foreground": "#FF45A8"
+        "foreground": "#A794FF"
       }
     },
     {
@@ -293,7 +293,7 @@
         "punctuation.definition.entity.end.bracket"
       ],
       "settings": {
-        "foreground": "#FF45A8"
+        "foreground": "#A794FF"
       }
     },
     {
@@ -303,7 +303,7 @@
         "punctuation.definition.keyword"
       ],
       "settings": {
-        "foreground": "#FF45A8"
+        "foreground": "#A794FF"
       }
     },
     {
@@ -398,7 +398,7 @@
         "keyword.other.important"
       ],
       "settings": {
-        "foreground": "#FF45A8",
+        "foreground": "#A794FF",
         "fontStyle": "bold"
       }
     },
@@ -406,14 +406,14 @@
       "name": "Storage fallback",
       "scope": ["storage"],
       "settings": {
-        "foreground": "#FF45A8"
+        "foreground": "#A794FF"
       }
     },
     {
       "name": "Markup - Heading",
       "scope": ["markup.heading", "markup.heading entity.name"],
       "settings": {
-        "foreground": "#FF45A8",
+        "foreground": "#A794FF",
         "fontStyle": "bold"
       }
     },
@@ -523,7 +523,7 @@
       "name": "Entity Name Tag",
       "scope": ["entity.name.section", "entity.name.tag", "entity.name.namespace"],
       "settings": {
-        "foreground": "#FF45A8"
+        "foreground": "#A794FF"
       }
     },
     {
@@ -535,7 +535,7 @@
         "entity.other.attribute-name.pseudo-element.css"
       ],
       "settings": {
-        "foreground": "#FF45A8"
+        "foreground": "#A794FF"
       }
     },
     {
@@ -568,7 +568,7 @@
         "meta.template.expression"
       ],
       "settings": {
-        "foreground": "#FF45A8"
+        "foreground": "#A794FF"
       }
     },
     {
