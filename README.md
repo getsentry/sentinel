@@ -48,6 +48,26 @@ All variants feature:
 - 💜 Sentry brand color integration
 - 🔍 Clear visual hierarchy
 
+## 📸 Screenshots
+
+### VS Code / Cursor
+| Light | Dark | Midnight |
+|-------|------|----------|
+| ![Sentinel Light](images/screenshots/cursor/lightpng.png) | ![Sentinel Dark](images/screenshots/cursor/dark.png) | ![Sentinel Midnight](images/screenshots/cursor/midnight.png) |
+
+### Terminal
+| Light | Dark | Midnight |
+|-------|------|----------|
+| ![Terminal Light](images/screenshots/terminal/light.png) | ![Terminal Dark](images/screenshots/terminal/dark.png) | ![Terminal Midnight](images/screenshots/terminal/midnight.png) |
+
+### Zed Editor
+| Light | Dark | Midnight |
+|-------|------|----------|
+| ![Zed Light](images/screenshots/zed/light.png) | ![Zed Dark](images/screenshots/zed/dark.png) | ![Zed Midnight](images/screenshots/zed/midnight.png) |
+
+### Web Syntax Highlighters
+Try the interactive demo: [Open Demo →](web-highlighters/index.html)
+
 ## 🏗️ Supported Platforms
 
 ### Editors & IDEs
@@ -151,4 +171,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-Made with 💜 by the Sentry team
+Made with 💜 and 🤖s by [@sergical](https://github.com/sergical) for Sentry Hackweek 2025
