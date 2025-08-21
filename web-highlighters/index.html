@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sentry Sentinel Light Theme - Syntax Highlighter Test</title>
+    <title>Sentry Sentinel Theme - Web Syntax Highlighters</title>
     
     <!-- Prism.js -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
@@ -111,46 +111,7 @@
             color: #FF45A8;
         }
         
-        .color-showcase {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 3rem;
-            padding: 1.5rem;
-            background-color: var(--bg-secondary);
-            border-radius: 8px;
-        }
         
-        .color-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        
-        .color-swatch {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-        
-        .color-info {
-            flex: 1;
-        }
-        
-        .color-name {
-            font-weight: 500;
-            color: var(--purple-primary);
-            font-size: 0.875rem;
-        }
-        
-        .color-hex {
-            color: var(--text-muted);
-            font-size: 0.75rem;
-            font-family: monospace;
-        }
-        
-
         
         pre {
             margin: 0;
@@ -190,6 +151,11 @@
         
         .navigation a:hover {
             color: #FF45A8;
+        }
+        
+        .subtitle a:hover {
+            color: var(--purple-tertiary) !important;
+            text-decoration: underline !important;
         }
         
         .language-selector {
@@ -288,76 +254,11 @@
 </head>
 <body>
     <div class="main-content">
-        <h1>Sentry Sentinel Light Theme</h1>
-        <p class="subtitle">Syntax highlighter theme test page for Prism.js and Highlight.js</p>
+        <h1>Sentry Sentinel Theme</h1>
+        <p class="subtitle">Beautiful web syntax highlighter themes for Prism.js and Highlight.js</p>
+        <p class="subtitle">Use the dropdowns below to switch between themes and programming languages. Compare how each theme looks in both Prism.js and Highlight.js side by side.</p>
+        <p class="subtitle">View the project on <a href="https://github.com/getsentry/sentinel" target="_blank" style="color: var(--purple-primary); text-decoration: none; font-weight: 500;">GitHub</a></p>
     
-        <h2 id="colors">Color Palette</h2>
-        <div class="color-showcase">
-        <div class="color-item">
-            <div class="color-swatch" style="background-color: #181225;"></div>
-            <div class="color-info">
-                <div class="color-name">Near Black</div>
-                <div class="color-hex">#181225</div>
-            </div>
-        </div>
-        <div class="color-item">
-            <div class="color-swatch" style="background-color: var(--purple-primary);"></div>
-            <div class="color-info">
-                <div class="color-name">Deep Purple</div>
-                <div class="color-hex">var(--purple-primary)</div>
-            </div>
-        </div>
-        <div class="color-item">
-            <div class="color-swatch" style="background-color: #4D0A55;"></div>
-            <div class="color-info">
-                <div class="color-name">Dark Purple</div>
-                <div class="color-hex">#4D0A55</div>
-            </div>
-        </div>
-        <div class="color-item">
-            <div class="color-swatch" style="background-color: var(--purple-secondary);"></div>
-            <div class="color-info">
-                <div class="color-name">Medium Purple</div>
-                <div class="color-hex">var(--purple-secondary)</div>
-            </div>
-        </div>
-        <div class="color-item">
-            <div class="color-swatch" style="background-color: #A737B4;"></div>
-            <div class="color-info">
-                <div class="color-name">Light Purple</div>
-                <div class="color-hex">#A737B4</div>
-            </div>
-        </div>
-        <div class="color-item">
-            <div class="color-swatch" style="background-color: #EE8019;"></div>
-            <div class="color-info">
-                <div class="color-name">Orange</div>
-                <div class="color-hex">#EE8019</div>
-            </div>
-        </div>
-        <div class="color-item">
-            <div class="color-swatch" style="background-color: #FF45A8;"></div>
-            <div class="color-info">
-                <div class="color-name">Hot Pink</div>
-                <div class="color-hex">#FF45A8</div>
-            </div>
-        </div>
-        <div class="color-item">
-            <div class="color-swatch" style="background-color: #226DFC;"></div>
-            <div class="color-info">
-                <div class="color-name">Blue</div>
-                <div class="color-hex">#226DFC</div>
-            </div>
-        </div>
-        <div class="color-item">
-            <div class="color-swatch" style="background-color: #008900;"></div>
-            <div class="color-info">
-                <div class="color-name">Green</div>
-                <div class="color-hex">#008900</div>
-            </div>
-        </div>
-        </div>
-
         <h2 id="examples">Code Examples</h2>
         <div class="language-selector">
         <label for="theme-select">Code Theme:</label>
@@ -900,7 +801,7 @@ export default UserProfile;</code></pre>
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/getsentry/sentinel-theme"
+    "url": "https://github.com/getsentry/sentinel"
   },
   "keywords": [
     "sentry",
@@ -936,7 +837,7 @@ export default UserProfile;</code></pre>
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/getsentry/sentinel-theme"
+    "url": "https://github.com/getsentry/sentinel"
   },
   "keywords": [
     "sentry",
@@ -1429,18 +1330,7 @@ mod tests {
             // Save preference
             localStorage.setItem('preferred-theme', theme);
             
-            // Update page theme for midnight
-            if (theme === 'midnight') {
-                document.body.style.backgroundColor = '#000000';
-                document.body.style.color = '#FFFFFF';
-            } else if (theme === 'dark') {
-                document.body.style.backgroundColor = '#181225';
-                document.body.style.color = '#F9F8F9';
-            } else {
-                document.body.style.backgroundColor = '#FFFFFF';
-                document.body.style.color = '#181225';
-            }
-            
+            // Note: Page stays in light theme - only code blocks change
             // Re-highlight only the visible code blocks after theme change
             setTimeout(() => {
                 // Find all active tab contents

@@ -12,13 +12,13 @@
     "accessible",
     "wcag"
   ],
-  "homepage": "https://github.com/getsentry/sentinel-theme#readme",
+  "homepage": "https://github.com/getsentry/sentinel#readme",
   "bugs": {
-    "url": "https://github.com/getsentry/sentinel-theme/issues"
+    "url": "https://github.com/getsentry/sentinel/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/getsentry/sentinel-theme.git"
+    "url": "git+https://github.com/getsentry/sentinel.git"
   },
   "license": "MIT",
   "author": "Sentry",

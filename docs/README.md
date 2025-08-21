@@ -57,6 +57,6 @@ Every theme is tested for:
 
 ## 🆘 Getting Help
 
-- [Report Issues](https://github.com/getsentry/sentinel-theme/issues)
-- [Ask Questions](https://github.com/getsentry/sentinel-theme/discussions)
+- [Report Issues](https://github.com/getsentry/sentinel/issues)
+- [Ask Questions](https://github.com/getsentry/sentinel/discussions)
 - [View Examples](../tests/fixtures/sample-code/)

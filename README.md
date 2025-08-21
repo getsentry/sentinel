@@ -128,8 +128,8 @@ We welcome contributions! Please see [CONTRIBUTING.md](docs/CONTRIBUTING.md) for
 
 ```bash
 # Clone repository
-git clone https://github.com/getsentry/sentinel-theme.git
-cd sentinel-theme
+git clone https://github.com/getsentry/sentinel.git
+cd sentinel
 
 # Install dependencies
 npm install
@@ -145,8 +145,8 @@ MIT License - see [LICENSE](LICENSE) for details.
 ## 🔗 Links
 
 - [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=sentry.sentinel-theme)
-- [GitHub Repository](https://github.com/getsentry/sentinel-theme)
-- [Report Issues](https://github.com/getsentry/sentinel-theme/issues)
+- [GitHub Repository](https://github.com/getsentry/sentinel)
+- [Report Issues](https://github.com/getsentry/sentinel/issues)
 - [Sentry.io](https://sentry.io)
 
 ---

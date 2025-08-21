@@ -4,7 +4,7 @@ Thank you for considering contributing to the Sentry Sentinel Theme! We love you
 
 ## 🐛 Reporting Issues
 
-Found a bug or have a suggestion? Please [open an issue](https://github.com/getsentry/sentinel-theme/issues) with:
+Found a bug or have a suggestion? Please [open an issue](https://github.com/getsentry/sentinel/issues) with:
 
 - **Bug Reports**: Include your editor/IDE version, OS, and steps to reproduce
 - **Feature Requests**: Describe the feature and why it would be helpful
@@ -157,7 +157,7 @@ Contributors will be recognized in:
 
 ## 💬 Questions?
 
-- Open a [Discussion](https://github.com/getsentry/sentinel-theme/discussions)
+- Open a [Discussion](https://github.com/getsentry/sentinel/discussions)
 - Reach out in issues for clarification
 - Check existing issues/PRs for similar work
 

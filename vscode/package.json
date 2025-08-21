@@ -26,12 +26,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/getsentry/sentinel-theme"
+    "url": "https://github.com/getsentry/sentinel"
   },
   "bugs": {
-    "url": "https://github.com/getsentry/sentinel-theme/issues"
+    "url": "https://github.com/getsentry/sentinel/issues"
   },
-  "homepage": "https://github.com/getsentry/sentinel-theme#readme",
+  "homepage": "https://github.com/getsentry/sentinel#readme",
   "license": "MIT",
   "contributes": {
     "themes": [

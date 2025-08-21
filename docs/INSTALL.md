@@ -23,8 +23,8 @@ All platforms support three variants:
 ### Manual Installation
 ```bash
 # Clone the repository
-git clone https://github.com/getsentry/sentinel-theme.git
-cd sentinel-theme/vscode
+git clone https://github.com/getsentry/sentinel.git
+cd sentinel/vscode
 
 # Install dependencies and build
 npm install
@@ -266,8 +266,8 @@ set termguicolors
 
 ```bash
 # Clone repository
-git clone https://github.com/getsentry/sentinel-theme.git
-cd sentinel-theme
+git clone https://github.com/getsentry/sentinel.git
+cd sentinel
 
 # Install dependencies
 npm install
