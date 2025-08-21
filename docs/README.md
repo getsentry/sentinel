@@ -59,4 +59,5 @@ Every theme is tested for:
 
 - [Report Issues](https://github.com/getsentry/sentinel/issues)
 - [Ask Questions](https://github.com/getsentry/sentinel/discussions)
+- [View Demo](https://sentinel.sentry.dev)
 - [View Examples](../tests/fixtures/sample-code/)

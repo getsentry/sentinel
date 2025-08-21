@@ -26,14 +26,11 @@
     "test": "npm run test:contrast && npm run test:colors",
     "test:contrast": "node tests/unit/contrast.test.js",
     "test:colors": "node tests/unit/colors.test.js",
-    "lint": "eslint scripts/**/*.js tests/**/*.js",
-    "format": "prettier --write '**/*.{json,md,yml,yaml}'"
+    "build": "npm run build:vscode",
+    "build:vscode": "cd vscode && vsce package",
+    "vsce:publish": "cd vscode && vsce publish"
   },
   "devDependencies": {
-    "eslint": "^8.56.0",
-    "husky": "^8.0.3",
-    "prettier": "^3.2.4",
-    "vsce": "^2.15.0",
     "wcag-contrast": "^3.0.0"
   },
   "engines": {

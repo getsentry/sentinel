@@ -138,6 +138,9 @@ npm run test:colors
 
 # Preview themes in browser
 open web-highlighters/index.html
+
+# Build VS Code extension package
+npm run build
 ```
 
 ## 🤝 Contributing
