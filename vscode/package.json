@@ -49,11 +49,6 @@
         "label": "Sentinel Midnight",
         "uiTheme": "vs-dark",
         "path": "./themes/sentinel-midnight-color-theme.json"
-      },
-      {
-        "label": "Sentinel Old",
-        "uiTheme": "vs-dark",
-        "path": "./themes/sentinel-old-color-theme.json"
       }
     ]
   }

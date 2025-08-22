@@ -27,8 +27,7 @@
     "test:contrast": "node tests/unit/contrast.test.js",
     "test:colors": "node tests/unit/colors.test.js",
     "build": "npm run build:vscode",
-    "build:vscode": "cd vscode && vsce package",
-    "vsce:publish": "cd vscode && vsce publish"
+    "build:vscode": "cd vscode && npx @vscode/vsce package"
   },
   "devDependencies": {
     "wcag-contrast": "^3.0.0"

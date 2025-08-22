@@ -139,7 +139,7 @@ npm run test:colors
 # Preview themes in browser
 open web-highlighters/index.html
 
-# Build VS Code extension package
+# Build VS Code extension package (.vsix file)
 npm run build
 ```
 
