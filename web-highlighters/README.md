@@ -4,6 +4,13 @@ This directory contains Sentry Sentinel theme implementations for popular web-ba
 
 ## Available Themes
 
+### Shiki
+- **Directory**: `shiki/`
+- **Files**: `sentinel-dark.json`, `sentinel-light.json`, `sentinel-midnight.json`
+- **Description**: VS Code-compatible themes for Shiki syntax highlighter
+- **Usage**: See [shiki/README.md](./shiki/README.md) for detailed integration guides
+- **Frameworks**: Astro (Starlight), VitePress, Nuxt Content, Rehype Pretty Code
+
 ### Prism.js
 - **File**: `prismjs/prism-sentinel-light.css`
 - **Description**: Light theme optimized for Prism.js syntax highlighter
