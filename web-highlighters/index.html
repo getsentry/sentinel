@@ -116,6 +116,11 @@
             color: #FF45A8;
         }
         
+        .badge-shiki {
+            background-color: rgba(6, 182, 212, 0.1);
+            color: #06B6D4;
+        }
+        
         
         
         pre {
@@ -292,6 +297,7 @@
             <div class="tabs">
                 <button class="tab active" onclick="switchTab(this, 'prism', 'javascript')">Prism.js</button>
                 <button class="tab" onclick="switchTab(this, 'highlight', 'javascript')">Highlight.js</button>
+                <button class="tab" onclick="switchTab(this, 'shiki', 'javascript')">Shiki</button>
             </div>
             <div class="tab-content active" data-tab="prism" data-lang="javascript">
             <pre><code class="language-javascript">// Sentry error tracking example
@@ -367,6 +373,9 @@ class ErrorBoundary extends React.Component {
   }
 }</code></pre>
             </div>
+            <div class="tab-content" data-tab="shiki" data-lang="javascript">
+                <div class="shiki-container"><pre><code>Loading Shiki...</code></pre></div>
+            </div>
         </div>
 
         <div id="typescript" class="language-section">
@@ -374,6 +383,7 @@ class ErrorBoundary extends React.Component {
             <div class="tabs">
                 <button class="tab active" onclick="switchTab(this, 'prism', 'typescript')">Prism.js</button>
                 <button class="tab" onclick="switchTab(this, 'highlight', 'typescript')">Highlight.js</button>
+                <button class="tab" onclick="switchTab(this, 'shiki', 'typescript')">Shiki</button>
             </div>
             <div class="tab-content active" data-tab="prism" data-lang="typescript">
             <pre><code class="language-typescript">interface User {
@@ -457,6 +467,9 @@ class UserCache {
   }
 }</code></pre>
             </div>
+            <div class="tab-content" data-tab="shiki" data-lang="typescript">
+                <div class="shiki-container"><pre><code>Loading Shiki...</code></pre></div>
+            </div>
         </div>
 
         <div id="python" class="language-section">
@@ -464,6 +477,7 @@ class UserCache {
             <div class="tabs">
                 <button class="tab active" onclick="switchTab(this, 'prism', 'python')">Prism.js</button>
                 <button class="tab" onclick="switchTab(this, 'highlight', 'python')">Highlight.js</button>
+                <button class="tab" onclick="switchTab(this, 'shiki', 'python')">Shiki</button>
             </div>
             <div class="tab-content active" data-tab="prism" data-lang="python">
             <pre><code class="language-python">import sentry_sdk
@@ -585,6 +599,9 @@ class DataProcessor:
         # Simulate processing
         return {**item, "processed": True, "timestamp": time.time()}</code></pre>
             </div>
+            <div class="tab-content" data-tab="shiki" data-lang="python">
+                <div class="shiki-container"><pre><code>Loading Shiki...</code></pre></div>
+            </div>
         </div>
 
         <div id="react" class="language-section">
@@ -592,6 +609,7 @@ class DataProcessor:
             <div class="tabs">
                 <button class="tab active" onclick="switchTab(this, 'prism', 'react')">Prism.js</button>
                 <button class="tab" onclick="switchTab(this, 'highlight', 'react')">Highlight.js</button>
+                <button class="tab" onclick="switchTab(this, 'shiki', 'react')">Shiki</button>
             </div>
             <div class="tab-content active" data-tab="prism" data-lang="react">
             <pre><code class="language-jsx">import React, { useState, useEffect } from 'react';
@@ -687,6 +705,9 @@ const UserProfile = ({ userId }) => {
 
 export default UserProfile;</code></pre>
             </div>
+            <div class="tab-content" data-tab="shiki" data-lang="react">
+                <div class="shiki-container"><pre><code>Loading Shiki...</code></pre></div>
+            </div>
         </div>
 
         <div id="css" class="language-section">
@@ -694,6 +715,7 @@ export default UserProfile;</code></pre>
             <div class="tabs">
                 <button class="tab active" onclick="switchTab(this, 'prism', 'css')">Prism.js</button>
                 <button class="tab" onclick="switchTab(this, 'highlight', 'css')">Highlight.js</button>
+                <button class="tab" onclick="switchTab(this, 'shiki', 'css')">Shiki</button>
             </div>
             <div class="tab-content active" data-tab="prism" data-lang="css">
             <pre><code class="language-css">/* Sentry-themed button styles */
@@ -789,6 +811,9 @@ export default UserProfile;</code></pre>
   }
 }</code></pre>
             </div>
+            <div class="tab-content" data-tab="shiki" data-lang="css">
+                <div class="shiki-container"><pre><code>Loading Shiki...</code></pre></div>
+            </div>
         </div>
 
         <div id="json" class="language-section">
@@ -796,6 +821,7 @@ export default UserProfile;</code></pre>
             <div class="tabs">
                 <button class="tab active" onclick="switchTab(this, 'prism', 'json')">Prism.js</button>
                 <button class="tab" onclick="switchTab(this, 'highlight', 'json')">Highlight.js</button>
+                <button class="tab" onclick="switchTab(this, 'shiki', 'json')">Shiki</button>
             </div>
             <div class="tab-content active" data-tab="prism" data-lang="json">
             <pre><code class="language-json">{
@@ -869,6 +895,9 @@ export default UserProfile;</code></pre>
   }
 }</code></pre>
             </div>
+            <div class="tab-content" data-tab="shiki" data-lang="json">
+                <div class="shiki-container"><pre><code>Loading Shiki...</code></pre></div>
+            </div>
         </div>
 
         <div id="yaml" class="language-section">
@@ -876,6 +905,7 @@ export default UserProfile;</code></pre>
             <div class="tabs">
                 <button class="tab active" onclick="switchTab(this, 'prism', 'yaml')">Prism.js</button>
                 <button class="tab" onclick="switchTab(this, 'highlight', 'yaml')">Highlight.js</button>
+                <button class="tab" onclick="switchTab(this, 'shiki', 'yaml')">Shiki</button>
             </div>
             <div class="tab-content active" data-tab="prism" data-lang="yaml">
             <pre><code class="language-yaml"># Sentry configuration
@@ -947,6 +977,9 @@ app:
     ttl: 3600
     max_entries: 10000</code></pre>
             </div>
+            <div class="tab-content" data-tab="shiki" data-lang="yaml">
+                <div class="shiki-container"><pre><code>Loading Shiki...</code></pre></div>
+            </div>
         </div>
 
         <div id="sql" class="language-section">
@@ -954,6 +987,7 @@ app:
             <div class="tabs">
                 <button class="tab active" onclick="switchTab(this, 'prism', 'sql')">Prism.js</button>
                 <button class="tab" onclick="switchTab(this, 'highlight', 'sql')">Highlight.js</button>
+                <button class="tab" onclick="switchTab(this, 'shiki', 'sql')">Shiki</button>
             </div>
             <div class="tab-content active" data-tab="prism" data-lang="sql">
             <pre><code class="language-sql">-- Get user activity with error tracking
@@ -1017,6 +1051,9 @@ LEFT JOIN (
 ORDER BY ue.error_count DESC
 LIMIT 100;</code></pre>
             </div>
+            <div class="tab-content" data-tab="shiki" data-lang="sql">
+                <div class="shiki-container"><pre><code>Loading Shiki...</code></pre></div>
+            </div>
         </div>
 
         <div id="go" class="language-section">
@@ -1024,6 +1061,7 @@ LIMIT 100;</code></pre>
             <div class="tabs">
                 <button class="tab active" onclick="switchTab(this, 'prism', 'go')">Prism.js</button>
                 <button class="tab" onclick="switchTab(this, 'highlight', 'go')">Highlight.js</button>
+                <button class="tab" onclick="switchTab(this, 'shiki', 'go')">Shiki</button>
             </div>
             <div class="tab-content active" data-tab="prism" data-lang="go">
             <pre><code class="language-go">package main
@@ -1145,6 +1183,9 @@ func processData(data []byte) error {
     return nil
 }</code></pre>
             </div>
+            <div class="tab-content" data-tab="shiki" data-lang="go">
+                <div class="shiki-container"><pre><code>Loading Shiki...</code></pre></div>
+            </div>
         </div>
 
         <div id="rust" class="language-section">
@@ -1152,6 +1193,7 @@ func processData(data []byte) error {
             <div class="tabs">
                 <button class="tab active" onclick="switchTab(this, 'prism', 'rust')">Prism.js</button>
                 <button class="tab" onclick="switchTab(this, 'highlight', 'rust')">Highlight.js</button>
+                <button class="tab" onclick="switchTab(this, 'shiki', 'rust')">Shiki</button>
             </div>
             <div class="tab-content active" data-tab="prism" data-lang="rust">
             <pre><code class="language-rust">use sentry::{ClientOptions, IntoDsn};
@@ -1275,6 +1317,9 @@ mod tests {
     }
 }</code></pre>
             </div>
+            <div class="tab-content" data-tab="shiki" data-lang="rust">
+                <div class="shiki-container"><pre><code>Loading Shiki...</code></pre></div>
+            </div>
         </div>
     </div>
 
@@ -1311,6 +1356,8 @@ mod tests {
                         targetContent.querySelectorAll('pre code').forEach(block => {
                             hljs.highlightElement(block);
                         });
+                    } else if (highlighter === 'shiki' && typeof window.handleShikiTab === 'function') {
+                        window.handleShikiTab(language);
                     }
                 }, 50);
             }
@@ -1373,6 +1420,9 @@ mod tests {
                         activeTab.querySelectorAll('pre code').forEach(block => {
                             hljs.highlightElement(block);
                         });
+                    } else if (activeTab.dataset.tab === 'shiki' && typeof window.updateShikiTheme === 'function') {
+                        // Re-highlight Shiki blocks with new theme
+                        window.updateShikiTheme(theme);
                     }
                 });
             }, 100);
@@ -1418,6 +1468,9 @@ mod tests {
                             activeTab.querySelectorAll('pre code').forEach(block => {
                                 hljs.highlightElement(block);
                             });
+                        } else if (activeTab.dataset.tab === 'shiki' && typeof window.handleShikiTab === 'function') {
+                            // For Shiki tabs
+                            window.handleShikiTab(language);
                         }
                     });
                 }, 50);
@@ -1455,10 +1508,591 @@ mod tests {
                         activeTab.querySelectorAll('pre code').forEach(block => {
                             hljs.highlightElement(block);
                         });
+                    } else if (activeTab.dataset.tab === 'shiki' && typeof window.handleShikiTab === 'function') {
+                        window.handleShikiTab(activeTab.dataset.lang);
                     }
                 });
             }, 100);
         });
+    </script>
+    
+    <!-- Shiki Module Script -->
+    <script type="module">
+        import { createHighlighter } from 'https://esm.sh/shiki@1.29.2';
+        
+        // Code snippets for Shiki (stored here since Shiki generates HTML from source)
+        const codeSnippets = {
+            javascript: `// Sentry error tracking example
+import * as Sentry from '@sentry/browser';
+
+Sentry.init({
+  dsn: "https://example@sentry.io/123456",
+  environment: "production",
+  integrations: [
+    new Sentry.BrowserTracing(),
+  ],
+  tracesSampleRate: 1.0,
+});
+
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    Sentry.captureException(error, { 
+      contexts: { react: { componentStack: errorInfo.componentStack } }
+    });
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <h1>Something went wrong.</h1>;
+    }
+    return this.props.children;
+  }
+}`,
+            typescript: `interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: 'admin' | 'user' | 'guest';
+}
+
+type AsyncResult<T> = Promise<{ data: T; error?: never } | { data?: never; error: Error }>;
+
+async function fetchUser(id: string): AsyncResult<User> {
+  try {
+    const response = await fetch(\`/api/users/\${id}\`);
+    if (!response.ok) {
+      throw new Error(\`HTTP error! status: \${response.status}\`);
+    }
+    const data = await response.json();
+    return { data };
+  } catch (error) {
+    return { error: error instanceof Error ? error : new Error('Unknown error') };
+  }
+}
+
+const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+
+class UserCache {
+  private cache = new Map<string, { user: User; timestamp: number }>();
+
+  get(id: string): User | null {
+    const cached = this.cache.get(id);
+    if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
+      return cached.user;
+    }
+    return null;
+  }
+
+  set(id: string, user: User): void {
+    this.cache.set(id, { user, timestamp: Date.now() });
+  }
+}`,
+            python: `import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+from typing import Optional, Dict, Any
+import functools
+import time
+
+sentry_sdk.init(
+    dsn="https://example@sentry.io/123456",
+    integrations=[DjangoIntegration()],
+    traces_sample_rate=1.0,
+    send_default_pii=True
+)
+
+def performance_monitor(func):
+    """Decorator to monitor function performance with Sentry."""
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        with sentry_sdk.start_transaction(op="function", name=func.__name__) as transaction:
+            start_time = time.time()
+            try:
+                result = func(*args, **kwargs)
+                transaction.set_status("ok")
+                return result
+            except Exception as e:
+                transaction.set_status("internal_error")
+                sentry_sdk.capture_exception(e)
+                raise
+            finally:
+                duration = time.time() - start_time
+                transaction.set_data("duration", duration)
+    return wrapper
+
+class DataProcessor:
+    def __init__(self, config: Dict[str, Any]):
+        self.config = config
+        self.cache: Dict[str, Any] = {}
+    
+    @performance_monitor
+    def process_batch(self, items: list) -> Optional[Dict[str, Any]]:
+        """Process a batch of items with error handling."""
+        results = []
+        for item in items:
+            try:
+                processed = self._process_single(item)
+                results.append(processed)
+            except ValueError as e:
+                sentry_sdk.capture_message(f"Invalid item: {item}", level="warning")
+                continue
+        
+        return {"processed": len(results), "failed": len(items) - len(results)}
+    
+    def _process_single(self, item: Any) -> Any:
+        """Process a single item."""
+        if not isinstance(item, dict):
+            raise ValueError(f"Expected dict, got {type(item)}")
+        
+        # Simulate processing
+        return {**item, "processed": True, "timestamp": time.time()}`,
+            react: `import React, { useState, useEffect } from 'react';
+import { ErrorBoundary } from '@sentry/react';
+
+const UserProfile = ({ userId }) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(\`/api/users/\${userId}\`);
+        if (!response.ok) throw new Error('Failed to fetch user');
+        const data = await response.json();
+        setUser(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUser();
+  }, [userId]);
+
+  if (loading) return <div className="spinner">Loading...</div>;
+  if (error) return <div className="error">Error: {error}</div>;
+
+  return (
+    <ErrorBoundary fallback={<div>Something went wrong</div>} showDialog>
+      <div className="user-profile">
+        <img src={user.avatar} alt={user.name} />
+        <h2>{user.name}</h2>
+        <p>{user.email}</p>
+        <div className="stats">
+          <span>Joined: {new Date(user.joinedAt).toLocaleDateString()}</span>
+          <span>Posts: {user.postCount}</span>
+        </div>
+      </div>
+    </ErrorBoundary>
+  );
+};
+
+export default UserProfile;`,
+            css: `/* Sentry-themed button styles */
+.btn-sentry {
+  --primary: var(--purple-primary);
+  --primary-hover: var(--purple-tertiary);
+  --accent: #FF45A8;
+  
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: white;
+  background-color: var(--primary);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-sentry:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(54, 22, 107, 0.3);
+}
+
+.btn-sentry:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(54, 22, 107, 0.2);
+}
+
+.btn-sentry--accent {
+  background-color: var(--accent);
+}
+
+.btn-sentry--accent:hover {
+  background-color: #FF70BC;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-sentry {
+    transition: none;
+  }
+}`,
+            json: `{
+  "name": "sentry-sentinel-theme",
+  "version": "1.0.0",
+  "description": "Official Sentry theme for syntax highlighting",
+  "author": "Sentry",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/getsentry/sentinel"
+  },
+  "keywords": [
+    "sentry",
+    "theme",
+    "syntax-highlighting",
+    "prism",
+    "highlight.js"
+  ],
+  "themes": {
+    "light": {
+      "primary": "var(--purple-primary)",
+      "secondary": "var(--purple-secondary)",
+      "accent": "#FF45A8"
+    },
+    "dark": {
+      "primary": "#9E86FF",
+      "secondary": "#FF70BC",
+      "accent": "#C0ED49"
+    }
+  },
+  "scripts": {
+    "test": "node test.js",
+    "build": "node build.js"
+  }
+}`,
+            yaml: `# Sentry configuration
+sentry:
+  dsn: https://example@sentry.io/123456
+  environment: production
+  traces_sample_rate: 1.0
+  
+  integrations:
+    - name: BrowserTracing
+      options:
+        routingInstrumentation: vue
+    - name: Replay
+      options:
+        maskAllText: false
+        blockAllMedia: false
+
+app:
+  name: My Application
+  version: 1.2.3
+  features:
+    - authentication
+    - real-time-updates
+    - error-tracking
+  
+  database:
+    host: localhost
+    port: 5432
+    name: myapp_prod
+    ssl: true
+    
+  cache:
+    provider: redis
+    ttl: 3600
+    max_entries: 10000`,
+            sql: `-- Get user activity with error tracking
+WITH user_errors AS (
+  SELECT 
+    u.user_id,
+    u.username,
+    COUNT(e.error_id) as error_count,
+    MAX(e.occurred_at) as last_error
+  FROM users u
+  LEFT JOIN errors e ON u.user_id = e.user_id
+  WHERE e.occurred_at >= NOW() - INTERVAL '7 days'
+  GROUP BY u.user_id, u.username
+)
+SELECT 
+  ue.*,
+  COALESCE(s.session_count, 0) as sessions_last_week,
+  CASE 
+    WHEN ue.error_count > 10 THEN 'high'
+    WHEN ue.error_count > 5 THEN 'medium'
+    ELSE 'low'
+  END as error_severity
+FROM user_errors ue
+LEFT JOIN (
+  SELECT user_id, COUNT(*) as session_count
+  FROM sessions
+  WHERE created_at >= NOW() - INTERVAL '7 days'
+  GROUP BY user_id
+) s ON ue.user_id = s.user_id
+ORDER BY ue.error_count DESC
+LIMIT 100;`,
+            go: `package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+    "time"
+    
+    "github.com/getsentry/sentry-go"
+)
+
+type ErrorHandler struct {
+    client *sentry.Client
+}
+
+func NewErrorHandler(dsn string) (*ErrorHandler, error) {
+    client, err := sentry.NewClient(sentry.ClientOptions{
+        Dsn:              dsn,
+        Environment:      "production",
+        TracesSampleRate: 1.0,
+        BeforeSend: func(event *sentry.Event, hint *sentry.EventHint) *sentry.Event {
+            if event.Level == sentry.LevelDebug {
+                return nil
+            }
+            return event
+        },
+    })
+    if err != nil {
+        return nil, fmt.Errorf("sentry init failed: %w", err)
+    }
+    
+    return &ErrorHandler{client: client}, nil
+}
+
+func (h *ErrorHandler) HandlePanic() {
+    if r := recover(); r != nil {
+        h.client.RecoverWithContext(
+            context.Background(),
+            r,
+            &sentry.EventHint{RecoveredException: r},
+        )
+        h.client.Flush(2 * time.Second)
+        panic(r)
+    }
+}
+
+func processData(data []byte) error {
+    defer sentry.StartSpan(context.Background(), "processData").Finish()
+    
+    if len(data) == 0 {
+        return fmt.Errorf("empty data provided")
+    }
+    
+    // Process data here
+    time.Sleep(100 * time.Millisecond)
+    
+    return nil
+}`,
+            rust: `use sentry::{ClientOptions, IntoDsn};
+use std::error::Error;
+use std::time::Duration;
+
+#[derive(Debug, Clone)]
+pub struct Config {
+    pub dsn: String,
+    pub environment: String,
+    pub sample_rate: f32,
+}
+
+impl Default for Config {
+    fn default() -> Self {
+        Self {
+            dsn: String::from("https://example@sentry.io/123456"),
+            environment: String::from("production"),
+            sample_rate: 1.0,
+        }
+    }
+}
+
+pub fn init_sentry(config: Config) -> Result<sentry::ClientInitGuard, Box<dyn Error>> {
+    let guard = sentry::init((
+        config.dsn.as_str(),
+        ClientOptions {
+            environment: Some(config.environment.into()),
+            traces_sample_rate: config.sample_rate,
+            ..Default::default()
+        },
+    ));
+    
+    Ok(guard)
+}
+
+#[tracing::instrument]
+pub async fn process_request(id: u64) -> Result<String, Box<dyn Error>> {
+    let _span = sentry::start_transaction("process_request", "http.server");
+    
+    // Simulate processing
+    tokio::time::sleep(Duration::from_millis(100)).await;
+    
+    if id % 10 == 0 {
+        return Err("Invalid request ID".into());
+    }
+    
+    Ok(format!("Processed request {}", id))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    
+    #[test]
+    fn test_default_config() {
+        let config = Config::default();
+        assert_eq!(config.environment, "production");
+        assert_eq!(config.sample_rate, 1.0);
+    }
+}`
+        };
+        
+        // Map language names to Shiki language IDs
+        const langMap = {
+            javascript: 'javascript',
+            typescript: 'typescript',
+            python: 'python',
+            react: 'tsx',
+            css: 'css',
+            json: 'json',
+            yaml: 'yaml',
+            sql: 'sql',
+            go: 'go',
+            rust: 'rust'
+        };
+        
+        // Theme cache
+        let shikiThemes = {};
+        let highlighter = null;
+        let currentTheme = 'dark';
+        
+        // Load theme JSON files
+        async function loadTheme(themeName) {
+            if (shikiThemes[themeName]) return shikiThemes[themeName];
+            
+            const themeFile = themeName === 'dark' ? 'sentinel-dark.json' 
+                            : themeName === 'midnight' ? 'sentinel-midnight.json'
+                            : 'sentinel-light.json';
+            
+            try {
+                const response = await fetch(`shiki/${themeFile}`);
+                const theme = await response.json();
+                shikiThemes[themeName] = theme;
+                return theme;
+            } catch (e) {
+                console.error('Failed to load Shiki theme:', e);
+                return null;
+            }
+        }
+        
+        // Initialize Shiki highlighter
+        async function initShiki(theme = 'dark') {
+            try {
+                const themeData = await loadTheme(theme);
+                if (!themeData) return null;
+                
+                highlighter = await createHighlighter({
+                    themes: [themeData],
+                    langs: Object.values(langMap)
+                });
+                
+                currentTheme = theme;
+                return highlighter;
+            } catch (e) {
+                console.error('Failed to initialize Shiki:', e);
+                return null;
+            }
+        }
+        
+        // Highlight code with Shiki
+        async function highlightWithShiki(language, theme) {
+            if (!highlighter || currentTheme !== theme) {
+                await initShiki(theme);
+            }
+            
+            if (!highlighter) return null;
+            
+            const code = codeSnippets[language];
+            if (!code) return null;
+            
+            const lang = langMap[language];
+            const themeName = theme === 'dark' ? 'sentinel-dark' 
+                            : theme === 'midnight' ? 'sentinel-midnight'
+                            : 'sentinel-light';
+            
+            try {
+                return highlighter.codeToHtml(code, {
+                    lang: lang,
+                    theme: themeName
+                });
+            } catch (e) {
+                console.error('Shiki highlighting failed:', e);
+                return null;
+            }
+        }
+        
+        // Update Shiki code block for a language
+        async function updateShikiBlock(language) {
+            const themeSelect = document.getElementById('theme-select');
+            const theme = themeSelect ? themeSelect.value : 'dark';
+            
+            const container = document.querySelector(`#${language} .tab-content[data-tab="shiki"] .shiki-container`);
+            if (!container) return;
+            
+            const html = await highlightWithShiki(language, theme);
+            if (html) {
+                container.innerHTML = html;
+            }
+        }
+        
+        // Handle theme changes for Shiki
+        window.updateShikiTheme = async function(theme) {
+            // Reinitialize with new theme
+            await initShiki(theme);
+            
+            // Update all visible Shiki blocks
+            document.querySelectorAll('.tab-content.active[data-tab="shiki"]').forEach(async (tab) => {
+                const lang = tab.dataset.lang;
+                if (lang) {
+                    await updateShikiBlock(lang);
+                }
+            });
+        };
+        
+        // Handle tab switches for Shiki
+        window.handleShikiTab = async function(language) {
+            await updateShikiBlock(language);
+        };
+        
+        // Initialize Shiki on page load
+        async function initOnLoad() {
+            const params = new URLSearchParams(window.location.search);
+            const theme = params.get('theme') || 'dark';
+            await initShiki(theme);
+            
+            // Pre-render the default language's Shiki block
+            const lang = params.get('lang') || 'javascript';
+            await updateShikiBlock(lang);
+        }
+        
+        // Start initialization
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initOnLoad);
+        } else {
+            initOnLoad();
+        }
     </script>
 </body>
 </html>
